@@ -27,6 +27,11 @@
                 border-top: 1px solid #ccc;
                 margin: 5px 0;
             }
+            .popup-image {
+                height: 100px;
+                width: 150px;
+                object-fit: cover;
+            }
         </style>
     </head>
 
@@ -263,7 +268,7 @@
             function getPopupContent(castle, isVisited) {
                 return `
                     <a href="${castle.image}" target="_blank">
-                        <img src="${castle.image}" alt="${castle.name}" width="100%" height="100%"/>
+                        <img src="${castle.image}" alt="${castle.name}" class="popup-image"/>
                     </a>
                     <a href="${castle.link}" target="_blank">${castle.name}</a><br>
                     <label>
