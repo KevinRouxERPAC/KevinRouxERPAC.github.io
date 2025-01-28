@@ -62,7 +62,7 @@ incremental: false
 detach: false
 port: 4000
 host: 127.0.0.1
-baseurl: "" # does not include hostname
+baseurl: ""  # Modifiez si votre site n'est pas à la racine
 show_dir_listing: false
 
 # Outputting
@@ -93,3 +93,9 @@ kramdown:
   hard_wrap: false
   footnote_nr: 1
   show_warnings: false
+
+# Ajoutez ces configurations de base
+title: [Nom de votre application]
+description: [Description de votre application]
+url: [URL de production]
+author: [Votre nom]
