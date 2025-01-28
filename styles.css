@@ -804,41 +804,65 @@ html {
 
 /* Styles pour les appareils mobiles */
 @media screen and (max-width: 768px) {
-    /* Ajustement du conteneur principal */
-    .container {
-        width: 100%;
-        padding: 0 15px;
+    /* Ajustement du header et de la navigation */
+    header {
+        padding: 0.5rem;
     }
 
-    /* Ajustement des éléments de navigation */
     nav {
         flex-direction: column;
+        gap: 0.5rem;
     }
 
-    /* Ajustement des images */
-    img {
-        max-width: 100%;
-        height: auto;
+    nav ul {
+        flex-direction: column;
+        width: 100%;
     }
 
-    /* Ajustement de la taille de police */
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    /* Ajustement de la section hero */
+    .hero {
+        height: calc(100vh - 70px); /* Ajuste la hauteur en tenant compte du header */
+        padding-top: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2em !important; /* Override du style inline */
+    }
+
+    .hero p {
+        font-size: 1.2em !important; /* Override du style inline */
+    }
+
+    /* Ajustement du logo */
+    .logo {
+        height: 35px;
+    }
+
+    /* Ajustement du padding-top du body */
     body {
-        font-size: 16px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    h2 {
-        font-size: 20px;
+        padding-top: 120px; /* Augmente l'espace pour le menu mobile */
     }
 }
 
-/* Pour les très petits écrans */
 @media screen and (max-width: 480px) {
-    /* Ajustements supplémentaires si nécessaire */
-    .container {
-        padding: 0 10px;
+    .hero h1 {
+        font-size: 1.8em !important;
+    }
+
+    .hero p {
+        font-size: 1em !important;
+    }
+
+    body {
+        padding-top: 140px; /* Encore plus d'espace pour les très petits écrans */
     }
 } 
