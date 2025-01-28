@@ -834,40 +834,91 @@ html {
     }
 
     /* Ajustement de la section À Propos */
+    #apropos {
+        width: 100vw;
+        margin: 0;
+        padding: 1rem;
+    }
+
     .about-content {
-        padding: 0;
         width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .about-text {
+        text-align: left;
+        font-size: 0.9rem;
+        margin: 0;
+        padding: 0;
     }
 
     .about-stats {
-        padding: 0;
-        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin: 2rem 0;
+        width: 100%;
+    }
+
+    .stat-item {
+        width: 100%;
+        margin: 0;
     }
 
     /* Ajustement de la galerie */
-    .gallery-grid {
+    .gallery-container {
+        width: 100%;
+        margin: 2rem 0 0 0;
         padding: 0;
+    }
+
+    .gallery-section {
+        width: 100%;
         margin: 1rem 0;
+    }
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        width: 100%;
+        margin: 0;
+        padding: 0;
     }
 
     .gallery-item {
+        width: 100%;
         margin: 0 0 1rem 0;
-        border-radius: 0;
     }
 
-    /* Ajustement du formulaire de contact */
-    .contact-container {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        padding: 0;
-        margin: 1rem 0;
+    .gallery-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
     }
 
-    .contact-form,
-    .contact-info {
-        padding: 1rem;
-        margin: 0;
-        border-radius: 0;
+    /* Correction du menu déroulant */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    nav ul.active {
+        display: flex;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        width: 100%;
+        display: block;
+        padding: 0.8rem;
     }
 
     /* Ajustement du header et de la navigation */
@@ -878,46 +929,6 @@ html {
     nav {
         flex-direction: column;
         gap: 0.5rem;
-    }
-
-    nav ul {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary-color);
-        padding: 1rem 0;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        z-index: 99;
-    }
-
-    nav ul.active {
-        display: flex;
-    }
-
-    /* Ajustements pour la section À Propos */
-    .about-text {
-        text-align: left;
-        font-size: 0.9rem;
-    }
-
-    .about-text p {
-        margin-bottom: 1.5rem;
-    }
-
-    /* Ajustement de la section hero */
-    .hero {
-        height: calc(100vh - 70px); /* Ajuste la hauteur en tenant compte du header */
-        padding-top: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2em !important; /* Override du style inline */
-    }
-
-    .hero p {
-        font-size: 1.2em !important; /* Override du style inline */
     }
 
     /* Ajustement du logo */
