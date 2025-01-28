@@ -152,15 +152,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 const headerHeight = document.querySelector('header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
                 const windowHeight = window.innerHeight;
                 const sectionHeight = targetSection.offsetHeight;
-                
-                // Calculer la position pour centrer la section
-                const scrollTo = targetPosition - (windowHeight - sectionHeight) / 2;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+
+                // Si la section est plus grande que la fenêtre, on scrolle en haut
+                // Sinon, on centre la section
+                const scrollTo = sectionHeight > windowHeight - headerHeight
+                    ? targetPosition
+                    : targetPosition - (windowHeight - sectionHeight) / 2;
                 
                 window.scrollTo({
-                    top: Math.max(0, scrollTo), // Éviter le défilement négatif
+                    top: Math.max(0, scrollTo),
                     behavior: 'smooth'
                 });
             }
