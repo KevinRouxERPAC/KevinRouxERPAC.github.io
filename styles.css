@@ -800,4 +800,45 @@ html {
 .gallery-item.hidden {
     display: none;
     opacity: 0;
+}
+
+/* Styles pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    /* Ajustement du conteneur principal */
+    .container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    /* Ajustement des éléments de navigation */
+    nav {
+        flex-direction: column;
+    }
+
+    /* Ajustement des images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ajustement de la taille de police */
+    body {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+}
+
+/* Pour les très petits écrans */
+@media screen and (max-width: 480px) {
+    /* Ajustements supplémentaires si nécessaire */
+    .container {
+        padding: 0 10px;
+    }
 } 
