@@ -815,17 +815,70 @@ html {
     }
 
     nav ul {
-        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 99;
     }
 
-    nav ul li {
-        width: 100%;
+    nav ul.active {
+        display: flex;
     }
 
-    nav ul li a {
-        padding: 0.5rem 1rem;
+    /* Ajustements pour la section À Propos */
+    .about-content {
+        padding: 1rem;
+    }
+
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .gallery-item {
+        margin-bottom: 1rem;
+    }
+
+    .gallery-img {
+        height: 200px;
+    }
+
+    .about-text {
+        text-align: left;
         font-size: 0.9rem;
+    }
+
+    .about-text p {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Ajustement des marges et du padding */
+    section {
+        padding: 2rem 1rem;
+    }
+
+    #apropos {
+        margin-top: 0;
+    }
+
+    .gallery-section {
+        margin-bottom: 2rem;
+    }
+
+    .gallery-section h4 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
     }
 
     /* Ajustement de la section hero */
@@ -864,6 +917,18 @@ html {
 
     body {
         padding-top: 140px; /* Encore plus d'espace pour les très petits écrans */
+    }
+
+    .about-text {
+        font-size: 0.85rem;
+    }
+
+    .gallery-img {
+        height: 180px;
+    }
+
+    .gallery-caption {
+        font-size: 0.9rem;
     }
 }
 
