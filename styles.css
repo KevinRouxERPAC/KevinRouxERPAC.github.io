@@ -804,6 +804,72 @@ html {
 
 /* Styles pour les appareils mobiles */
 @media screen and (max-width: 768px) {
+    /* Ajustements généraux pour utiliser toute la largeur */
+    body {
+        padding-top: 70px; /* Réduit pour gagner de l'espace */
+        width: 100%;
+        overflow-x: hidden; /* Évite le scroll horizontal */
+    }
+
+    /* Ajustement des sections */
+    section {
+        padding: 1rem;
+        width: 100%;
+        margin: 0;
+    }
+
+    /* Ajustement de la grille d'expertise */
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 0;
+        margin: 1rem 0;
+    }
+
+    .expertise-card {
+        margin: 0;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    /* Ajustement de la section À Propos */
+    .about-content {
+        padding: 0;
+        width: 100%;
+    }
+
+    .about-stats {
+        padding: 0;
+        margin: 1rem 0;
+    }
+
+    /* Ajustement de la galerie */
+    .gallery-grid {
+        padding: 0;
+        margin: 1rem 0;
+    }
+
+    .gallery-item {
+        margin: 0 0 1rem 0;
+        border-radius: 0;
+    }
+
+    /* Ajustement du formulaire de contact */
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0;
+        margin: 1rem 0;
+    }
+
+    .contact-form,
+    .contact-info {
+        padding: 1rem;
+        margin: 0;
+        border-radius: 0;
+    }
+
     /* Ajustement du header et de la navigation */
     header {
         padding: 0.5rem;
@@ -831,29 +897,6 @@ html {
     }
 
     /* Ajustements pour la section À Propos */
-    .about-content {
-        padding: 1rem;
-    }
-
-    .about-stats {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-        margin: 2rem 0;
-    }
-
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .gallery-item {
-        margin-bottom: 1rem;
-    }
-
-    .gallery-img {
-        height: 200px;
-    }
-
     .about-text {
         text-align: left;
         font-size: 0.9rem;
@@ -861,24 +904,6 @@ html {
 
     .about-text p {
         margin-bottom: 1.5rem;
-    }
-
-    /* Ajustement des marges et du padding */
-    section {
-        padding: 2rem 1rem;
-    }
-
-    #apropos {
-        margin-top: 0;
-    }
-
-    .gallery-section {
-        margin-bottom: 2rem;
-    }
-
-    .gallery-section h4 {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
     }
 
     /* Ajustement de la section hero */
@@ -907,16 +932,24 @@ html {
 }
 
 @media screen and (max-width: 480px) {
+    body {
+        padding-top: 60px; /* Encore plus réduit pour les petits écrans */
+    }
+
+    section {
+        padding: 0.5rem;
+    }
+
+    .hero {
+        padding: 0.5rem;
+    }
+
     .hero h1 {
         font-size: 1.8em !important;
     }
 
     .hero p {
         font-size: 1em !important;
-    }
-
-    body {
-        padding-top: 140px; /* Encore plus d'espace pour les très petits écrans */
     }
 
     .about-text {
