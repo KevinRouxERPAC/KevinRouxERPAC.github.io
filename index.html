@@ -1,372 +1,235 @@
+<!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        <title>Carte des châteaux</title>
-        <!-- Nous chargeons les fichiers CDN de Leaflet. Le CSS AVANT le JS-->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <style>
-            /* La carte DOIT avoir une hauteur sinon elle ne s'affiche pas */
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            html, body, #map {
-                height: 100%;
-                width: 100vw;
-            }
-            .leaflet-control-layers {
-                background: white;
-                padding: 10px;
-            }
-            .leaflet-control-layers button {
-                display: block;
-                margin: 5px 0;
-            }
-            .leaflet-control-layers-separator {
-                border-top: 1px solid #ccc;
-                margin: 5px 0;
-            }
-            .popup-image {
-                height: 100px;
-                width: 150px;
-                object-fit: cover;
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERPAC - Concepteur de cartes électroniques</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/Logo_Complet_Blanc.png" alt="ERPAC">
+            </div>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#expertise">Notre Expertise</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <body>
-        <div id="map">
-            <!-- Ici s'affichera la carte -->
-        </div>
-        <!-- <button id="initDatabase">Initialiser la base de données</button> -->
+    <main>
+        <section id="accueil" class="hero">
+            <h1 class="fade-in-text" style="font-size: 4em;">Bienvenue chez ERPAC</h1>
+            <p class="fade-in-text" style="font-size: 2em;">Automatisons Demain, dès Aujourd'hui</p>
+        </section>
 
+        <section id="expertise">
+            <h2>Notre Expertise</h2>
+            <div class="expertise-grid">
+                <div class="expertise-card">
+                    <h3>Conception de cartes électroniques</h3>
+                    <br>
+                    <p>
+                        Des solutions <strong>sur-mesure</strong> pensées pour maximiser vos performances industrielles.
+                        Chacune de nos cartes est conçue pour répondre à vos besoins spécifiques.
+                    </p>
+                    <img src="images/Carte2.jpg" alt="Carte électronique" class="expertise-img">
+                </div>
+                <div class="expertise-card">
+                    <h3>Automatisation de systèmes</h3>
+                    <br>
+                    <p>
+                        Transformez vos processus industriels grâce à des solutions d'automatisation
+                        <strong>intelligentes et connectées</strong>. Gagnez en efficacité et en productivité.
+                    </p>
+                    <img src="images/Automate1.jpeg" alt="Automatisation de systèmes" class="expertise-img">
+                </div>
+                <div class="expertise-card">
+                    <h3>Fabrication d'armoires électriques</h3>
+                    <br>
+                    <p>
+                        Des armoires électriques <strong>robustes et personnalisées</strong>, conçues pour répondre aux
+                        exigences les plus techniques de votre environnement industriel.
+                    </p>
+                    <img src="images/ImageElectricien.jpg" alt="Armoire électrique" class="expertise-img">
+                </div>
+            </div>
+        </section>
 
-
-        <!-- Script Javascript pour créer la carte -->
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-storage-compat.js"></script>
-
-        <script>
-            //-- Initialisation de firebase --//
-            const firebaseConfig = {
-                apiKey: "AIzaSyCo6oZwTG9CoRAozyNk35mlfSJadhwVces",
-                authDomain: "carte-des-chateaux-5fa31.firebaseapp.com",
-                projectId: "carte-des-chateaux-5fa31",
-                storageBucket: "carte-des-chateaux-5fa31.appspot.com",
-                messagingSenderId: "655663257362",
-                appId: "1:655663257362:web:078e5ea2c4e71eb6f245cb",
-                measurementId: "G-H51R2FDY5H"
-            };
-
-            firebase.initializeApp(firebaseConfig);
-            const db = firebase.firestore();
-            const storage = firebase.storage();
-
-            //---------------//
-            //-- VARIABLES --//
-            //---------------//
-            var franceCenter = [46.65661285928128, 2.320636223052984];
-            var myMap = null;
-            var markers = {};
-            var currentFilter = 'all';
-
-            var visitedIcon = L.icon({
-                iconUrl: 'https://firebasestorage.googleapis.com/v0/b/carte-des-chateaux-5fa31.appspot.com/o/symbol_blank_green.png?alt=media&token=0aa8b001-ea6a-41b3-9cd8-81ebb6499b92',
-                iconAnchor: [12, 41],
-                popupAnchor: [3.5, -34]
-            });
-
-            var notVisitedIcon = L.icon({
-                iconUrl: 'https://firebasestorage.googleapis.com/v0/b/carte-des-chateaux-5fa31.appspot.com/o/symbol_blank_red.png?alt=media&token=8b60ecc0-fd40-4dbf-a8cc-6019fd53e9ff',
-                iconAnchor: [12, 41],
-                popupAnchor: [3.5, -34]
-            });
-
-            const castles = [];
-            
-            // const castles = [
-            //     {id: 1,   name: "Château de Versailles",          coordinates: [48.80482953988753, 2.120355397484831],      link: "https://www.chateauversailles.fr/",          image: "https://campus-louveciennes.bnpparibas/cache/img/609456cc92aaa5e479de789af6e10cca6a798b76-609456-696-300-landscape.jpg"},
-            //     {id: 2,   name: "Château de Chambord",            coordinates: [47.61623015058371, 1.5170342324184125],     link: "https://www.chambord.org/fr",                image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/France_Loir-et-Cher_Chambord_Chateau_03.jpg/1200px-France_Loir-et-Cher_Chambord_Chateau_03.jpg"},
-            //     {id: 3,   name: "Château de Chenonceau",          coordinates: [47.32490593336215, 1.0702763575362348],     link: "https://www.chenonceau.com/",                image: "https://www.touraineloirevalley.com/wp-content/uploads/wpetourisme/--visuel-2021-MD.jpg"},   
-            //     {id: 4,   name: "Château de Cheverny",            coordinates: [47.50017125206902, 1.457993201391647],      link: "https://www.chateau-cheverny.fr/",           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Cheverny-Chateau-VueFrontale.jpg/1200px-Cheverny-Chateau-VueFrontale.jpg"},
-            //     {id: 5,   name: "Château de Fontainebleau",       coordinates: [48.40210889413797, 2.6994843974640887],     link: "https://www.chateaudefontainebleau.fr/",     image: "https://chateaudeharoue.fr/wp-content/uploads/2020/10/Le-chateau-de-Fontainebleau.jpg"},
-            //     {id: 6,   name: "Château de Chantilly",           coordinates: [49.193895750560806, 2.485407245380902],     link: "https://chateaudechantilly.fr/",             image: "https://www.chantilly-senlis-tourisme.com/wp-content/uploads/2021/05/%C2%A9Jerome-Houyvet-Domaine-de-Chantilly-vue-aerienne-14_preview-1200x800.jpeg"},
-            //     {id: 7,   name: "Château de Vaux-le-Vicomte",     coordinates: [48.565875870422374, 2.7142637435022183],    link: "https://vaux-le-vicomte.com/",               image: "https://media.disneylandparis.com/d4th/fr-fr/images/n023422_2017feb10_vaux-le-vicomte-castle_16-9_tcm808-161362.jpg"},
-            //     {id: 8,   name: "Château Royal de Blois",         coordinates: [47.58575346954688, 1.330919486320458],      link: "https://www.chateaudeblois.fr/",             image: "https://www.votre-chateau-de-famille.com/wp-content/uploads/2018/11/photo-1-1.jpg"},
-            //     {id: 9,   name: "Château Royal d'Amboise",        coordinates: [47.41364633664524, 0.9860867700804578],     link: "https://www.chateau-amboise.com/",           image: "https://upload.wikimedia.org/wikipedia/commons/9/90/Chateau_d%27amboise_depuis_l%27ile.jpg"},
-            //     {id: 10,  name: "Château de Villandry",           coordinates: [47.340614778342406, 0.5144012439819416],    link: "https://www.chateauvillandry.fr/",           image: "https://www.touraineloirevalley.com/wp-content/uploads/wpetourisme/Jardins-du-Chateau-de-Villandry-Credit-ADT-Touraine-JC-Coutand-2031-1.jpg"},
-            //     {id: 11,  name: "Château d'Azay-le-Rideau",       coordinates: [47.2590909019664, 0.46598146312418026],     link: "https://www.azay-le-rideau.fr/",             image: "https://loirelovers.fr/wp-content/uploads/2022/11/visiter-chateau-azay-le-rideau.jpeg"},
-            //     {id: 12,  name: "Château de Montsoreau",          coordinates: [47.21556848783904, 0.062329728168268976],   link: "https://www.chateau-montsoreau.com/",        image: "https://www.enpaysdelaloire.com/sites/default/files/styles/ogimage/public/mediatheque/images/sem_0011652_2.jpg"},
-            //     {id: 13,  name: "Château de Langeais",            coordinates: [47.3246975537804, 0.40619272625418235],     link: "https://chateau-de-langeais.com/",           image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Parka_fasado_de_la_Ch%C3%A2teau_de_Langeais_04.jpg/1200px-Parka_fasado_de_la_Ch%C3%A2teau_de_Langeais_04.jpg"},
-            //     {id: 14,  name: "Château de Sully-sur-Loire",     coordinates: [47.767597274425505, 2.3752673394905393],    link: "https://www.chateausully.fr/",               image: "https://www.tourisme-gatinais-sud.com/wp-content/uploads/sites/19/2019/10/chateau-sully-sur-loire-d.chauveau.png"},
-            //     {id: 15,  name: "Château de Brissac",             coordinates: [47.35280022261747, -0.44987346699851094],   link: "https://www.chateau-brissac.fr/",            image: "https://www.vinci-autoroutes.com/static/2574d3f62597324aaa265783d9c5954c/site-touristique-vinci-autoroutes-chateau-brissac.jpg"},
-            //     {id: 16,  name: "Château de Saumur",              coordinates: [47.256983371627804, -0.07239762037559473],  link: "https://www.chateau-saumur.fr/",             image: "https://www.ot-saumur.fr/wp-content/uploads/apidae/c7da215aa03e0050e73e9fdae521b0ed-20109002-1600x900.jpg"},
-            //     {id: 17,  name: "Château d'Ussé",                 coordinates: [47.249846796953484, 0.29143185410204786],   link: "https://www.chateaudusse.fr/",               image: "https://www.patrimoine-prive.fr/wp-content/uploads/2023/06/Vue-du-chateau-du-jardin.jpg"},
-            //     {id: 18,  name: "Château de Pierrefonds",         coordinates: [49.346974971405885, 2.9802903858660748],    link: "https://www.chateau-pierrefonds.fr/",        image: "https://www.francebleu.fr/s3/cruiser-production/2021/08/03f2fd2a-b823-4d45-8985-898fe3300d2d/1200x680_024_4073596.jpg"},
-            //     {id: 19,  name: "Château de Fougères",            coordinates: [48.35395781328701, -1.2090517019955818],    link: "https://www.chateau-fougeres.com/",          image: "https://cdn.generationvoyage.fr/2020/05/Chateau-de-Fougeres.jpg"},
-            //     {id: 20,  name: "Château de Josselin",            coordinates: [47.952279770664404, -2.547393802552873],    link: "https://www.chateaudejosselin.com/",         image: "https://bretagne.media.tourinsoft.eu/upload/Facade-Renaissance-D.jpg"},
-            //     {id: 21,  name: "Château de Compiègne",           coordinates: [49.41913154710536, 2.83120125517999],       link: "https://chateaudecompiegne.fr/",             image: "https://www.oisetourisme.com/assets/uploads/2022/07/chateau-de-compiegne.jpg"},
-            //     {id: 22,  name: "Château de Maintenon",           coordinates: [48.58549698562278, 1.5783146558087264],     link: "https://www.chateaudemaintenon.fr/",         image: "https://cloudfront-eu-central-1.images.arcpublishing.com/leparisien/ASFBBH2V35GOPLZ7TTFOUVHFNA.jpg"},
-            //     {id: 23,  name: "Château de Talcy",               coordinates: [47.76949389514211, 1.444647192542435],      link: "https://www.chateau-talcy.fr/",              image: "https://p.monumentum.fr/main/41/pa00098615-talcy-domaine-du-chateau-de-talcy.jpg"},
-            //     {id: 24,  name: "Château de Malmaison",           coordinates: [48.87080712832716, 2.166888230623563],      link: "https://musees-nationaux-malmaison.fr/",     image: "https://www.ville-imperiale.com/wp-content/uploads/2018/04/chteau-de-malmaison-dr.jpg"},
-            //     {id: 25,  name: "Château de Vincennes",           coordinates: [48.842728923122166, 2.4347051573400997],    link: "https://www.chateau-de-vincennes.fr/",       image: "https://upload.wikimedia.org/wikipedia/commons/c/c1/Vincennes_-_Chateau_02.jpg"},
-            //     {id: 26,  name: "Château de Sceaux",              coordinates: [48.774346288992994, 2.3000884263160684],    link: "https://domaine-de-sceaux.hauts-de-seine.fr/",image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Le_Ch%C3%A2teau-Mus%C3%A9e_d%C3%A9partemental_de_Sceaux%2C_Journ%C3%A9es_du_Patrimoine_2020.jpg/800px-Le_Ch%C3%A2teau-Mus%C3%A9e_d%C3%A9partemental_de_Sceaux%2C_Journ%C3%A9es_du_Patrimoine_2020.jpg"},
-            //     {id: 27,  name: "Château de Champs-sur-Marne",    coordinates: [48.85371829120793, 2.604088653303879],      link: "https://www.chateau-champs-sur-marne.fr/",   image: "https://www.seineetmarnevivreengrand.fr/wp-content/uploads/2021/09/Chateau-de-Champs-Laure-Maitre.jpg"},
-            //     {id: 28,  name: "Château de Rambouillet",         coordinates: [48.6454268149376, 1.817440170490069],       link: "https://www.chateau-rambouillet.fr/",        image: "https://www.parisiennementvotre.fr/wp-content/uploads/2022/08/Chateau-de-Rambouillet_background-paralaxe.jpeg"},
-            //     {id: 29,  name: "Château de Breteuil",            coordinates: [48.68002670157215, 2.023040855147903],      link: "https://www.breteuil.fr/",                   image: "https://cdn.sortiraparis.com/images/80/98171/752615-le-chateau-de-breteuil-ses-jardins-remarquables-et-contes-de-perrault.jpg"},
-            //     {id: 30,  name: "Château de Monte-Cristo",        coordinates: [48.88559759879324, 2.1034896741717337],     link: "https://www.chateau-monte-cristo.com/",      image: "https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2018/08/23150741/t%C3%A9l%C3%A9chargement-97.jpg"},
-            //     {id: 31,  name: "Château de Châteaudun",          coordinates: [48.07079900121059, 1.323563053268197],      link: "https://www.chateau-chateaudun.fr/",         image: "https://cdt28.media.tourinsoft.eu/upload/28PF4774.jpg"},
-            //     {id: 32,  name: "Château de Meung-sur-Loire",     coordinates: [47.823286732235005, 1.694309053259743],     link: "https://www.chateau-de-meung.com/",          image: "https://upload.wikimedia.org/wikipedia/commons/7/7f/MeungSurLoire02.jpg"},
-            //     {id: 33,  name: "Château de Villeneuve-Lembron",  coordinates: [45.47799764101002, 3.185983247672545],      link: "https://www.chateau-villeneuve-lembron.fr/", image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/c7/cd/71/chateau-de-villeneuve.jpg?w=1200&h=-1&s=1"},
-            //     {id: 34,  name: "Château de Vendeuvre",           coordinates: [48.987088711928685, -0.07869070251015077],  link: "http://www.vendeuvre.com/",                  image: "https://cdt14.media.tourinsoft.eu/upload/Chateau-Vendeuvre.jpg"},
-            //     {id: 35,  name: "Château de Balleroy",            coordinates: [49.17920149105873, -0.8424323270410949],    link: "https://www.chateau-balleroy.fr/",           image: "https://upload.wikimedia.org/wikipedia/commons/f/f8/Chateau_de_Balleroy.JPG"},
-            //     {id: 36,  name: "Château de Bizy",                coordinates: [49.08365719453454, 1.4658200279264462],     link: "https://www.chateaudebizy.com/",             image: "https://photos.infolocale.fr/infoLocale/openagenda/2023/09/27/7079837/_1.jpg"},
-            //     {id: 37,  name: "Château de la Roche-Guyon",      coordinates: [49.08127611576848, 1.6281740012795571],     link: "https://www.chateaudelarocheguyon.fr/",      image: "https://www.valdoise.fr/uploads/Image/0c/IMF_ACCROCHE/GAB_D95/196524_344_chateau-roche-guyon.jpg"},
-            //     {id: 38,  name: "Château d'Anet",                 coordinates: [48.858416494757506, 1.4385999888861847],    link: "https://www.chateau-d-anet.com/",            image: "https://c8.alamy.com/compfr/t8eyg3/en-france-en-eure-et-loir-chateau-d-anet-chateau-renaissance-du-xvie-siecle-commande-par-henri-ii-a-diane-de-poitiers-vue-aerienne-t8eyg3.jpg"},
-            //     {id: 39,  name: "Château de Gisors",              coordinates: [49.28093489401814, 1.7744808301713313],     link: "https://vexin-normand-tourisme.com/decouvrir/gisors-une-escale-en-or/legendaire-forteresse/",image:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Chateau-de-Gisors.jpg/1200px-Chateau-de-Gisors.jpg"},
-            //     {id: 40,  name: "Château de Gaillon",             coordinates: [49.161361788057185, 1.3298762435279776],    link: "https://www.chateaudegaillon.fr/",           image: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Ch%C3%A2teau_Gaillon.JPG"},
-            //     {id: 41,  name: "Château de Boury",               coordinates: [49.2399613583698, 1.7392844884288952],      link: "https://www.chateaudeboury.fr/",             image: "https://upload.wikimedia.org/wikipedia/commons/a/af/Ch%C3%A2teau_de_Boury_1.JPG"},
-            //     {id: 42,  name: "Château de La Rochefoucauld",    coordinates: [45.74170703386315, 0.38027552923153474],    link: "https://www.chateau-la-rochefoucauld.com/",  image: "https://www.infiniment-charentes.com/wp-content/uploads/imgsit/P-33236-chateau-de-la-rochefoucauld-5666092.jpg"},
-            //     {id: 43,  name: "Château de Saint-Germain-en-Laye", coordinates: [48.89789926763681, 2.0961675435165725],   link: "https://musee-archeologienationale.fr/",     image: "https://www.pariszigzag.fr/wp-content/uploads/2023/10/chateau-saint-germain-en-laye-paris-zigzag.jpg"},
-            //     {id: 44,  name: "Château de Carrouges",           coordinates: [48.560137832798844, -0.15440157448085412],  link: "https://www.chateau-carrouges.fr/",          image: "https://live.staticflickr.com/2681/4453092137_522e970788_b.jpg"},
-            //     {id: 45,  name: "Château de la Roche-Bagnoles",   coordinates: [48.5529639948631, -0.4213193946203912],     link: "https://www.bagnolesdelorne.com/bagnoles/6-lieux-emblematiques/le-chateau-de-la-roche-bagnoles/",image:"https://medias.tourism-system.fr/c/5/123197_chateau_hotel_de_ville_bagnoles_de_lorne.jpg"},
-            //     {id: 46,  name: "Château de Lassay",              coordinates: [48.438851427281826, -0.4999009645050014],   link: "https://www.chateaudelassay.com/",           image: "https://www.demeure-historique.org/wp-content/uploads/2022/11/Chateau-de-Lassay-Vue-mi-hauteur-Photo-Pascal-Beltrami-scaled.jpg"},
-            //     {id: 47,  name: "Château de Châteaubriant",       coordinates: [47.71941779813424, -1.372583230739286],     link: "https://www.chateau-chateaubriant.fr/",      image: "https://www.mairie-chateaubriant.fr/medias/2017/12/12Vueae%CC%81rienneCha%CC%82teau.jpg"},
-            //     {id: 48,  name: "Château de Goulaine",            coordinates: [47.20431174693878, -1.402754375602353],     link: "http://www.chateaudegoulaine.fr/",           image: "https://www.chateaudegoulaine.fr/wp-content/uploads/2015/05/Chateau_de_Goulaine-8-1600x750.jpg"},
-            //     {id: 49,  name: "Château des Ducs de Bretagne",   coordinates: [47.21621890997972, -1.5494153327418088],    link: "https://www.chateaunantes.fr/",              image: "https://patrimonia.nantes.fr/media/a681c04b-6954-4c21-b3a8-baad8a44ae98/picture:views/5/content/grandFormat_MHN_988.39.15.jpg"},
-            //     {id: 50,  name: "Château de Brézé",               coordinates: [47.174511871156994, -0.05732008539289743],  link: "https://www.chateaudebreze.com/",            image: "https://cdn0.mariages.net/vendor/0327/3_2/960/jpg/vue-aerienne-du-chteau-de-breze_3_10327.jpeg"},
-            //     {id: 51,  name: "Château de Montreuil-Bellay",    coordinates: [47.13308416876257, -0.15480715113106092],   link: "https://www.chateau-de-montreuil-bellay.fr/",image: "https://cdt49.media.tourinsoft.eu/upload/12398562.jpg"},
-            //     {id: 52,  name: "Château de L'Islette",           coordinates: [47.2675201908325, 0.43438142810325536],     link: "https://www.chateaudelislette.fr/",          image: "https://www.jardins-de-france.com/sites/default/files/public/media/panes/chateau_de_lislette.jpg"},
-            //     {id: 53,  name: "Château de Montgeoffroy",        coordinates: [47.46887201279452, -0.2765280872319548],    link: "http://www.chateaudemontgeoffroy.com/",      image: "https://cdn.laetis.fr/i/anjou/list/https://cdt49.media.tourinsoft.eu/upload/Chateau-de-Montgeoffroy---vue-aerienne-2.jpg"},
-            //     {id: 54,  name: "Château du Plessis-Bourré",      coordinates: [47.60096046485883, -0.5443531623491257],    link: "https://www.plessis-bourre.com/",            image: "https://cdt49.media.tourinsoft.eu/upload/2706318-chateau-du-plessis-bourre-copyright-alexandre-lamoureux-destination-angers-14669-2706318-ee64ae58edc24cd9b3d8abc44194e5b3.png"},
-            //     {id: 55,  name: "Château de Montrichard",         coordinates: [47.34361739174109, 1.1862796464939307],     link: "https://www.montrichardvaldecher.com/tourisme/la-forteresse-et-ses-musees/",image:"https://www.grandetortue.com/wp-content/uploads/2023/01/chateau-de-montrichard.jpg"},
-            //     {id: 56,  name: "Château de Chaumont-sur-Loire",  coordinates: [47.479238306500726, 1.1817860341985096],    link: "https://www.domaine-chaumont.fr/",           image: "https://upload.wikimedia.org/wikipedia/commons/f/f7/Chaumont_sur_Loire_chateau_05.jpg"},
-            //     {id: 57,  name: "Château de Fougères-sur-Bièvre", coordinates: [47.44771935017568, 1.3437490440504167],     link: "https://www.fougeres-sur-bievre.fr/",        image: "https://cdt41.media.tourinsoft.eu/upload/CMN-phbw07-4611.jpg"},
-            //     {id: 58,  name: "Château de Troussay",            coordinates: [47.49120117913341, 1.4246668232180648],     link: "https://www.chateaudetroussay.com/",         image: "https://cdt41.media.tourinsoft.eu/upload/Chateau-de-Troussay-facade-Christophe-Apatie.jpg"},
-            //     {id: 59,  name: "Château de Beauregard",          coordinates: [47.53700014772841, 1.384153647963376],      link: "https://www.beauregard-loire.com/",          image: "https://beauregard-loire.com/wp-content/uploads/2022/05/chateau_vue-de-Face_1.jpg"},
-            //     {id: 60,  name: "Château de Villesavin",          coordinates: [47.546512971187965, 1.5143879704431973],    link: "https://www.chateau-de-villesavin.fr/",      image: "https://www.grandchambord.fr/wp-content/uploads/2020/12/20190623_110353-scaled-e1607348480791.jpg"},
-            //     {id: 61,  name: "Château de La Ferté-Saint-Aubin",coordinates: [47.72639528629554, 1.942968426803083],      link: "http://www.chateau-ferte.com/",              image: "https://cdt45.media.tourinsoft.eu/upload/patrimoine-la-ferte-saint-aubin-chateau-entree-gauche.jpg"},
-            //     {id: 62,  name: "Château de Chamerolles",         coordinates: [48.06027493003892, 2.164017368613537],      link: "http://www.chateauchamerolles.fr/",          image: "https://www.my-loire-valley.com/wp-content/uploads/2020/12/Chateau-de-chamerolles-%C2%A9-Dominique-Chauveau-2.jpg"},
-            //     {id: 63,  name: "Château Royal de Montargis",     coordinates: [47.99775543847745, 2.728441299296184],      link: "https://chateaudemontargis.fr/",             image: "https://cdt45.media.tourinsoft.eu/upload/Chateau-de-Montargis---Fonds-de-dotation-Chateau-royal-de-Montargis.JPG"},
-            //     {id: 64,  name: "Château de Saint-Brisson-sur-Loire",coordinates: [47.650101386390986, 2.682120222564972],  link: "https://www.chateau-saint-brisson.com/",     image: "https://cdn.laetis.fr/i/loiret/detail-diapo/cdt45.media.tourinsoft.eu/upload/SB-drone-generale-1.png"},
-            //     {id: 65,  name: "Château de Gien",                coordinates: [47.6849190124736, 2.631631583941284],       link: "http://www.chateaumuseegien.fr/",            image: "https://www.gites-de-france.com/sites/default/files/styles/facebook_1200x630/public/chateau%20de%20gien.jpeg?itok=D2MASoi0"},
-            //     {id: 66,  name: "Château de Bouges",              coordinates: [47.0424260042926, 1.6729590974061457],      link: "https://www.chateau-bouges.fr/",             image: "https://www.omonchateau.com/wp-content/uploads/2023/04/chateau-de-bouges3.jpg"},
-            //     {id: 67,  name: "Château de Valençay",            coordinates: [47.15752760752099, 1.5634163336530782],     link: "https://www.chateau-valencay.fr/",           image: "https://upload.wikimedia.org/wikipedia/commons/5/55/Ch%C3%A2teau_de_Valancay_Ao%C3%BBt_2020.jpg"},
-            //     {id: 68,  name: "Château de Cormatin",            coordinates: [46.54315499893089, 4.684316712166607],      link: "https://chateaudecormatin.com/",             image: "https://www.burgundy-tourism.com/uploads/external/8f4b5d4ba9a4120ee99dd3e76da28822-PCUBOU071148024-01-1600x900.jpg"},
-            //     {id: 69,  name: "Château des Ducs de Bourbon",    coordinates: [46.34003128958687, 2.603629968656999],      link: "http://www.montlucon.com/",                  image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Castle_of_the_Dukes_of_Bourbon_in_Montlucon_%282%29.jpg"},
-            //     {id: 70,  name: "Château de Lapalisse",           coordinates: [46.248568824444796, 3.638200883227236],     link: "https://www.lapalisse-tourisme.com/d%C3%A9couvrir/ch%C3%A2teau-de-la-palice.html",image:"https://www.allier-auvergne-tourisme.com/contenus/476/cms_pc/photo/46980/m_999_999_resize_200825104656_200331172513_auvergne-rho--ne-alpes---allier---le-cha--teau-de-lapalisse-17-jpg.jpg"},
-            //     {id: 71,  name: "Château de Val",                 coordinates: [45.44268978918217, 2.5052730237328236],     link: "http://www.chateau-de-val.com/",             image: "https://lavieenpierre.com/v2/fichiers/images/le%20Ch%C3%A2teau%20de%20Val%204.jpg"},
-            //     {id: 72,  name: "Château de Pesteils",            coordinates: [44.95340610444597, 2.5754540740391394],     link: "http://chateau-pesteils-cantal.com/",        image: "https://www.camping-car.eu.com/wp-content/uploads/2023/01/Chateau_de_Pesteils_2021-scaled.jpg"},
-            //     {id: 73,  name: "Château de La Roche",            coordinates: [45.89598543495052, 4.10178672619483],       link: "http://www.lechateaudelaroche.fr/",          image: "https://www.roannais-tourisme.com/wp-content/uploads/2021/04/roanne-tourisme-saint-priest-la-roche-chateau-de-la-roche-244-1600x900.jpg"},
-            //     {id: 74,  name: "Château de Murol",               coordinates: [45.57835196698336, 2.9454607224788947],     link: "http://www.murolchateau.com/",               image: "https://www.murolchateau.com/wp-content/uploads/2022/04/CHATEAU1E.jpg"},
-            //     {id: 75,  name: "Château de Cordès",              coordinates: [45.70230561139491, 2.8394737992174237],     link: "http://www.chateau-cordes-orcival.com/",     image: "https://img.lamontagne.fr/anTXehgdZyxLsDJLdRjUVXcnZquMausUR0wCayM70Z8/fit/657/438/sm/0/bG9jYWw6Ly8vMDAvMDAvMDQvNDUvNjQvMjAwMDAwNDQ1NjQ4MA.jpg"},
-            //     {id: 76,  name: "Château de Chazeron",            coordinates: [45.922465134402046, 3.0359971341337046],    link: "http://www.chateau-chazeron.com/",           image: "https://www.auvergne-destination.com/wp-content/uploads/external/52a41cd35be2ce11effa03dc65a1accc-1965958-1040x568.jpg"},
-            //     {id: 77,  name: "Château de Ravel",               coordinates: [45.78274739943538, 3.400318297354257],      link: "http://www.chateauderavel.com/",             image: "https://sciencespo-alumni.fr/medias/image/175104143064221830cc858.jpg"},
-            //     {id: 78,  name: "Château de Parentignat",         coordinates: [45.53281749650788, 3.2914948793154193],     link: "https://www.parentignat.com/",               image: "https://upload.wikimedia.org/wikipedia/commons/6/6e/Castle_of_Parentignat_05.jpg"},
-            //     {id: 79,  name: "Château de Busset",              coordinates: [46.062871248014886, 3.5100248427403558],    link: "https://www.busset.com/",                    image: "https://monbourbonnais.com/wp-content/uploads/2018/01/17400782.jpg"},
-            //     {id: 80,  name: "Forteresse de Berzé-le-Châtel",  coordinates: [46.385466847459405, 4.688449802594532],     link: "http://www.berze.fr/",                       image: "https://bourgognemedievale.com/wp-content/uploads/2015/12/Berz%C3%A9-le-Ch%C3%A2tel7-1.jpg"},
-            //     {id: 81,  name: "Forteresse de Billy",            coordinates: [46.23672541295373, 3.4285992116629664],     link: "https://www.vichy-destinations.fr/patrimoine-culturel/forteresse-de-billy/",image:"https://monbourbonnais.com/wp-content/uploads/2018/02/Billy.jpg"},
-            //     {id: 82, name: "Forteresse Royale de Chinon",    coordinates: [47.167954091037295, 0.23561499741168584],   link: "https://forteressechinon.fr/",               image: "https://forteressechinon.fr/sites/forteressechinon/files/styles/auto_1920/public/2023-03/Forteresse_royale_de_Chinon_Credit_ADT_Touraine_JC_Coutand-2029-1.jpg?itok=oneZGtut"},
-            //     {id: 83, name: "Château de la Bâtie d'Urfé",     coordinates: [45.727619290227324, 4.078610355686887],     link: "https://www.batiedurfe.fr/jcms/lw_1395657/fr/accueil",image:"https://www.loiretourisme.com/app/uploads/adt-loire/2022/04/thumbs/14-la-batie-d-urfe-2loiretourisme-1920x960.jpg"},
-            // ];           
-
-
-
-
-
-
-            //---------------//
-            //-- FUNCTIONS --//
-            //---------------//
-            //-----------------------------------------------------//
-            //-- Fonction d'initialisation de la base de données --//
-            //-----------------------------------------------------//
-            // function initDatabase() {
-            //     castles.forEach(function(castle) {
-            //         db.collection("castles").doc(castle.id.toString()).set({
-            //             id:castle.id,
-            //             name:castle.name,
-            //             coordinates: castle.coordinates,
-            //             link: castle.link,
-            //             image: castle.image,
-            //             visited: false
-            //         })
-            //         .then(() => {
-            //             console.log("Document successfully written !");
-            //         })
-            //         .catch((error) => {
-            //             console.log("Error writing document: ", error);
-            //         });
-            //     });
-            // }
-
-            // document.getElementById('initDatabase').addEventListener('click', initDatabase);
-
-
-            //-------------------------------------------//
-            //-- Fonction d'initialisation de la carte --//
-            //-------------------------------------------//
-            function initMap() {
-                // Créer l'objet "maCarte" et l'insérer dans l'élément HTML qui a l'ID "map"
-                myMap = L.map('map').setView(franceCenter, 6);
-                // Leaflet ne récupère pas les cartes (tiles) sur un serveur par defaut. Nous devons lui préciser où nous souhaitons les récupérer. Ici, openstreetmap.fr
-                L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
-                    // Il est toujours bien de laisser le lien vers la source des données
-                    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-                    minZoom: 1,
-                    maxZoom: 20
-                }).addTo(myMap);
-
-                addFilterControl();
-                getDatabase().then((data) => {
-                    castles.push(...data);
-                    addMarkers();
-                }).catch((error) => {
-                    console.error("Error initializing map: ", error);
-                });
-            }
-
-            //------------------------------------------//
-            //-- Fonction de récupération des données --//
-            //------------------------------------------//
-            function getDatabase() {
-                return db.collection("castles").get().then((querySnapshot) => {
-                    const data = [];
-                    querySnapshot.forEach((doc) => {
-                        //castles[doc.id] = doc.data();
-                        data.push(doc.data());
-                    });
-                    return data;
-                }).catch((error) => {
-                    console.error("Error fetching data: ", error);
-                    throw error;
-                })
-            }
-
-            //------------------------------------//
-            //-- Fonction d'ajout des marqueurs --//
-            //------------------------------------//
-            function addMarkers() {
-                castles.forEach(function(castle) {
-                    var isVisited = castle.visited;
-                    var icon = isVisited ? visitedIcon : notVisitedIcon;
-                    var marker = L.marker(castle.coordinates, {icon: icon})
-                    .addTo(myMap)
-                    .bindPopup(getPopupContent(castle, isVisited));
-                    marker.castleId = castle.id;
-                    markers[castle.id] = marker;
-                });
-                updateMarkers();
-            }
-
-            //-----------------------//
-            //-- Fonction du popup --//
-            //-----------------------//
-            function getPopupContent(castle, isVisited) {
-                return `
-                    <a href="${castle.image}" target="_blank">
-                        <img src="${castle.image}" alt="${castle.name}" class="popup-image"/>
-                    </a>
-                    <a href="${castle.link}" target="_blank">${castle.name}</a><br>
-                    <label>
-                        <input type="checkbox" ${isVisited ? 'checked' : ''} onchange="toggleVisited(this.checked, ${castle.id})"/>
-                        Visité
-                    </label>
-                `;
-            }
-
-            //---------------------------------------//
-            //-- Fonction de basculement de l'état --//
-            //---------------------------------------//
-            function toggleVisited(isVisited, castleId) {
-                var docRef = db.collection("castles").doc(castleId.toString());
-                docRef.update({
-                    visited: isVisited
-                }).then(() => {
-                    getDatabase().then((data) => {
-                        castles.splice(0);
-                        castles.push(...data);
-                        var castle = castles.find(c => c.id === castleId);
-                        if(castle) {
-                            updatePopup(castle, isVisited);
-                        }
-                        updateMarkers();
-                    });
-                }).catch((error) => {
-                    console.error("Error updating document: ", error);
-                })
-            }
-
-            //-------------------------------------------//
-            //-- Fonction de mise à jour des marqueurs --//
-            //-------------------------------------------//
-            function updateMarkers() {
-                var totalCount = 0;
-                castles.forEach(function(castle) {
-                    var isVisited = castle.visited;
-                    var icon = isVisited ? visitedIcon : notVisitedIcon;
-                    var marker = markers[castle.id];
-                    marker.setIcon(icon);
-
-                    if(currentFilter === 'all' || (currentFilter === 'visited' && isVisited) || (currentFilter === 'notVisited' && !isVisited)) {
-                        marker.addTo(myMap);
-                        totalCount++;
-                    }
-                    else {
-                        myMap.removeLayer(marker);
-                    }
-                });
-                document.getElementById('totalCount').textContent = totalCount;
-            }
-
-            //---------------------------------------//
-            //-- Fonction d'actualisation du popup --//
-            //---------------------------------------//
-            function updatePopup(castle, isVisited) {
-                var marker = markers[castle.id];
-                marker.setPopupContent(getPopupContent(castle, isVisited));
-            }
-
-            //--------------------------//
-            //-- Fonction de filtrage --//
-            //--------------------------//
-            function filterMarkers(filter) {
-                currentFilter = filter;
-                updateMarkers();
-            } 
-
-            //----------------------------------------------//
-            //-- Fonction d'ajout du contrôle de filtrage --//
-            //----------------------------------------------//
-            function addFilterControl() {
-                var filterControl = L.control({position: 'topright'});
-                filterControl.onAdd = function(map) {
-                    var div = L.DomUtil.create('div', 'leaflet-control-layers leaflet-control');
-                    div.innerHTML = `
-                        <label>Filtres</label>
-                        <button onclick="filterMarkers('all')">Tous les châteaux</button>
-                        <button onclick="filterMarkers('visited')">Châteaux visités</button>
-                        <button onclick="filterMarkers('notVisited')">Châteaux non visités</button>
-                        <div class="leaflet-control-layers-separator"></div>
-                        <div>
-                            Total : <span id="totalCount">0</span>
+        <section id="apropos" class="about-section fade-in-section">
+            <h2>À Propos de Nous</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Fondée en 1989, ERPAC s'est rapidement imposée comme un acteur incontournable
+                        dans le domaine de l'électronique industrielle. Depuis plus de trois décennies,
+                        notre entreprise n'a cessé d'évoluer et d'innover, tout en restant fidèle à ses
+                        valeurs d'excellence et de proximité. Spécialisée dans la fabrication de cartes
+                        électroniques assemblées et la réalisation d'automatismes programmables, ERPAC
+                        a su s'adapter aux évolutions technologiques tout en conservant son expertise
+                        artisanale. Aujourd'hui, forte d'une équipe d'une quinzaine de collaborateurs
+                        passionnés, dont six ingénieurs et techniciens au bureau d'études, ERPAC continue
+                        de relever les défis de l'industrie 4.0, en proposant des solutions sur mesure
+                        à ses clients dans toute la France.
+                    </p>
+                    <p>
+                        ERPAC incarne <strong>l'excellence technique</strong> au service de vos projets. Notre passion ?
+                        Transformer vos défis industriels en solutions innovantes et performantes.
+                    </p>
+                    <p>
+                        Notre équipe est composée de <strong>professionnels passionnés</strong> par l'automatisation et la technologie.
+                        Ensemble, nous créons des solutions sur-mesure qui répondent à vos besoins spécifiques.
+                    </p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">30+</span>
+                        <span class="stat-label">Années d'expérience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Clients satisfaits</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Projets réalisés</span>
+                    </div>
+                </div>
+                
+                <div class="gallery-container">
+                    <h3>Nos Locaux</h3>
+                    <div class="gallery-section">
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/locaux/Locaux.jpeg" alt="Bâtiment principal" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Bâtiment principal</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/BE.jpeg" alt="Bureau d'étude" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Bureau d'étude</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/SalleReunion.jpeg" alt="Salle de réunion" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Salle de réunion</div>
+                            </div>
+                            <!-- Ajoutez d'autres images de bureaux ici -->
                         </div>
-                    `;
-                    return div;
-                };
+                    </div>
 
-                filterControl.addTo(myMap);
-            }
+                    <div class="gallery-section">
+                        <h4>Atelier Électronique</h4>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/locaux/Serigraphie.jpeg" alt="Serigraphie" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Serigraphie</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/ImplantationCMS.jpeg" alt="Implantation CMS" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Production CMS</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/CP20.jpeg" alt="CP20" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Implantation CMS</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/Four.jpeg" alt="Four" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Four</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/AtelierENQ.jpeg" alt="Atelier Électronique" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Atelier Électronique</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/MachineDecoupeFil.jpeg" alt="Machine découpe fil" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Machine découpe fil</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/Inspectoscan1.jpeg" alt="Machine de test visuel" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Machine de test visuel</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/Labo.jpeg" alt="Labo" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Laboratoire</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/Labo2.jpeg" alt="Labo2" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Laboratoire</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/BancTest.jpeg" alt="Banc de test" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Banc de test</div>
+                            </div>
+                            <!-- Ajoutez d'autres images de l'atelier électronique ici -->
+                        </div>
+                    </div>
 
-            //---------------------------//
-            //-- Fonction de lancement --//
-            //---------------------------//
-            window.onload = function() {
-                initMap();
-            };
-        </script>
-    </body>
-</html>
+                    <div class="gallery-section">
+                        <h4>Atelier Électrotechnique</h4>
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="images/locaux/AtelierETQ.jpeg" alt="Atelier Électrotechnique" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Atelier Électrotechnique</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/locaux/AtelierETQ2.jpeg" alt="Atelier Électrotechnique 2" class="gallery-img" onclick="openModal(this.src)">
+                                <div class="gallery-caption">Atelier Électrotechnique</div>
+                            </div>
+                            <!-- Ajoutez d'autres images de l'atelier électrotechnique ici -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section fade-in-section">
+            <h2>Contactez-Nous</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Nos Coordonnées</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois</p>
+                    <p><i class="fas fa-phone"></i> +33 2 48 77 52 10</p>
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contact@erpac.fr" class="email-link">contact@erpac.fr</a>
+                    </p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">
+                        <span class="button-text">Envoyer</span>
+                        <span class="button-loader"></span>
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SAS ERPAC. Tous droits réservés.</p>
+    </footer>
+    <script src="script.js"></script>
+
+    <!-- Modal pour l'affichage en plein écran -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img id="modalImage" class="modal-content">
+        <div class="modal-nav">
+            <button class="nav-btn prev-btn">&lt;</button>
+            <button class="nav-btn next-btn">&gt;</button>
+        </div>
+    </div>
+</body>
+</html> 
