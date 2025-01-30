@@ -1,0 +1,56 @@
+/* Style de base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+.menu-section {
+    margin: 1rem;
+}
+
+.menu-section h2 {
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.menu-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-section li {
+    margin: 0.5rem 0;
+}
+
+.menu-section a {
+    text-decoration: none;
+    color: #666;
+}
+
+.menu-section a:hover {
+    color: #000;
+}
+
+/* Contenu principal */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Pied de page */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    margin-top: 2rem;
+} 
