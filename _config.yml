@@ -12,4 +12,52 @@ defaults:
       path: "" # tous les fichiers du projet
       type: "pages"
     values:
-      layout: "page" 
+      layout: "page"
+
+# Configuration du menu
+menu:
+  - title: Électronique
+    items:
+      - title: Étude
+        url: /electronique/etude/
+      - title: Conception
+        url: /electronique/conception/
+      - title: Programmation Électronique/Informatique
+        url: /electronique/programmation/
+      - title: Production
+        url: /electronique/production/
+      - title: Contrôle qualité
+        url: /electronique/controle-qualite/
+
+  - title: Électrotechnique
+    items:
+      - title: Étude
+        url: /electrotechnique/etude/
+      - title: Conception
+        url: /electrotechnique/conception/
+      - title: Production
+        url: /electrotechnique/production/
+      - title: Contrôle qualité
+        url: /electrotechnique/controle-qualite/
+      - title: Installation/Mise en route
+        url: /electrotechnique/installation/
+
+  - title: Automatisme
+    items:
+      - title: Étude
+        url: /automatisme/etude/
+      - title: Conception
+        url: /automatisme/conception/
+      - title: Production
+        url: /automatisme/production/
+      - title: Programmation
+        url: /automatisme/programmation/
+      - title: Installation/Mise en route
+        url: /automatisme/installation/
+
+  - title: Qui sommes-nous ?
+    items:
+      - title: Description/Historique
+        url: /qui-sommes-nous/description/
+      - title: Contact
+        url: /qui-sommes-nous/contact/ 
