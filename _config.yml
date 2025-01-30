@@ -1,0 +1,15 @@
+# Configuration de base
+baseurl: "" # laissez vide si votre site est à la racine
+url: "kevinrouxerpac.github.io" # votre URL de production
+
+# Configuration des permalinks
+permalink: /:categories/:title/
+
+# Configuration des collections
+defaults:
+  -
+    scope:
+      path: "" # tous les fichiers du projet
+      type: "pages"
+    values:
+      layout: "page" 
