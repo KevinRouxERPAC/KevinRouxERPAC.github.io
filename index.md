@@ -4,7 +4,7 @@ title: Accueil
 permalink: /
 ---
 
-# Bienvenue sur notre site
+# Bienvenue chez ERPAC
 
 Nous sommes spécialisés dans trois domaines principaux :
 - Électronique
