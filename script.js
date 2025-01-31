@@ -330,4 +330,27 @@ document.addEventListener('DOMContentLoaded', function() {
             spans[2].style.transform = 'none';
         });
     });
+
+        // Gestion des sous-menus sur mobile
+        const menuItems = document.querySelectorAll('.menu-item-has-children');
+    
+        menuItems.forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    if (e.target.tagName === 'A' && e.target.parentElement.classList.contains('menu-item-has-children')) {
+                        e.preventDefault();
+                        this.classList.toggle('active');
+                    }
+                }
+            });
+        });
+    
+        // Fermer les sous-menus lors du redimensionnement
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                });
+            }
+        });
 }); 
