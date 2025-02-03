@@ -33,16 +33,32 @@
     }
 }
 
+@keyframes glow {
+    from {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    to {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                     0 0 20px rgba(0, 140, 58, 0.7);
+    }
+}
+
 /* Classes d'animation */
 .animate-fade-up {
     opacity: 0;
     animation: fadeInUp 0.6s ease forwards;
     will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
 }
 
 .animate-slide-left {
     opacity: 0;
     animation: slideInLeft 0.6s ease forwards;
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
 }
 
 .delay-1 { animation-delay: 0.1s; }

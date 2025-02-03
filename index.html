@@ -7,28 +7,71 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/animations.css">
+    <meta name="description" content="ERPAC - Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
+    <meta name="robots" content="index, follow">
+    <link rel="preload" as="image" href="images/Logo_complet.png">
+    <link rel="preload" as="image" href="images/Locaux_accueil.jpeg">
 </head>
 <body>
     <header>
         <nav>
             <div>
-                <img src="images/Logo_complet.png" alt="ERPAC">
+                <a href="index.html">
+                    <img src="images/Logo_complet.png" alt="ERPAC">
+                </a>
             </div>
-            <ul>
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="electronique.html">Electronique</a></li>
-                <li><a href="electrotechnique.html">Electrotechnique</a></li>
-                <li><a href="automatisme.html">Automatisme</a></li>
-                <li><a href="about.html">Qui sommes-nous ?</a></li>
+            <ul role="menubar" aria-label="Menu principal">
+                <li><a role="menuitem" href="index.html">Accueil</a></li>
+                <li>
+                    <a role="menuitem" href="electronique.html">Electronique</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="electronique.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="electronique.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="electronique.html#programmation">Programmation électronique/informatique</a></li>
+                        <li><a role="menuitem" href="electronique.html#production">Production</a></li>
+                        <li><a role="menuitem" href="electronique.html#qualite">Contrôle qualité</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="electrotechnique.html">Electrotechnique</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="electrotechnique.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#production">Production</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#qualite">Contrôle qualité</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#installation">Installation/Mise en service</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="automatisme.html">Automatisme</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="automatisme.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="automatisme.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="automatisme.html#programmation">Programmation</a></li>
+                        <li><a role="menuitem" href="automatisme.html#production">Production</a></li>
+                        <li><a role="menuitem" href="automatisme.html#qualite">Contrôle qualité</a></li>
+                        <li><a role="menuitem" href="automatisme.html#installation">Installation/Mise en service</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="about.html">Qui sommes-nous ?</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="about.html#histoire">Notre histoire</a></li>
+                        <li><a role="menuitem" href="about.html#equipe">Notre équipe</a></li>
+                        <li><a role="menuitem" href="about.html#partenaires">Nos partenaires</a></li>
+                    </ul>
+                </li>
             </ul>
+
         </nav>
     </header>
 
     <main>
         <section id="accueil">
-            <h1 class="animate-fade-up">Bienvenue chez ERPAC</h1>
-            <p class="animate-fade-up delay-1">Automatisons Demain, dès Aujourd'hui</p>
+            <h1 class="animate-glow">Bienvenue chez ERPAC</h1>
+            <h2 class="animate-fade-up delay-1">Automatisons demain, dès aujourd'hui</h2>
         </section>
+
 
         <section id="specialite">
             <div>
@@ -42,7 +85,7 @@
                         </p>
                     </a>
                 </div>
-                <div class="animate-fade-up delay-3">
+                <div class="animate-fade-up delay-2">
                     <a href="electrotechnique.html">
                         <img src="images/ImageElectricien.jpg" alt="Armoire électrique" class="specialite-img">
                         <h2>Electrotechnique</h2>
@@ -52,7 +95,7 @@
                         </p>
                     </a>
                 </div>
-                <div class="animate-fade-up delay-2">
+                <div class="animate-fade-up delay-3">
                     <a href="automatisme.html">
                         <img src="images/Automate1.jpeg" alt="Automatisation de systèmes" class="specialite-img">
                         <h2>Automatisme</h2>
@@ -114,5 +157,6 @@
     <footer>
         <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
     </footer>
+    <script src="js/menu.js"></script>
 </body>
 </html> 
