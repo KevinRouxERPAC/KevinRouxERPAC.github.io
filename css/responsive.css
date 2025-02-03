@@ -1,0 +1,66 @@
+/* Styles pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    #specialite > div {
+        grid-template-columns: 1fr;
+    }
+
+    #contact > div {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #accueil h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Styles pour les tablettes */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #specialite > div {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 2rem;
+    }
+
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+}
+
+/* Ajustements pour l'impression */
+@media print {
+    header {
+        position: static;
+    }
+
+    #contactForm {
+        display: none;
+    }
+
+    .expertise-img {
+        max-width: 300px;
+    }
+} 
