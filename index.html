@@ -12,6 +12,7 @@
     <meta name="robots" content="index, follow">
     <link rel="preload" as="image" href="images/Logo_complet.png">
     <link rel="preload" as="image" href="images/Locaux_accueil.jpeg">
+    <script src="js/transitions.js"></script>
 </head>
 
 
@@ -68,115 +69,116 @@
         </nav>
     </header>
 
+    <div class="page-transition">
+        <main>
+            <section id="accueil">
+                <h1 class="animate-glow">Bienvenue chez ERPAC</h1>
+                <h2 class="animate-fade-up delay-1">Automatisons demain, dès aujourd'hui</h2>
+            </section>
 
-    <main>
-        <section id="accueil">
-            <h1 class="animate-glow">Bienvenue chez ERPAC</h1>
-            <h2 class="animate-fade-up delay-1">Automatisons demain, dès aujourd'hui</h2>
-        </section>
-
-        
-        <section id="specialite">
-            <div>
-                <div class="animate-fade-up delay-1">
-                    <a href="electronique.html">
-                        <img src="images/Carte2.jpg" alt="Carte électronique" class="specialite-img">
-                        <h2>Electronique</h2>
-                        <p>
-                            Des solutions <strong>sur-mesure</strong> pensées pour maximiser vos performances industrielles.
-                            Chacune de nos cartes est conçue pour répondre à vos besoins spécifiques.
-                        </p>
-                    </a>
-                </div>
-                <div class="animate-fade-up delay-2">
-                    <a href="electrotechnique.html">
-                        <img src="images/ImageElectricien.jpg" alt="Armoire électrique" class="specialite-img">
-                        <h2>Electrotechnique</h2>
-                        <p>
-                            Des armoires électriques <strong>robustes et personnalisées</strong>, conçues pour répondre aux
-                            exigences les plus techniques de votre environnement industriel.
-                        </p>
-                    </a>
-                </div>
-                <div class="animate-fade-up delay-3">
-                    <a href="automatisme.html">
-                        <img src="images/Automate1.jpeg" alt="Automatisation de systèmes" class="specialite-img">
-                        <h2>Automatisme</h2>
-                        <p>
-                            Transformez vos processus industriels grâce à des solutions d'automatisation
-                            <strong>intelligentes et connectées</strong>. Gagnez en efficacité et en productivité.
-                        </p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <div>
-                <div class="coordonnees">
-                    <h3>Nos Coordonnées</h3>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois
-                    </p>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                        +33 2 48 77 52 10
-                    </p>
-                    <p>
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                            <polyline points="22,6 12,13 2,6"></polyline>
-                        </svg>
-                        <a href="mailto:contact@erpac.fr">contact@erpac.fr</a>
-                    </p>
-                    <div id="map"></div>
-                    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-                    <script>
-                        var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 5);
-                        
-                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
-                        
-                        L.marker([46.94576575551033, 2.9562034680787654]).addTo(map)
-                            .bindPopup("<div style='display: flex; align-items: center; gap: 10px;'><img src='images/Logo.png' alt='ERPAC' style='width: 20px; height: 20px;'><b>ERPAC</b></div>")
-                            .openPopup();
-                    </script>
-                </div>
+            
+            <section id="specialite">
                 <div>
-                    <h2>Contactez-Nous</h2>
-                    <form id="contactForm">
-                        <div>
-                            <input type="text" name="name" placeholder="Votre nom" required>
-                        </div>
-                        <div>
-                            <input type="email" name="email" placeholder="Votre email" required>
-                        </div>
-                        <div>
-                            <textarea name="message" placeholder="Votre message" required></textarea>
-                        </div>
-                        <button type="submit">
-                            Envoyer votre message
-                        </button>
-                    </form>
+                    <div class="animate-fade-up delay-1">
+                        <a href="electronique.html">
+                            <img src="images/Carte2.jpg" alt="Carte électronique" class="specialite-img">
+                            <h2>Electronique</h2>
+                            <p>
+                                Des solutions <strong>sur-mesure</strong> pensées pour maximiser vos performances industrielles.
+                                Chacune de nos cartes est conçue pour répondre à vos besoins spécifiques.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="animate-fade-up delay-2">
+                        <a href="electrotechnique.html">
+                            <img src="images/ImageElectricien.jpg" alt="Armoire électrique" class="specialite-img">
+                            <h2>Electrotechnique</h2>
+                            <p>
+                                Des armoires électriques <strong>robustes et personnalisées</strong>, conçues pour répondre aux
+                                exigences les plus techniques de votre environnement industriel.
+                            </p>
+                        </a>
+                    </div>
+                    <div class="animate-fade-up delay-3">
+                        <a href="automatisme.html">
+                            <img src="images/Automate1.jpeg" alt="Automatisation de systèmes" class="specialite-img">
+                            <h2>Automatisme</h2>
+                            <p>
+                                Transformez vos processus industriels grâce à des solutions d'automatisation
+                                <strong>intelligentes et connectées</strong>. Gagnez en efficacité et en productivité.
+                            </p>
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
 
-    <footer>
-        <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
-    </footer>
-    <button id="scrollToTop" aria-label="Retour en haut de la page">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
-    </button>
-    <script src="js/menu.js"></script>
-    <script src="js/scroll.js"></script>
+            <section id="contact">
+                <div>
+                    <div class="coordonnees">
+                        <h3>Nos Coordonnées</h3>
+                        <p>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois
+                        </p>
+                        <p>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            +33 2 48 77 52 10
+                        </p>
+                        <p>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            <a href="mailto:contact@erpac.fr">contact@erpac.fr</a>
+                        </p>
+                        <div id="map"></div>
+                        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                        <script>
+                            var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 5);
+                            
+                            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
+                            
+                            L.marker([46.94576575551033, 2.9562034680787654]).addTo(map)
+                                .bindPopup("<div style='display: flex; align-items: center; gap: 10px;'><img src='images/Logo.png' alt='ERPAC' style='width: 20px; height: 20px;'><b>ERPAC</b></div>")
+                                .openPopup();
+                        </script>
+                    </div>
+                    <div>
+                        <h2>Contactez-Nous</h2>
+                        <form id="contactForm">
+                            <div>
+                                <input type="text" name="name" placeholder="Votre nom" required>
+                            </div>
+                            <div>
+                                <input type="email" name="email" placeholder="Votre email" required>
+                            </div>
+                            <div>
+                                <textarea name="message" placeholder="Votre message" required></textarea>
+                            </div>
+                            <button type="submit">
+                                Envoyer votre message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
+        </footer>
+        <button id="scrollToTop" aria-label="Retour en haut de la page">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M18 15l-6-6-6 6"/>
+            </svg>
+        </button>
+        <script src="js/menu.js"></script>
+        <script src="js/scroll.js"></script>
+    </div>
 </body>
 </html> 

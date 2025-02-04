@@ -954,3 +954,38 @@ nav a, .specialite-img, #specialite div div::before {
         padding: 0 1rem;
     }
 }
+
+.page-transition {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-out;
+}
+
+/* Transitions de sortie */
+.page-transition.fade-out-to-left {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.page-transition.fade-out-to-right {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
+/* Transition d'entrée */
+.page-transition.fade-in {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+/* Transitions spécifiques pour l'entrée selon la direction */
+.page-transition.fade-in-from-left {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.page-transition.fade-in-from-right {
+    opacity: 0;
+    transform: translateX(20px);
+}
+
