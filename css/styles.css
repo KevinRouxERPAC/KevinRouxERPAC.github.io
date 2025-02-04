@@ -148,7 +148,7 @@ section {
 }
 
 #accueil {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./images/Locaux_accueil.jpeg');
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/Locaux_accueil.jpeg');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -269,7 +269,7 @@ section {
     z-index: 1;
 }
 
-#contact > h2 {
+#contact h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
@@ -278,7 +278,7 @@ section {
     z-index: 2;
 }
 
-#contact > h2::after {
+#contact h2::after {
     content: '';
     display: block;
     width: 80px;
@@ -330,6 +330,14 @@ section {
     gap: 1rem;
 }
 
+/* Ajout des styles pour les icônes SVG */
+#contact .coordonnees p svg {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;  /* Pour éviter que l'icône ne se compresse */
+    stroke: currentColor;
+}
+
 #contact .coordonnees a {
     color: var(--white);
     text-decoration: none;
@@ -338,6 +346,11 @@ section {
 
 #contact .coordonnees a:hover {
     opacity: 0.8;
+}
+
+#contact .coordonnees #map {
+    width: 100%;
+    height: 300px;
 }
 
 /* Formulaire */
@@ -372,7 +385,7 @@ section {
 }
 
 #contactForm textarea {
-    min-height: 150px;
+    min-height: 200px;
     resize: vertical;
 }
 
@@ -459,5 +472,52 @@ nav a, .specialite-img, #specialite div div::before {
 
     nav.active .menu-toggle span:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -7px);
+    }
+}
+
+/* Bouton retour en haut */
+#scrollToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+#scrollToTop.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#scrollToTop:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+}
+
+#scrollToTop svg {
+    stroke: currentColor;
+}
+
+@media screen and (max-width: 768px) {
+    #scrollToTop {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
     }
 }
