@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERPAC - Solutions d'Automatisme</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <meta name="description" content="ERPAC - Expert en solutions d'automatisme industriel, programmation et intégration de systèmes automatisés">
+    <meta name="robots" content="index, follow">
+    <link rel="preload" as="image" href="images/Logo_complet.png">
+    <link rel="preload" as="image" href="images/Automate1.jpeg">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="index.html">
+                    <img src="images/Logo_complet.png" alt="ERPAC">
+                </a>
+            </div>
+            <ul role="menubar" aria-label="Menu principal">
+                <li><a role="menuitem" href="index.html">Accueil</a></li>
+                <li>
+                    <a role="menuitem" href="electronique.html">Electronique</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="electronique.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="electronique.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="electronique.html#programmation">Programmation électronique/informatique</a></li>
+                        <li><a role="menuitem" href="electronique.html#production">Production</a></li>
+                        <li><a role="menuitem" href="electronique.html#qualite">Contrôle qualité</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="electrotechnique.html">Electrotechnique</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="electrotechnique.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#production">Production</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#qualite">Contrôle qualité</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#installation">Installation/Mise en service</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="automatisme.html">Automatisme</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="automatisme.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="automatisme.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="automatisme.html#programmation">Programmation</a></li>
+                        <li><a role="menuitem" href="automatisme.html#production">Production</a></li>
+                        <li><a role="menuitem" href="automatisme.html#qualite">Contrôle qualité</a></li>
+                        <li><a role="menuitem" href="automatisme.html#installation">Installation/Mise en service</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="about.html">Qui sommes-nous ?</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="about.html#histoire">Notre histoire</a></li>
+                        <li><a role="menuitem" href="about.html#equipe">Notre équipe</a></li>
+                        <li><a role="menuitem" href="about.html#partenaires">Nos partenaires</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-automatisme">
+            <h1 class="animate-glow">Solutions d'Automatisme</h1>
+            <p class="animate-fade-up delay-1">Optimisez vos processus industriels avec nos solutions d'automatisation intelligentes</p>
+        </section>
+
+        <section id="etude" class="service-section">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Étude</h2>
+                    <p>Notre équipe analyse vos processus pour proposer les meilleures solutions d'automatisation :</p>
+                    <ul>
+                        <li>Analyse des processus existants</li>
+                        <li>Identification des points d'amélioration</li>
+                        <li>Étude de faisabilité</li>
+                        <li>Optimisation des flux de production</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.lecoindesentrepreneurs.fr/wp-content/uploads/2021/08/10-choses-a-savoir-sur-letude-de-marche.png" alt="Étude d'automatisme">
+                </div>
+            </div>
+        </section>
+
+        <section id="conception" class="service-section">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <h2>Conception</h2>
+                    <p>Nous concevons des systèmes automatisés adaptés à vos besoins :</p>
+                    <ul>
+                        <li>Architecture des systèmes</li>
+                        <li>Choix des composants</li>
+                        <li>Conception des interfaces</li>
+                        <li>Plans d'implantation</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.sef-formation.info/wp-content/uploads/sites/19/2017/01/m580-1024x566.jpg" alt="Conception d'automatisme">
+                </div>
+            </div>
+        </section>
+
+        <section id="programmation" class="service-section">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Programmation</h2>
+                    <p>Développement de programmes adaptés à vos équipements :</p>
+                    <ul>
+                        <li>Programmation d'automates</li>
+                        <li>Interfaces homme-machine</li>
+                        <li>Supervision SCADA</li>
+                        <li>Communication industrielle</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://atr-robotique.fr/wp-content/uploads/2017/05/Codesys.jpg" alt="Programmation d'automatisme">
+                </div>
+            </div>
+        </section>
+
+        <section id="production" class="service-section">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <h2>Production</h2>
+                    <p>Mise en œuvre des solutions d'automatisation :</p>
+                    <ul>
+                        <li>Assemblage des systèmes</li>
+                        <li>Intégration des composants</li>
+                        <li>Tests unitaires</li>
+                        <li>Validation des fonctionnalités</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.seia-electronique.fr/wp-content/uploads/2023/06/SEIA-Electronique-reparation-dautomates-industriels-automates.jpg" alt="Production d'automatisme">
+                </div>
+            </div>
+        </section>
+
+        <section id="qualite" class="service-section">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Contrôle Qualité</h2>
+                    <p>Validation complète des systèmes automatisés :</p>
+                    <ul>
+                        <li>Tests fonctionnels</li>
+                        <li>Validation des sécurités</li>
+                        <li>Contrôle des performances</li>
+                        <li>Documentation technique</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.automation-sense.com/medias/images/ecs-scada-flsmidth.jpg" alt="Contrôle qualité automatisme">
+                </div>
+            </div>
+        </section>
+
+        <section id="installation" class="service-section">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <h2>Installation et Mise en Service</h2>
+                    <p>Déploiement et configuration sur site :</p>
+                    <ul>
+                        <li>Installation des équipements</li>
+                        <li>Paramétrage des systèmes</li>
+                        <li>Formation des opérateurs</li>
+                        <li>Support technique</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.cemhefelectricite.fr/ressources/images/f2981b88ae29-1_e0b6.jpg" alt="Installation d'automatisme">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div>
+                <div class="coordonnees">
+                    <h3>Nos Coordonnées</h3>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        +33 2 48 77 52 10
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <a href="mailto:contact@erpac.fr">contact@erpac.fr</a>
+                    </p>
+                    <div id="map"></div>
+                    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                    <script>
+                        var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 5);
+                        
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
+                        
+                        L.marker([46.94576575551033, 2.9562034680787654]).addTo(map)
+                            .bindPopup("<div style='display: flex; align-items: center; gap: 10px;'><img src='images/Logo.png' alt='ERPAC' style='width: 20px; height: 20px;'><b>ERPAC</b></div>")
+                            .openPopup();
+                    </script>
+                </div>
+                <div>
+                    <h2>Contactez-Nous</h2>
+                    <form id="contactForm">
+                        <div>
+                            <input type="text" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div>
+                            <textarea name="message" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit">
+                            Envoyer votre message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
+    </footer>
+
+    <button id="scrollToTop" aria-label="Retour en haut de la page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="js/menu.js"></script>
+    <script src="js/scroll.js"></script>
+</body>
+</html> 

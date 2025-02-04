@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERPAC - Solutions Électrotechniques</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <meta name="description" content="ERPAC - Expert en solutions électrotechniques, conception d'armoires électriques et installations industrielles">
+    <meta name="robots" content="index, follow">
+    <link rel="preload" as="image" href="images/Logo_complet.png">
+    <link rel="preload" as="image" href="images/ImageElectricien.jpg">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div>
+                <a href="index.html">
+                    <img src="images/Logo_complet.png" alt="ERPAC">
+                </a>
+            </div>
+            <ul role="menubar" aria-label="Menu principal">
+                <li><a role="menuitem" href="index.html">Accueil</a></li>
+                <li>
+                    <a role="menuitem" href="electronique.html">Electronique</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="electronique.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="electronique.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="electronique.html#programmation">Programmation électronique/informatique</a></li>
+                        <li><a role="menuitem" href="electronique.html#production">Production</a></li>
+                        <li><a role="menuitem" href="electronique.html#qualite">Contrôle qualité</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="electrotechnique.html">Electrotechnique</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="electrotechnique.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#production">Production</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#qualite">Contrôle qualité</a></li>
+                        <li><a role="menuitem" href="electrotechnique.html#installation">Installation/Mise en service</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="automatisme.html">Automatisme</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="automatisme.html#etude">Etude</a></li>
+                        <li><a role="menuitem" href="automatisme.html#conception">Conception</a></li>
+                        <li><a role="menuitem" href="automatisme.html#programmation">Programmation</a></li>
+                        <li><a role="menuitem" href="automatisme.html#production">Production</a></li>
+                        <li><a role="menuitem" href="automatisme.html#qualite">Contrôle qualité</a></li>
+                        <li><a role="menuitem" href="automatisme.html#installation">Installation/Mise en service</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a role="menuitem" href="about.html">Qui sommes-nous ?</a>
+                    <ul role="menu" aria-label="Sous-menu">
+                        <li><a role="menuitem" href="about.html#histoire">Notre histoire</a></li>
+                        <li><a role="menuitem" href="about.html#equipe">Notre équipe</a></li>
+                        <li><a role="menuitem" href="about.html#partenaires">Nos partenaires</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-electrotechnique">
+            <h1 class="animate-glow">Solutions Électrotechniques</h1>
+            <p class="animate-fade-up delay-1">Conception et réalisation d'armoires électriques sur-mesure pour l'industrie</p>
+        </section>
+
+        <section id="etude" class="service-section">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Étude</h2>
+                    <p>Notre bureau d'études analyse vos besoins pour concevoir la solution électrotechnique adaptée :</p>
+                    <ul>
+                        <li>Analyse des besoins spécifiques</li>
+                        <li>Étude de conformité aux normes</li>
+                        <li>Dimensionnement des installations</li>
+                        <li>Optimisation énergétique</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.dynamique-mag.com/wp-content/uploads/9f854e4b89e21810f7dd5c7f3c99eb64.jpg" alt="Étude électrotechnique">
+                </div>
+            </div>
+        </section>
+
+        <section id="conception" class="service-section">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <h2>Conception</h2>
+                    <p>Nous concevons des armoires électriques répondant aux normes en vigueur :</p>
+                    <ul>
+                        <li>Schémas électriques détaillés</li>
+                        <li>Conception d'armoires sur-mesure</li>
+                        <li>Plans d'implantation</li>
+                        <li>Documentation technique complète</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://scietech.fr/wp-content/uploads/2021/04/schC3A9ma-electrique-5942299.jpg" alt="Conception d'armoire électrique">
+                </div>
+            </div>
+        </section>
+
+        <section id="production" class="service-section">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Production</h2>
+                    <p>Fabrication et assemblage d'armoires électriques industrielles :</p>
+                    <ul>
+                        <li>Câblage selon les normes</li>
+                        <li>Assemblage de composants</li>
+                        <li>Tests de conformité</li>
+                        <li>Contrôle qualité rigoureux</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.formation-industrie.bzh/images/medias/Electrotechnique_UIMM-PLERIN-2022-081.jpg" alt="Production d'armoire électrique">
+                </div>
+            </div>
+        </section>
+
+        <section id="qualite" class="service-section">
+            <div class="service-content reverse">
+                <div class="service-text">
+                    <h2>Contrôle Qualité</h2>
+                    <p>Vérification approfondie de chaque installation :</p>
+                    <ul>
+                        <li>Tests de fonctionnement</li>
+                        <li>Mesures électriques</li>
+                        <li>Vérification des sécurités</li>
+                        <li>Certification de conformité</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.afpi-acmformation.com/sites/default/files/styles/w1920_extra_wide/public/media/images/Electricit%C3%A9.png?itok=f7krTBtG" alt="Contrôle qualité électrotechnique">
+                </div>
+            </div>
+        </section>
+
+        <section id="installation" class="service-section">
+            <div class="service-content">
+                <div class="service-text">
+                    <h2>Installation et Mise en Service</h2>
+                    <p>Installation professionnelle et mise en service sécurisée :</p>
+                    <ul>
+                        <li>Installation sur site</li>
+                        <li>Raccordement des équipements</li>
+                        <li>Tests en conditions réelles</li>
+                        <li>Formation des utilisateurs</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="https://www.obat.fr/blog/wp-content/uploads/2022/01/location-coffret-de-chantier.jpg" alt="Installation électrique">
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div>
+                <div class="coordonnees">
+                    <h3>Nos Coordonnées</h3>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        +33 2 48 77 52 10
+                    </p>
+                    <p>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <a href="mailto:contact@erpac.fr">contact@erpac.fr</a>
+                    </p>
+                    <div id="map"></div>
+                    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+                    <script>
+                        var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 5);
+                        
+                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; OpenStreetMap contributors'}).addTo(map);
+                        
+                        L.marker([46.94576575551033, 2.9562034680787654]).addTo(map)
+                            .bindPopup("<div style='display: flex; align-items: center; gap: 10px;'><img src='images/Logo.png' alt='ERPAC' style='width: 20px; height: 20px;'><b>ERPAC</b></div>")
+                            .openPopup();
+                    </script>
+                </div>
+                <div>
+                    <h2>Contactez-Nous</h2>
+                    <form id="contactForm">
+                        <div>
+                            <input type="text" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div>
+                            <textarea name="message" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit">
+                            Envoyer votre message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
+    </footer>
+
+    <button id="scrollToTop" aria-label="Retour en haut de la page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
+
+    <script src="js/menu.js"></script>
+    <script src="js/scroll.js"></script>
+</body>
+</html> 
