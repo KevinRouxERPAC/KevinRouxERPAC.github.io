@@ -386,7 +386,9 @@ section {
 
 #contactForm textarea {
     min-height: 200px;
-    resize: vertical;
+    font-family: 'Arial', sans-serif;
+    resize: none;
+    
 }
 
 #contactForm button {

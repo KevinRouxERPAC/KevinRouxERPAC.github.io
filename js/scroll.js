@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Afficher/masquer le bouton en fonction du défilement
     window.addEventListener('scroll', function() {
-        if (window.pageYOffset > 300) {
+        if (window.scrollY > 300) {
             scrollToTopButton.classList.add('visible');
         } else {
             scrollToTopButton.classList.remove('visible');
