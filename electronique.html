@@ -72,8 +72,58 @@
     <div class="page-transition">
         <main>
             <section id="hero" class="hero-electronique">
-                <h1 class="animate-glow">Solutions Électroniques</h1>
-                <p class="animate-fade-up delay-1">De l'étude à la production, nous concevons des cartes électroniques sur-mesure</p>
+                <div class="hero-content">
+                    <h1 class="animate-glow">Solutions Électroniques</h1>
+                    <p class="animate-fade-up delay-1">Expertise en conception et développement de cartes électroniques sur-mesure</p>
+                    <div class="hero-features">
+                        <div class="feature">
+                            <div class="feature-icon">⚡</div>
+                            <span>Conception innovante</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🔧</div>
+                            <span>Production optimisée</span>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">✓</div>
+                            <span>Qualité garantie</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="services-grid">
+                <div class="services-container">
+                    <article class="service-card" onclick="location.href='#etude'">
+                        <div class="service-icon">📋</div>
+                        <h3>Étude</h3>
+                        <p>Analyse approfondie de vos besoins et conception de solutions adaptées</p>
+                    </article>
+                    
+                    <article class="service-card" onclick="location.href='#conception'">
+                        <div class="service-icon">💡</div>
+                        <h3>Conception</h3>
+                        <p>Développement de cartes électroniques personnalisées</p>
+                    </article>
+                    
+                    <article class="service-card" onclick="location.href='#programmation'">
+                        <div class="service-icon">💻</div>
+                        <h3>Programmation</h3>
+                        <p>Développement de firmware et logiciels embarqués</p>
+                    </article>
+                    
+                    <article class="service-card" onclick="location.href='#production'">
+                        <div class="service-icon">🔨</div>
+                        <h3>Production</h3>
+                        <p>Fabrication et assemblage de qualité</p>
+                    </article>
+                    
+                    <article class="service-card" onclick="location.href='#qualite'">
+                        <div class="service-icon">🎯</div>
+                        <h3>Contrôle Qualité</h3>
+                        <p>Tests rigoureux et validation complète</p>
+                    </article>
+                </div>
             </section>
 
             <section id="etude" class="service-section">
@@ -226,14 +276,12 @@
         <footer>
             <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
         </footer>
-        
-        <button id="scrollToTop" aria-label="Retour en haut de la page">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 15l-6-6-6 6"/>
-            </svg>
-        </button>
     </div>
-
+    <button id="scrollToTop" aria-label="Retour en haut de la page">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
     <script src="js/menu.js"></script>
     <script src="js/scroll.js"></script>
 </body>
