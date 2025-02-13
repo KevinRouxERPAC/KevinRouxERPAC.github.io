@@ -150,7 +150,7 @@ section {
 }
 
 #accueil {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/Locaux_accueil.jpeg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/Locaux_accueil.jpeg');
     background-size: cover;
     background-position: center;
     color: var(--white);
@@ -528,19 +528,19 @@ nav a, .specialite-img, #specialite div div::before {
 }
 
 .hero-electronique {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/Carte2.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/Carte2.jpg');
 }
 
 .hero-electrotechnique {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/ImageElectricien.jpg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/ImageElectricien.jpg');
 }
 
 .hero-automatisme {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/Automate1.jpeg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/Automate1.jpeg');
 }
 
 .hero-about {
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../images/Locaux_accueil.jpeg');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/Locaux_accueil.jpeg');
 }
 
 #hero h1 {
