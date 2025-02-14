@@ -40,7 +40,7 @@ nav {
     margin: 0 auto;
     padding: 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
 }
 
@@ -88,7 +88,7 @@ nav ul li {
 }
 
 nav ul ul {
-    display: none;
+    display:none;
     position: absolute;
     top: 100%;
     left: 0;
@@ -122,23 +122,6 @@ nav ul ul a:hover {
     background-color: rgba(0, 140, 58, 0.1);
 }
 
-/* Ajout d'une petite flèche pour indiquer les sous-menus */
-nav ul > li > a::before {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-left: 5px;
-}
-
-nav ul > li > a:not(:only-child)::before {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top: 4px solid currentColor;
-    vertical-align: middle;
-    margin-left: 5px;
-    position: relative;
-    top: -1px;
-}
 
 /* Sections principales */
 main {
@@ -170,13 +153,13 @@ section {
 }
 
 /* Section Spécialités */
-#specialite > div {
+#specialite {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
 }
 
-#specialite div div {
+#specialite div {
     position: relative;
     height: 300px;
     border-radius: 8px;
@@ -184,7 +167,7 @@ section {
     cursor: pointer;
 }
 
-#specialite div div::before {
+#specialite div::before {
     content: '';
     position: absolute;
     top: 0;
@@ -196,7 +179,7 @@ section {
     transition: all var(--transition-speed) var(--transition-timing);
 }
 
-#specialite div div:hover::before {
+#specialite div:hover::before {
     background: linear-gradient(rgba(0,140,58,0.8), rgba(0,140,58,0.95));
 }
 
@@ -210,11 +193,11 @@ section {
     transition: all var(--transition-speed) var(--transition-timing);
 }
 
-#specialite div div:hover .specialite-img {
+#specialite div:hover .specialite-img {
     transform: scale(1.1);
 }
 
-#specialite div div h2 {
+#specialite div h2 {
     position: absolute;
     bottom: 2rem;
     left: 2rem;
@@ -225,7 +208,7 @@ section {
     font-size: 2rem;
 }
 
-#specialite div div p {
+#specialite div p {
     position: absolute;
     top: 50%;
     left: 2rem;
@@ -238,18 +221,18 @@ section {
     line-height: 1.8;
 }
 
-#specialite div div:hover h2 {
+#specialite div:hover h2 {
     bottom: 75%;
     font-size: 1.8rem;
 }
 
-#specialite div div:hover p {
+#specialite div:hover p {
     transform: translateY(-50%);
     opacity: 1;
     padding-top: 1.5rem;
 }
 
-#specialite div div strong {
+#specialite div strong {
     color: var(--white);
 }
 
@@ -340,7 +323,7 @@ section {
     stroke: currentColor;
 }
 
-#contact .coordonnees a {
+#contact .coordonnees #lien {
     color: var(--white);
     text-decoration: none;
     transition: opacity 0.3s ease;
@@ -484,8 +467,8 @@ nav a, .specialite-img, #specialite div div::before {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     background-color: var(--primary-color);
     color: var(--white);
     border: none;
