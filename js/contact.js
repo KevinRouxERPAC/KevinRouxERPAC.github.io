@@ -26,7 +26,7 @@ contact.innerHTML = `
             </p>
             <div id="map"></div>
         </div>
-        <div>
+        <div display="none">
             <h2>Contactez-Nous</h2>
             <form id="contactForm">
                 <div>
