@@ -32,7 +32,7 @@ const menu = document.getElementById('menu');
 menu.innerHTML = `
     <div>
         <a href="index.html">
-            <img src="images/logos/logo erpac noir.png" alt="ERPAC">
+            <img src="images/logos/logo_complet.png" alt="ERPAC">
         </a>
     </div>
     <ul role="menubar" aria-label="Menu principal">
