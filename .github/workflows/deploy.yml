@@ -17,6 +17,6 @@ jobs:
         uses: pontago/lftp-deploy-action@master
         with:
           protocol: sftp
-          host: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
+          host: ftp.cluster021.hosting.ovh.net
+          username: erpacfx
           password: ${{ secrets.FTP_PASSWORD }}
