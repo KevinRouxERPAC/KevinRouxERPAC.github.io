@@ -6,19 +6,18 @@ on:
       - main
 
 jobs:
-  deploy:
+  web-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Vérification du dépôt
+      - name: Cloner le dépôt
         uses: actions/checkout@v4
 
       - name: Déploiement FTP
-        uses: pontago/lftp-deploy-action@master
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          protocol: sftp
-          host: ftp.cluster021.hosting.ovh.net
+          server: ftp.cluster021.hosting.ovh.net
           username: erpacfx
           password: ${{ secrets.FTP_PASSWORD }}
-          local_dir: ./
-          remote_dir: /www
+          local-dir: ./
+          server-dir: /www/
