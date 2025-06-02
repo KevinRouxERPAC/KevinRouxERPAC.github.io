@@ -1,0 +1,106 @@
+/* Styles pour les appareils mobiles */
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 1rem;
+    }
+
+    nav.active ul {
+        display: flex;
+    }
+
+    nav li {
+        margin: 0.5rem 0;
+    }
+
+    #specialite > div {
+        grid-template-columns: 1fr;
+    }
+
+    #contact > div {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    #accueil h1 {
+        font-size: 2rem;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    nav ul ul {
+        position: static;
+        box-shadow: none;
+        background: rgba(0, 0, 0, 0.05);
+        min-width: 100%;
+        padding: 0;
+        margin-top: 0.5rem;
+    }
+
+    nav ul ul li a {
+        padding-left: 2.5rem;
+    }
+
+    nav ul > li > a:not(:only-child)::before {
+        float: right;
+        margin-top: 0.5rem;
+        transform: rotate(-90deg);
+        transition: transform var(--transition-speed) var(--transition-timing);
+    }
+
+    nav ul > li > a:not(:only-child).active::before {
+        transform: rotate(0);
+    }
+
+    nav li:hover > ul {
+        display: none; /* Désactive l'affichage automatique au survol sur mobile */
+    }
+
+    nav ul ul.show {
+        display: block; /* Les sous-menus seront affichés via JavaScript */
+    }
+}
+
+/* Styles pour les tablettes */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    #specialite > div {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 2rem;
+    }
+
+    nav {
+        padding: 1rem 2rem;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+}
+
+/* Ajustements pour l'impression */
+@media print {
+    header {
+        position: static;
+    }
+
+    #contactForm {
+        display: none;
+    }
+
+    .expertise-img {
+        max-width: 300px;
+    }
+} 

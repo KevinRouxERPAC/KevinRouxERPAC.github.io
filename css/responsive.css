@@ -1,106 +1,89 @@
-/* Styles pour les appareils mobiles */
-@media screen and (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 1rem;
-    }
 
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: var(--white);
-        padding: 1rem;
-    }
+/* responsive.css — optimisations mobiles */
 
-    nav.active ul {
-        display: flex;
-    }
+@media screen and (max-width: 992px) {
+  #accueil h1 {
+    font-size: 3rem;
+  }
 
-    nav li {
-        margin: 0.5rem 0;
-    }
+  #accueil h2 {
+    font-size: 1.5rem;
+  }
 
-    #specialite > div {
-        grid-template-columns: 1fr;
-    }
+  .about-content,
+  .service-content {
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
 
-    #contact > div {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+  .about-image img,
+  .service-image img {
+    aspect-ratio: 16/9;
+    height: auto;
+  }
 
-    #accueil h1 {
-        font-size: 2rem;
-    }
+  #specialite {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
 
-    section {
-        padding: 2rem 1rem;
-    }
+  #specialite div {
+    height: auto;
+    min-height: 250px;
+  }
 
-    nav ul ul {
-        position: static;
-        box-shadow: none;
-        background: rgba(0, 0, 0, 0.05);
-        min-width: 100%;
-        padding: 0;
-        margin-top: 0.5rem;
-    }
+  #specialite div p {
+    display: none; /* réduire la surcharge visuelle sur mobile */
+  }
 
-    nav ul ul li a {
-        padding-left: 2.5rem;
-    }
+  .hero-content {
+    padding: 2rem 1rem;
+  }
 
-    nav ul > li > a:not(:only-child)::before {
-        float: right;
-        margin-top: 0.5rem;
-        transform: rotate(-90deg);
-        transition: transform var(--transition-speed) var(--transition-timing);
-    }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
 
-    nav ul > li > a:not(:only-child).active::before {
-        transform: rotate(0);
-    }
+  .hero-content p {
+    font-size: 1.1rem;
+  }
 
-    nav li:hover > ul {
-        display: none; /* Désactive l'affichage automatique au survol sur mobile */
-    }
+  .services-container {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1rem;
+  }
 
-    nav ul ul.show {
-        display: block; /* Les sous-menus seront affichés via JavaScript */
-    }
+  .service-card {
+    flex: 0 0 85vw;
+    scroll-snap-align: start;
+  }
+
+  .partners-carousel-container {
+    padding: 0 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
 }
 
-/* Styles pour les tablettes */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
-    #specialite > div {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 2rem;
-    }
+@media screen and (max-width: 480px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
-    nav {
-        padding: 1rem 2rem;
-    }
+  #scrollToTop {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+  }
 
-    nav ul {
-        gap: 1rem;
-    }
+  .partner img {
+    max-width: 140px !important;
+  }
 }
-
-/* Ajustements pour l'impression */
-@media print {
-    header {
-        position: static;
-    }
-
-    #contactForm {
-        display: none;
-    }
-
-    .expertise-img {
-        max-width: 300px;
-    }
-} 
