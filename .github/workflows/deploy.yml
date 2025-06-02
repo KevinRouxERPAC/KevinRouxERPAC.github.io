@@ -20,3 +20,5 @@ jobs:
           host: ftp.cluster021.hosting.ovh.net
           username: erpacfx
           password: ${{ secrets.FTP_PASSWORD }}
+          local_dir: ./
+          remote_dir: /www
