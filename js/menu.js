@@ -1,12 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Gestion du menu burger
     const nav = document.querySelector('nav');
-    const menuButton = document.createElement('button');
-    menuButton.classList.add('menu-toggle');
-    menuButton.setAttribute('aria-label', 'Menu principal');
-    menuButton.innerHTML = '<span></span><span></span><span></span>';
-    
-    nav.querySelector('div').appendChild(menuButton);
+    const menuButton = document.querySelector('.menu-toggle');
 
     menuButton.addEventListener('click', () => {
         nav.classList.toggle('active');
@@ -34,6 +29,11 @@ menu.innerHTML = `
         <a href="index.html">
             <img src="images/logos/logo_complet.png" alt="ERPAC">
         </a>
+        <button class="menu-toggle" aria-label="Menu principal">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </div>
     <ul role="menubar" aria-label="Menu principal">
         <li><a role="menuitem" href="index.html">Accueil</a></li>
