@@ -6,20 +6,6 @@ document.addEventListener('DOMContentLoaded', function() {
     menuButton.addEventListener('click', () => {
         nav.classList.toggle('active');
     });
-
-    // Gestion des sous-menus sur mobile
-    const subMenuLinks = document.querySelectorAll('nav ul > li > a:not(:only-child)');
-    
-    subMenuLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                this.classList.toggle('active');
-                const subMenu = this.nextElementSibling;
-                if(subMenu) subMenu.classList.toggle('show');
-            }
-        });
-    });
 }); 
 
 const menu = document.getElementById('menu');

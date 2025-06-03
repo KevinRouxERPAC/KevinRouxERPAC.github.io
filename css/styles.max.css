@@ -428,25 +428,6 @@ nav a, .specialite-img, #specialite div div::before {
     box-shadow: var(--box-shadow);
 }
 
-/* Style du bouton menu burger */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-.menu-toggle span {
-    display: block;
-    width: 25px;
-    height: 2px;
-    background-color: var(--text-color);
-    margin: 5px 0;
-    transition: all var(--transition-speed) var(--transition-timing);
-}
-
-
 /* Bouton retour en haut */
 #scrollToTop {
     position: fixed;
