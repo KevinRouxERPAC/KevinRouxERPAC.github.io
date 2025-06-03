@@ -98,6 +98,20 @@
     display: flex;
   }
 
+  nav ul ul {
+    display: none;
+    flex-direction: column;
+    padding-left: 1rem;
+  }
+
+  nav ul li a.active + ul, nav ul li ul.show {
+    display: flex;
+  }
+
+  nav ul > li {
+    margin-bottom: 0.5rem;
+  }
+
   nav img {
     max-height: 40px;
   }
