@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 e.preventDefault();
                 this.classList.toggle('active');
                 const subMenu = this.nextElementSibling;
-                subMenu.classList.toggle('show');
+                if(subMenu) subMenu.classList.toggle('show');
             }
         });
     });
