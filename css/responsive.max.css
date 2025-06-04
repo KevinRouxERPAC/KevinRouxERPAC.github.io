@@ -177,7 +177,11 @@
     }
 
     #hero h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+
+    .hero-content {
+        padding: 2rem 1rem;
     }
 
     #hero-electronique h1 {
