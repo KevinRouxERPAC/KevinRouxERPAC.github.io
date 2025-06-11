@@ -2,17 +2,7 @@ var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 5);
 
 const message = document.createElement('div');
 message.textContent = 'Maintenez Ctrl pour zoomer';
-message.style.position = 'absolute';
-message.style.top = '10px';
-message.style.left = '50%';
-message.style.transform = 'translateX(-50%)';
-message.style.backgroundColor = 'rgba(55, 55, 55, 0.7)';
-message.style.color = 'white';
-message.style.padding = '5px 10px';
-message.style.borderRadius = '5px';
-message.style.fontSize = '14px';
-message.style.zIndex = 1000;
-message.style.display = 'block';
+message.id = 'zoom-message';
 map.getContainer().appendChild(message);
 
 map.scrollWheelZoom.disable();
