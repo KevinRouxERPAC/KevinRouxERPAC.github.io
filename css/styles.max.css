@@ -751,6 +751,9 @@ nav a, .specialite-img, #specialite div div::before {
     display: flex;
     gap: 30px;
     transition: transform 0.5s ease;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .partner {

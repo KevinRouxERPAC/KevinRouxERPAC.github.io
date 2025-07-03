@@ -12,10 +12,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let position = 0;
     
     // Dupliquer les partenaires pour un défilement infini
-    partners.forEach(partner => {
-        const clone = partner.cloneNode(true);
-        track.appendChild(clone);
-    });
+    // partners.forEach(partner => {
+    //     const clone = partner.cloneNode(true);
+    //     track.appendChild(clone);
+    // });
 
     // Fonction pour déplacer le carousel
     function moveCarousel(direction) {
