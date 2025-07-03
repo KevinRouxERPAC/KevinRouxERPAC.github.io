@@ -782,11 +782,6 @@ nav a, .specialite-img, #specialite div div::before {
 }
 
 /* Styles spécifiques pour les logos des partenaires */
-.partner img[alt="SNCF"] {
-    width: 180px !important;
-    padding: 0.5rem !important;
-}
-
 .partner img[alt="AMADA"] {
     width: 200px !important;
     padding: 1rem !important;
@@ -795,11 +790,6 @@ nav a, .specialite-img, #specialite div div::before {
 .partner img[alt="Stromag"] {
     width: 160px !important;
     padding: 1.5rem !important;
-}
-
-.partner img[alt="Saur"] {
-    width: 140px !important;
-    padding: 1rem !important;
 }
 
 .partner:hover {
