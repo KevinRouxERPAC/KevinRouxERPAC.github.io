@@ -50,4 +50,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gestionnaires d'événements pour les boutons
     prevButton.addEventListener('click', () => moveCarousel('prev'));
     nextButton.addEventListener('click', () => moveCarousel('next'));
-}); 
+});

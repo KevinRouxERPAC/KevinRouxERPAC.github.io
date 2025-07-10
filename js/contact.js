@@ -38,4 +38,4 @@ contact.innerHTML = `
             </form>
         </div>
     </div>
-`;	
+`;
