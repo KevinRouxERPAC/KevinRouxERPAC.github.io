@@ -1,4 +1,4 @@
-var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 5);
+var map = L.map('map').setView([46.551894732692695, 2.439499449922733], 6);
 
 const message = document.createElement('div');
 message.textContent = 'Maintenez Ctrl pour zoomer';
