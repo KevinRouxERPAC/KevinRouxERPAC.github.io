@@ -784,17 +784,6 @@ nav a, .specialite-img, #specialite div div::before {
     transition: transform 0.3s ease;
 }
 
-/* Styles spécifiques pour les logos des partenaires */
-.partner img[alt="AMADA"] {
-    width: 200px !important;
-    padding: 1rem !important;
-}
-
-.partner img[alt="Stromag"] {
-    width: 160px !important;
-    padding: 1.5rem !important;
-}
-
 .partner:hover {
     transform: translateY(-5px);
 }
