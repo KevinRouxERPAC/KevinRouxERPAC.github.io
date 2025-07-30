@@ -1,6 +1,7 @@
 const contact = document.getElementById('contact');
 
 contact.innerHTML = `
+    <h2>Contactez-nous</h2>
     <div>
         <div class="coordonnees">
             <h3>Nos Coordonnées</h3>
@@ -13,29 +14,18 @@ contact.innerHTML = `
             </p>
             <p>
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
+                    <path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6z"/>
+                    <polyline points="22,6 12,13 2,6"/>
                 </svg>
                 <a id="lien" href="mailto:contact@erpac.fr">contact@erpac.fr</a>
             </p>
+            <p>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <a id="lien" href="tel:+33248740187">02 48 74 01 87</a>
+            </p>
             <div id="map"></div>
-        </div>
-        <div style="display:none">
-            <h2>Contactez-Nous</h2>
-            <form id="contactForm">
-                <div>
-                    <input type="text" name="name" placeholder="Votre nom" required>
-                </div>
-                <div>
-                    <input type="email" name="email" placeholder="Votre email" required>
-                </div>
-                <div>
-                    <textarea name="message" placeholder="Votre message" required></textarea>
-                </div>
-                <button type="submit">
-                    Envoyer votre message
-                </button>
-            </form>
         </div>
     </div>
 `;
