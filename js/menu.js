@@ -59,7 +59,6 @@ menu.innerHTML = `
             <ul role="menu" aria-label="Sous-menu">
                 <li><a role="menuitem" href="about.html#histoire">Notre histoire</a></li>
                 <li><a role="menuitem" href="about.html#equipe">Notre équipe</a></li>
-                <li><a role="menuitem" href="about.html#partenaires">Nos partenaires</a></li>
             </ul>
         </li>
     </ul>

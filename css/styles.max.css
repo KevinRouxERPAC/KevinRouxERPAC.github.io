@@ -596,6 +596,14 @@ nav a, .specialite-img, #specialite div div::before {
     transform: scale(1.05);
 }
 
+/* Sections Index */
+.index-section {
+    padding: 6rem 8rem;
+}
+
+.index-section:nth-child(even) {
+    background-color: var(--background-light);
+}
 
 
 /* Sections About */
