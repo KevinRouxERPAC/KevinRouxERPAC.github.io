@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Page non trouvée - ERPAC">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Page non trouvée - ERPAC</title>
+
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="preload" as="image" href="assets/images/logos/logo_complet.png">
+    <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
+    
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-code {
+            font-size: 8rem;
+            font-weight: bold;
+            color: #e74c3c;
+            margin: 0;
+            line-height: 1;
+        }
+        
+        .error-message {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin: 1rem 0 2rem 0;
+        }
+        
+        .error-description {
+            font-size: 1rem;
+            color: #7f8c8d;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+        
+        .error-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .btn-error {
+            background: #3498db;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-error:hover {
+            background: #2980b9;
+        }
+        
+        .btn-error.secondary {
+            background: #95a5a6;
+        }
+        
+        .btn-error.secondary:hover {
+            background: #7f8c8d;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav id="menu"></nav>
+    </header>
+
+    <main>
+        <div class="error-container">
+            <h1 class="error-code animate-glow">404</h1>
+            <h2 class="error-message animate-fade-up">Page non trouvée</h2>
+            <p class="error-description animate-fade-up delay-1">
+                Désolé, la page que vous recherchez n'existe pas ou a été déplacée. 
+                Vous pouvez retourner à l'accueil ou explorer nos services.
+            </p>
+            
+            <div class="error-actions animate-fade-up delay-2">
+                <a href="/" class="btn-error">
+                    🏠 Retour à l'accueil
+                </a>
+                <a href="/services/" class="btn-error secondary">
+                    📱 Nos services
+                </a>
+                <a href="/entreprise/a-propos.html" class="btn-error secondary">
+                    ℹ️ À propos
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer style="margin-top: auto;">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/images/logos/logo_complet.png" alt="ERPAC Logo" loading="lazy">
+            </div>
+            <div class="footer-info">
+                <p>&copy; 2024 ERPAC. Tous droits réservés.</p>
+                <p>Expert en électronique, électrotechnique et automatisme industriel</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/menu.js"></script>
+</body>
+</html>

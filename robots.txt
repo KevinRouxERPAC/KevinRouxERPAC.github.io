@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kevinrouxerpac.github.io/sitemap.xml
+
+# Disallow admin or private directories (if any exist in the future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all search engines to crawl the site
+# This is a public business website showcasing ERPAC's services
+
+# Crawl-delay: 1
