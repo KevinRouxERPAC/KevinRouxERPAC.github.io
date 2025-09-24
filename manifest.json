@@ -12,19 +12,19 @@
   "categories": ["business", "productivity", "technology"],
   "icons": [
     {
-      "src": "images/logos/logo_seul.png",
+      "src": "assets/images/logos/logo_seul.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "images/logos/logo_seul.png",
+      "src": "assets/images/logos/logo_seul.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "images/logos/logo_complet.png",
+      "src": "assets/images/logos/logo_complet.png",
       "sizes": "256x256",
       "type": "image/png",
       "purpose": "any"

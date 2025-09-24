@@ -1,5 +1,5 @@
 // Service Worker pour ERPAC - Version basique PWA
-const CACHE_NAME = 'erpac-cache-v1';
+const CACHE_NAME = 'erpac-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
