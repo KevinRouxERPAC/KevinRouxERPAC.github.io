@@ -1,17 +1,17 @@
 const footer = document.getElementById("footer");
 
 // Détection de la page actuelle pour ajuster les chemins
-const currentPath = window.location.pathname;
-const isInSubfolder = currentPath.includes('/services/') || currentPath.includes('/entreprise/') || currentPath.includes('/legal/');
-const basePath = isInSubfolder ? '../' : '';
+const footerCurrentPath = window.location.pathname;
+const footerIsInSubfolder = footerCurrentPath.includes('/services/') || footerCurrentPath.includes('/entreprise/') || footerCurrentPath.includes('/legal/');
+const footerBasePath = footerIsInSubfolder ? '../' : '';
 
 footer.innerHTML = `
     <div class="footer-content">
         <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
         <div class="footer-links">
-            <a href="${basePath}legal/mentions-legales.html">Mentions légales</a>
+            <a href="${footerBasePath}legal/mentions-legales.html">Mentions légales</a>
             <span class="separator">|</span>
-            <a href="${basePath}legal/politique-confidentialite.html">Politique de confidentialité</a>
+            <a href="${footerBasePath}legal/politique-confidentialite.html">Politique de confidentialité</a>
         </div>
     </div>
 `;

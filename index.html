@@ -26,7 +26,6 @@
     <link rel="preload" as="image" href="assets/images/logos/GENIALIS.png">
     <link rel="preload" as="image" href="assets/images/logos/IETS_SEPT_TOOLS.png">
     <link rel="preload" as="image" href="assets/images/logos/O_DE_LAURE.png">
-    <link rel="preload" as="image" href="assets/images/logos/logo_seul.png">
     <link rel="preload" as="image" href="assets/images/logos/SNCF.png">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
     <link rel="manifest" href="manifest.json">
@@ -186,9 +185,9 @@
     
     <!-- Service Worker Registration -->
     <script>
-        if ('serviceWorker' in navigator) {
+        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then((registration) => {
                         console.log('Service Worker enregistré avec succès:', registration.scope);
                     })
