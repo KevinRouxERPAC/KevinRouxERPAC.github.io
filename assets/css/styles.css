@@ -1097,3 +1097,15 @@ nav a, .specialite-img, #specialite div div::before {
         gap: 0.75rem;
     }
 }
+
+/* Paragraphe des spécialités */
+.specialites-intro {
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 800px;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    grid-column: 1 / -1;
+    width: 100%;
+}
