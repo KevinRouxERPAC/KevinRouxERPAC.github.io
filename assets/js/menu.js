@@ -29,14 +29,6 @@ menu.innerHTML = `
     <ul role="menubar" aria-label="Menu principal">
         <li><a role="menuitem" href="${basePath}index.html">Accueil</a></li>
         <li>
-            <a role="menuitem" href="${basePath}services/">Services</a>
-            <ul role="menu" aria-label="Sous-menu Services">
-                <li><a role="menuitem" href="${basePath}services/electronique.html">Électronique</a></li>
-                <li><a role="menuitem" href="${basePath}services/electrotechnique.html">Électrotechnique</a></li>
-                <li><a role="menuitem" href="${basePath}services/automatisme.html">Automatisme</a></li>
-            </ul>
-        </li>
-        <li>
             <a role="menuitem" href="${basePath}services/electronique.html">Électronique</a>
             <ul role="menu" aria-label="Sous-menu">
                 <li><a role="menuitem" href="${basePath}services/electronique.html#etude">Étude</a></li>

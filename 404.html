@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link rel="preload" as="image" href="assets/images/logos/logo_complet.png">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
     
@@ -87,15 +88,21 @@
             <h2 class="error-message animate-fade-up">Page non trouvée</h2>
             <p class="error-description animate-fade-up delay-1">
                 Désolé, la page que vous recherchez n'existe pas ou a été déplacée. 
-                Vous pouvez retourner à l'accueil ou explorer nos services.
+                Vous pouvez retourner à l'accueil ou découvrir nos domaines d'expertise.
             </p>
             
             <div class="error-actions animate-fade-up delay-2">
                 <a href="/" class="btn-error">
                     🏠 Retour à l'accueil
                 </a>
-                <a href="/services/" class="btn-error secondary">
-                    📱 Nos services
+                <a href="/services/electronique.html" class="btn-error secondary">
+                    � Électronique
+                </a>
+                <a href="/services/electrotechnique.html" class="btn-error secondary">
+                    ⚡ Électrotechnique
+                </a>
+                <a href="/services/automatisme.html" class="btn-error secondary">
+                    🤖 Automatisme
                 </a>
                 <a href="/entreprise/a-propos.html" class="btn-error secondary">
                     ℹ️ À propos
@@ -104,18 +111,20 @@
         </div>
     </main>
 
-    <footer style="margin-top: auto;">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="assets/images/logos/logo_complet.png" alt="ERPAC Logo" loading="lazy">
-            </div>
-            <div class="footer-info">
-                <p>&copy; 2024 ERPAC. Tous droits réservés.</p>
-                <p>Expert en électronique, électrotechnique et automatisme industriel</p>
-            </div>
-        </div>
-    </footer>
+    <footer id="footer"></footer>
+
+    <button id="scrollToTop" aria-label="Retour en haut de la page">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 15l-6-6-6 6"/>
+        </svg>
+    </button>
 
     <script src="assets/js/menu.js"></script>
+    <script src="assets/js/scroll.js"></script>
+    <script src="assets/js/contact.js"></script>
+    <script src="assets/js/footer.js"></script>
+    <script src="assets/js/enhancements.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/js/map.js"></script>
 </body>
 </html>
