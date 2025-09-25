@@ -8,7 +8,6 @@ const urlsToCache = [
   '/services/automatisme.html',
   '/entreprise/a-propos.html',
   '/legal/mentions-legales.html',
-  '/legal/politique-confidentialite.html',
   '/assets/css/styles.css',
   '/assets/css/responsive.css',
   '/assets/css/animations.css',

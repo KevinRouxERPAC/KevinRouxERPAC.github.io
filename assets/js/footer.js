@@ -8,7 +8,8 @@ const footerBasePath = footerIsInSubfolder ? '../' : '';
 footer.innerHTML = `
     <div class="footer-content">
         <p>&copy; 2025 ERPAC. Tous droits réservés.</p>
-        <span class="separator">|</span>
-        <a href="${footerBasePath}legal/mentions-legales.html">Mentions légales</a>
+        <div class="footer-links">
+            <a href="${footerBasePath}legal/mentions-legales.html">Mentions légales</a>
+        </div>
     </div>
 `;
