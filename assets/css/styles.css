@@ -281,14 +281,16 @@ section {
     margin: 1rem auto;
 }
 
-#contact > div {
+/* Container principal pour la disposition en 2 colonnes */
+#contact .contact-container {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     position: relative;
     z-index: 2;
+    align-items: stretch;
 }
 
 /* Coordonnées */
@@ -332,28 +334,93 @@ section {
     stroke: currentColor;
 }
 
-#contact .coordonnees #lien {
+#contact .coordonnees a {
     color: var(--white);
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 0.25rem 0;
 }
 
 #contact .coordonnees a:hover {
     opacity: 0.8;
+    transform: translateX(2px);
 }
 
-#contact .coordonnees #map #zoom-message {
+#contact .coordonnees a:focus {
+    outline: 2px solid var(--white);
+    outline-offset: 2px;
+}
+
+/* Styles pour les horaires */
+#contact .coordonnees .horaires {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#contact .coordonnees .horaires h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* Container pour la carte */
+#contact .map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    height: 100%;
+}
+
+#contact .map-container #map {
+    height: 100%;
+    min-height: 450px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Crédits de la carte */
+#contact .map-credit {
+    text-align: center;
+    margin: 0;
+    opacity: 0.8;
+}
+
+#contact .map-credit small {
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+#contact .map-credit a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+#contact .map-credit a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+#contact .map-container #map #zoom-message {
     position: absolute;
     top: 10px;
     left: 50%;
     transform: translate(-50%);
-    background-color: rgba(55, 55, 55, 0.7);
+    background-color: rgba(55, 55, 55, 0.9);
     color: white;
-    padding: 5px 10px;
+    padding: 8px 12px;
     border-radius: 5px;
     font-size: 14px;
     z-index: 1000;
     display: block;
+    transition: opacity 0.3s ease;
 }
 
 /* Formulaire */
@@ -1035,14 +1102,7 @@ nav a, .specialite-img, #specialite div div::before {
     gap: 2rem;
 }
 
-/* Map responsive */
-#map {
-    height: clamp(120px, 25vh, 220px);
-    width: 100%;
-    border-radius: 10px;
-    box-shadow: var(--box-shadow);
-    overflow: hidden;
-}
+/* Map responsive - style général supprimé pour éviter les conflits */
 
 /* Styles pour les footers avec liens légaux */
 .footer-content {

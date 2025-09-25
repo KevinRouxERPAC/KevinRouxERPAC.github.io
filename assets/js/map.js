@@ -13,7 +13,7 @@ try {
         throw new Error('Map element not found');
     }
 
-    var map = L.map('map').setView([48.551894732692695, 2.439499449922733], 5);
+    var map = L.map('map').setView([46.94576575551033, 2.9562034680787654], 5);
 
     const message = document.createElement('div');
     message.textContent = 'Maintenez Ctrl + molette pour zoomer';

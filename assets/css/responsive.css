@@ -269,8 +269,19 @@
         padding: 4rem 1.5rem;
     }
 
-    #contact .coordonnees #map #zoom-message {
+    #contact .map-container #map #zoom-message {
         display: none;
+    }
+
+    /* Contact en deux colonnes responsive */
+    #contact .contact-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    #contact .map-container #map {
+        height: 350px;
+        min-height: 300px;
     }
 }
 
@@ -315,8 +326,14 @@
 
 /* Retour à la mise en page desktop */
 @media screen and (min-width: 992px) {
-    #contact>div {
-        /* grid-template-columns: 1fr 2fr;  Retour à deux colonnes sur desktop */
+    #contact .contact-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+    
+    #contact .map-container #map {
+        height: 100%;
+        min-height: 450px;
     }
 }
 
