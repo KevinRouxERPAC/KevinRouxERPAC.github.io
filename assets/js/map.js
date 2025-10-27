@@ -93,7 +93,7 @@ try {
         .addTo(map)
         .bindPopup(`
             <div style='display: flex; align-items: center; gap: 10px; font-family: Arial, sans-serif; min-width: 200px;'>
-                <img src='/assets/images/logos/logo_seul.png' alt='ERPAC' style='width: 30px; height: 30px; flex-shrink: 0;' onerror='this.style.display="none"'>
+                <img src='assets/images/logos/logo_seul.png' alt='ERPAC' style='width: 30px; height: 30px; flex-shrink: 0;' onerror='this.style.display="none"'>
                 <div style='flex: 1;'>
                     <strong style='color: #008C3A; font-size: 16px;'>ERPAC</strong><br>
                     <small style='color: #666; line-height: 1.3;'>Électronique - Électrotechnique - Automatisme</small>
