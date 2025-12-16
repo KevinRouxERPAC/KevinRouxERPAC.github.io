@@ -1,5 +1,10 @@
 // Initialisation sécurisée de la carte
 try {
+    // Détection du chemin de base pour les assets
+    const currentPath = window.location.pathname;
+    const isInSubfolder = currentPath.includes('/services/') || currentPath.includes('/entreprise/') || currentPath.includes('/legal/');
+    const basePath = isInSubfolder ? '../' : '';
+
     // Vérifier si Leaflet est disponible
     if (typeof L === 'undefined') {
         console.error('Leaflet library not loaded');
@@ -93,7 +98,7 @@ try {
         .addTo(map)
         .bindPopup(`
             <div style='display: flex; align-items: center; gap: 10px; font-family: Arial, sans-serif; min-width: 200px;'>
-                <img src='assets/images/logos/logo_seul.png' alt='ERPAC' style='width: 30px; height: 30px; flex-shrink: 0;' onerror='this.style.display="none"'>
+                <img src='${basePath}assets/images/logos/logo_seul.png' alt='ERPAC' style='width: 30px; height: 30px; flex-shrink: 0;' onerror='this.style.display="none"'>
                 <div style='flex: 1;'>
                     <strong style='color: #008C3A; font-size: 16px;'>ERPAC</strong><br>
                     <small style='color: #666; line-height: 1.3;'>Électronique - Électrotechnique - Automatisme</small>

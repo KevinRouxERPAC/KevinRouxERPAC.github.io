@@ -8,10 +8,9 @@
     
     <!-- En-têtes de sécurité -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
 
     <title>ERPAC - Concepteur de cartes électroniques</title>
 
@@ -36,8 +35,10 @@
     <link rel="preload" as="image" href="assets/images/logos/IETS_SEPT_TOOLS.png">
     <link rel="preload" as="image" href="assets/images/logos/O_DE_LAURE.png">
     <link rel="preload" as="image" href="assets/images/logos/SNCF.png">
+    <link rel="preload" as="image" href="assets/images/logos/CMD.png">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
-    <link rel="manifest" href="manifest.json">
+    <!-- PWA manifest (HTTPS only) -->
+    <link id="manifest-link" rel="manifest" href="manifest.json">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -168,6 +169,11 @@
                                 <img src="assets/images/logos/O_DE_LAURE.png" alt="O de Laure">
                             </a>
                         </div>
+                        <div class="partner">
+                            <a href="https://cmdgears.com/" target="_blank" rel="noopener noreferrer">
+                                <img src="assets/images/logos/CMD.png" alt="CMD">
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <button class="carousel-arrow next" aria-label="Suivant">
@@ -200,8 +206,14 @@
             crossorigin="anonymous"></script>
     <script src="assets/js/map.js"></script>
     
-    <!-- Service Worker Registration -->
+    <!-- Service Worker Registration (HTTPS only) -->
     <script>
+        // Désactiver manifest en développement local
+        if (window.location.protocol === 'file:') {
+            const manifestLink = document.getElementById('manifest-link');
+            if (manifestLink) manifestLink.remove();
+        }
+
         if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('./sw.js')
