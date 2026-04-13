@@ -38,26 +38,29 @@
     <link rel="preload" as="image" href="assets/images/logos/CMD.png">
     <link rel="preload" as="image" href="assets/images/logos/BOURGES_PLUS.png">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
-    <!-- PWA manifest (HTTPS only) -->
-    <link id="manifest-link" rel="manifest" href="manifest.json">
+    <!-- PWA manifest injecté en HTTPS uniquement (voir script en fin de body) -->
+    
+    <link rel="canonical" href="https://kevinrouxerpac.github.io/">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://kevinrouxerpac.github.io/">
     <meta property="og:title" content="ERPAC - Concepteur de cartes électroniques">
     <meta property="og:description" content="Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
     <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kevinrouxerpac.github.io/">
-    <meta property="twitter:title" content="ERPAC - Concepteur de cartes électroniques">
-    <meta property="twitter:description" content="Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
-    <meta property="twitter:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://kevinrouxerpac.github.io/">
+    <meta name="twitter:title" content="ERPAC - Concepteur de cartes électroniques">
+    <meta name="twitter:description" content="Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
+    <meta name="twitter:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
 </head>
 
 
 <body>
+    <a href="#accueil" class="skip-link">Aller au contenu principal</a>
     <header>
         <nav id="menu"></nav>
     </header>
@@ -212,24 +215,18 @@
             crossorigin="anonymous"></script>
     <script src="assets/js/map.js"></script>
     
-    <!-- Service Worker Registration (HTTPS only) -->
     <script>
-        // Désactiver manifest en développement local
-        if (window.location.protocol === 'file:') {
-            const manifestLink = document.getElementById('manifest-link');
-            if (manifestLink) manifestLink.remove();
-        }
+        if (window.location.protocol === 'https:') {
+            var link = document.createElement('link');
+            link.rel = 'manifest';
+            link.href = 'manifest.json';
+            document.head.appendChild(link);
 
-        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((registration) => {
-                        console.log('Service Worker enregistré avec succès:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('Échec de l\'enregistrement du Service Worker:', error);
-                    });
-            });
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('./sw.js');
+                });
+            }
         }
     </script>
 

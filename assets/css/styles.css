@@ -10,8 +10,27 @@
     --transition-speed: 0.3s;
     --transition-timing: ease;
     --box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    --text-secondary: #666666;
     --container-padding: clamp(1rem, 5vw, 2rem);
     --card-width: clamp(250px, 25vw, 280px);
+}
+
+/* Lien d'accès rapide au contenu (accessibilité) */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    background: var(--primary-color);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    z-index: 10000;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 0 0 5px 0;
+}
+
+.skip-link:focus {
+    top: 0;
 }
 
 /* Styles généraux */
@@ -497,7 +516,7 @@ footer {
 }
 
 /* Optimiser les transitions */
-nav a, .specialite-img, #specialite div div::before {
+nav a, .specialite-img, #specialite div::before {
     transition: all var(--transition-speed) var(--transition-timing);
 }
 
@@ -988,6 +1007,12 @@ nav a, .specialite-img, #specialite div div::before {
     display: none; /* Pour Chrome, Safari et Opera */
 }
 
+a.service-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .service-card {
     flex: 0 0 var(--card-width);
     padding: clamp(1rem, 2vw, 1.5rem);
@@ -1095,6 +1120,41 @@ nav a, .specialite-img, #specialite div div::before {
     aspect-ratio: 16/9;  /* Maintient un ratio constant */
 }
 
+/* Section Adhésion - logos partenaires électroniques */
+#adhesion .service-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#adhesion .service-text h2 {
+    margin-bottom: 1.5rem;
+}
+
+.adhesion-images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+}
+
+.adhesion-images img {
+    max-height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.9;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+}
+
+.adhesion-images img:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: translateY(-4px);
+}
+
 /* Contact section responsive */
 #contact > div {
     grid-template-columns: 1fr;  /* Une colonne sur mobile */
@@ -1165,6 +1225,33 @@ nav a, .specialite-img, #specialite div div::before {
         font-size: 0.8rem;
         padding: 0.5rem 1rem;
     }
+}
+
+/* Conteneur de texte centré (mentions légales, etc.) */
+.about-text-centered {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.legal-list {
+    margin: 0.5rem 0 0.5rem 1.5rem;
+    line-height: 1.8;
+}
+
+.legal-nav {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.legal-nav-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.legal-nav-link:hover {
+    text-decoration: underline;
 }
 
 /* Paragraphe des spécialités */

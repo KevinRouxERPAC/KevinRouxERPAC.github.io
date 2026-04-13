@@ -8,6 +8,7 @@
     
     <!-- En-têtes de sécurité -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
@@ -17,15 +18,14 @@
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="stylesheet" href="../assets/css/responsive.css">
     <link rel="stylesheet" href="../assets/css/animations.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-          crossorigin="anonymous" />
     <link rel="preload" as="image" href="../assets/images/logos/logo_complet.png">
     <link rel="icon" href="../assets/images/logos/logo_seul.png" type="image/png">
-    <link rel="manifest" href="../manifest.json">
+    
+    <link rel="canonical" href="https://kevinrouxerpac.github.io/legal/mentions-legales.html">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://kevinrouxerpac.github.io/legal/mentions-legales.html">
     <meta property="og:title" content="Mentions légales - ERPAC">
     <meta property="og:description" content="Informations juridiques et légales de l'entreprise ERPAC">
@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    <a href="#hero" class="skip-link">Aller au contenu principal</a>
     <header>
         <nav id="menu"></nav>
     </header>
@@ -46,7 +47,7 @@
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Éditeur du site</h2>
                 <p>
                     <strong>ERPAC</strong><br>
@@ -62,59 +63,69 @@
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Hébergement</h2>
                 <p>
-                    Site hébergé par <strong>OVH SAS</strong><br>
-                    2 Rue Kellermann, 59100 Roubaix, France<br>
-                    Téléphone : 1007 (depuis la France) • Email : support@ovh.com<br>
-                    Site web : <a href="https://www.ovh.com" target="_blank" rel="noopener">www.ovh.com</a>
+                    Site hébergé par <strong>GitHub, Inc.</strong> (filiale de Microsoft Corporation)<br>
+                    88 Colin P Kelly Jr St, San Francisco, CA 94107, États-Unis<br>
+                    Service : GitHub Pages<br>
+                    Site web : <a href="https://pages.github.com" target="_blank" rel="noopener">pages.github.com</a><br>
+                    Politique de confidentialité : <a href="https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">Déclaration de confidentialité GitHub</a>
                 </p>
             </div>
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Confidentialité et données personnelles</h2>
                 <p><strong>Responsable de traitement :</strong> ERPAC (SAS) – 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois – contact@erpac.fr – +33 (0)2 48 77 52 10.</p>
                 <p><strong>Données traitées :</strong> uniquement les informations que vous nous transmettez volontairement (nom, prénom, société, email, téléphone, message) et les journaux techniques nécessaires à la sécurité (adresse IP, user-agent).</p>
                 <p><strong>Finalités et bases légales :</strong> répondre à vos demandes (intérêt légitime / mesures précontractuelles) et assurer la sécurité et le bon fonctionnement du site (intérêt légitime).</p>
                 <p><strong>Durées de conservation :</strong> échanges commerciaux jusqu'à 3 ans après le dernier contact actif ; logs techniques jusqu'à 12 mois selon les obligations de sécurité.</p>
                 <p><strong>Vos droits :</strong> accès, rectification, effacement, limitation, opposition et portabilité (lorsque applicable). Exercice des droits : contact@erpac.fr ou courrier au siège.</p>
+                <p><strong>Réclamation auprès de la CNIL :</strong> Vous avez le droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) – <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> – si vous estimez que le traitement de vos données à caractère personnel ne respecte pas le Règlement Général sur la Protection des Données (RGPD).</p>
+                <p><strong>Transferts internationaux :</strong> Le site étant hébergé par GitHub, Inc. (États-Unis), des données techniques (adresse IP, journaux d'accès) peuvent être transférées vers les États-Unis. GitHub, Inc. s'appuie sur les Clauses Contractuelles Types (CCT) approuvées par la Commission européenne pour encadrer ces transferts, conformément aux articles 46 et suivants du RGPD.</p>
             </div>
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Cookies et traceurs</h2>
-                <p>Ce site vitrine n'utilise aucun cookie ni traceur. Aucune mesure d'audience ni publicité n'est mise en place. Aucune donnée n'est déposée sur votre appareil.</p>
+                <p>Ce site vitrine ne dépose aucun cookie sur votre appareil et ne recourt à aucun outil de mesure d'audience ni à aucune publicité ciblée.</p>
+                <p>Toutefois, afin d'assurer son fonctionnement, le site fait appel à des ressources hébergées par des tiers :</p>
+                <ul class="legal-list">
+                    <li><strong>unpkg.com</strong> (CDN) : chargement de la bibliothèque cartographique Leaflet (JavaScript et CSS). Votre adresse IP est transmise aux serveurs de ce CDN lors du chargement de la page.</li>
+                    <li><strong>OpenStreetMap</strong> (<code>*.tile.openstreetmap.org</code>) : affichage de la carte de localisation. Votre adresse IP est transmise aux serveurs d'OpenStreetMap Foundation lors du chargement des tuiles cartographiques.</li>
+                    <li><strong>GitHub, Inc.</strong> (hébergeur) : en tant qu'hébergeur du site, GitHub peut collecter des journaux d'accès techniques (adresse IP, navigateur, pages visitées) à des fins de sécurité et de fiabilité.</li>
+                </ul>
+                <p>Ces transmissions sont strictement nécessaires au bon fonctionnement du site et n'ont pas de finalité publicitaire ou de profilage. Aucune donnée n'est vendue ni partagée à des fins commerciales par ces tiers dans ce contexte.</p>
             </div>
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Propriété intellectuelle</h2>
                 <p>L'ensemble des contenus du site (textes, images, vidéos, logos, marques, mises en page) sont la propriété d'ERPAC ou utilisés avec autorisation. Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, des contenus est interdite sans l'autorisation préalable et écrite d'ERPAC.</p>
             </div>
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Limitation de responsabilité</h2>
                 <p>ERPAC s'efforce de maintenir l'exactitude des informations de ce site, mais ne peut garantir leur exhaustivité. L'utilisation des informations se fait sous votre responsabilité.</p>
             </div>
         </section>
 
         <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="about-text about-text-centered">
                 <h2>Crédits</h2>
                 <p><strong>Conception et développement :</strong> ERPAC</p>
-                <p><strong>Dernière mise à jour :</strong> Septembre 2025</p>
+                <p><strong>Dernière mise à jour :</strong> Avril 2026</p>
                 
-                <div style="margin-top: 2rem; text-align: center;">
+                <div class="legal-nav">
                     <p>
-                        <a href="/" style="color: var(--primary-color); text-decoration: none; margin: 0 1rem;">← Retour à l'accueil</a> |
-                        <a href="../entreprise/a-propos.html" style="color: var(--primary-color); text-decoration: none; margin: 0 1rem;">À propos</a>
+                        <a href="../index.html" class="legal-nav-link">← Retour à l'accueil</a> |
+                        <a href="../entreprise/a-propos.html" class="legal-nav-link">À propos</a>
                     </p>
                 </div>
             </div>
@@ -131,13 +142,8 @@
 
     <script src="../assets/js/menu.js"></script>
     <script src="../assets/js/scroll.js"></script>
-    <script src="../assets/js/contact.js"></script>
     <script src="../assets/js/footer.js"></script>
     <script src="../assets/js/enhancements.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"></script>
-    <script src="../assets/js/map.js"></script>
 
 
 </body>

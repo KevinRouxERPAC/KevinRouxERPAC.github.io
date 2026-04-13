@@ -68,32 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Amélioration de la navigation clavier
     document.addEventListener('keydown', function(e) {
-        // Échapper pour fermer les menus
         if (e.key === 'Escape') {
             const activeNav = document.querySelector('nav.active');
             if (activeNav) {
                 activeNav.classList.remove('active');
-            }
-        }
-        
-        // Tab trap pour l'accessibilité
-        if (e.key === 'Tab') {
-            const focusableElements = document.querySelectorAll(
-                'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
-            );
-            const firstFocusable = focusableElements[0];
-            const lastFocusable = focusableElements[focusableElements.length - 1];
-            
-            if (e.shiftKey) {
-                if (document.activeElement === firstFocusable) {
-                    lastFocusable.focus();
-                    e.preventDefault();
-                }
-            } else {
-                if (document.activeElement === lastFocusable) {
-                    firstFocusable.focus();
-                    e.preventDefault();
-                }
             }
         }
     });
@@ -126,11 +104,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Service Worker registration pour le cache (PWA préparation)
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            // Prêt pour une future implémentation PWA
-            console.log('Service Worker support detected');
-        });
-    }
 });

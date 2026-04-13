@@ -11,7 +11,7 @@ const urlsToCache = [
   '/assets/css/styles.css',
   '/assets/css/responsive.css',
   '/assets/css/animations.css',
-  '/assets/css/footer-legal.css',
+  '/assets/js/footer.js',
   '/assets/js/menu.js',
   '/assets/js/scroll.js',
   '/assets/js/carousel.js',

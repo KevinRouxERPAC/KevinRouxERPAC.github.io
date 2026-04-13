@@ -18,9 +18,6 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-          crossorigin="anonymous" />
     <link rel="preload" as="image" href="assets/images/logos/logo_complet.png">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
     
@@ -64,7 +61,7 @@
         }
         
         .btn-error {
-            background: #3498db;
+            background: #008C3A;
             color: white;
             padding: 12px 24px;
             text-decoration: none;
@@ -73,25 +70,26 @@
         }
         
         .btn-error:hover {
-            background: #2980b9;
+            background: #006c2d;
         }
         
         .btn-error.secondary {
-            background: #95a5a6;
+            background: #00a945;
         }
         
         .btn-error.secondary:hover {
-            background: #7f8c8d;
+            background: #008C3A;
         }
     </style>
 </head>
 
 <body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <header>
         <nav id="menu"></nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <div class="error-container">
             <h1 class="error-code animate-glow">404</h1>
             <h2 class="error-message animate-fade-up">Page non trouvée</h2>
@@ -130,12 +128,7 @@
 
     <script src="assets/js/menu.js"></script>
     <script src="assets/js/scroll.js"></script>
-    <script src="assets/js/scroll.js"></script>
     <script src="assets/js/footer.js"></script>
     <script src="assets/js/enhancements.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"></script>
-    <script src="assets/js/map.js"></script>
 </body>
 </html>

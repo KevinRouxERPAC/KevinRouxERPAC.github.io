@@ -32,7 +32,7 @@
   ],
   "screenshots": [
     {
-      "src": "images/locaux/Locaux.jpg",
+      "src": "assets/images/locaux/Locaux.jpg",
       "sizes": "1280x720",
       "type": "image/jpeg",
       "label": "Nos locaux ERPAC"

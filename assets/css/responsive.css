@@ -252,15 +252,6 @@
         padding: 1.25rem;
     }
 
-    .service-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .service-content.reverse {
-        direction: ltr;
-    }
-
     .service-text {
         order: -1;
     }
