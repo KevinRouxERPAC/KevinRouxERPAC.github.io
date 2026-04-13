@@ -184,14 +184,6 @@
         padding: 2rem 1rem;
     }
 
-    #hero-electronique h1 {
-        font-size: 3rem;
-    }
-
-    #hero-electronique p {
-        font-size: 1.2rem;
-    }
-
     .service-content {
         grid-template-columns: 1fr;
         gap: 2rem;

@@ -82,6 +82,10 @@ nav ul {
     gap: 2rem;
 }
 
+.menu-toggle {
+    display: none;
+}
+
 nav a {
     text-decoration: none;
     color: var(--text-color);
@@ -262,6 +266,14 @@ section {
 
 #specialite div strong {
     color: var(--white);
+}
+
+#specialite a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 
 /* Section Contact */
@@ -686,7 +698,7 @@ nav a, .specialite-img, #specialite div::before {
 
 /* Sections Index */
 .index-section {
-    padding: 6rem 8rem;
+    padding: 6rem clamp(2rem, 5vw, 8rem);
 }
 
 .index-section:nth-child(even) {
@@ -696,7 +708,7 @@ nav a, .specialite-img, #specialite div::before {
 
 /* Sections About */
 .about-section {
-    padding: 6rem 8rem;
+    padding: 6rem clamp(2rem, 5vw, 8rem);
 }
 
 .about-section:nth-child(even) {
@@ -990,6 +1002,11 @@ nav a, .specialite-img, #specialite div::before {
 
 .feature-icon {
     font-size: 1.5rem;
+    color: var(--white);
+}
+
+.feature span {
+    color: var(--white);
 }
 
 .services-container {
@@ -1122,6 +1139,7 @@ a.service-card {
 
 /* Section Adhésion - logos partenaires électroniques */
 #adhesion .service-content {
+    display: block;
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -1129,6 +1147,11 @@ a.service-card {
 
 #adhesion .service-text h2 {
     margin-bottom: 1.5rem;
+}
+
+#adhesion .service-text h2::after {
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .adhesion-images {
@@ -1155,14 +1178,6 @@ a.service-card {
     transform: translateY(-4px);
 }
 
-/* Contact section responsive */
-#contact > div {
-    grid-template-columns: 1fr;  /* Une colonne sur mobile */
-    max-width: min(1200px, 90%);
-    gap: 2rem;
-}
-
-/* Map responsive - style général supprimé pour éviter les conflits */
 
 /* Styles pour les footers avec liens légaux */
 .footer-content {
