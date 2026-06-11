@@ -85,7 +85,7 @@ try {
         }
         .erpac-popup .leaflet-popup-content {
             margin: 12px 16px;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
         }
         .erpac-popup .leaflet-popup-tip {
             background: white;
@@ -97,8 +97,8 @@ try {
     const erpacMarker = L.marker([46.94576575551033, 2.9562034680787654])
         .addTo(map)
         .bindPopup(`
-            <div style='display: flex; align-items: center; gap: 10px; font-family: Arial, sans-serif; min-width: 200px;'>
-                <img src='${basePath}assets/images/logos/logo_seul.png' alt='ERPAC' style='width: 30px; height: 30px; flex-shrink: 0;' onerror='this.style.display="none"'>
+            <div style='display: flex; align-items: center; gap: 10px; font-family: "Inter", system-ui, sans-serif; min-width: 200px;'>
+                <img src='${basePath}assets/images/logos/logo_seul.png' alt='' style='width: 30px; height: 30px; flex-shrink: 0;'>
                 <div style='flex: 1;'>
                     <strong style='color: #008C3A; font-size: 16px;'>ERPAC</strong><br>
                     <small style='color: #666; line-height: 1.3;'>Électronique - Électrotechnique - Automatisme</small>

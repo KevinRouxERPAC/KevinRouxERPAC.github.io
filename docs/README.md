@@ -103,40 +103,36 @@ Le site est configuré comme une PWA avec :
 
 ### Optimisations SEO
 - ✅ Meta tags Open Graph et Twitter Cards
-- ✅ Sitemap XML généré automatiquement
+- ✅ Sitemap XML (maintenu manuellement : penser à mettre à jour `lastmod`)
 - ✅ Robots.txt configuré
 - ✅ Structure HTML sémantique
-- ✅ Images optimisées (WebP, lazy loading)
 - ✅ URLs propres et descriptives
 
 ### Performance
-- ✅ Préchargement des images critiques
-- ✅ CSS et JS minifiés
-- ✅ Images responsives et optimisées
-- ✅ Lazy loading des images
+- ✅ Préchargement des polices et de l'image hero
+- ✅ Images optimisées (recompression JPEG/WebP, ≤ 1920px de large)
+- ✅ Lazy loading (`loading="lazy"`) sur toutes les images sous la ligne de flottaison
+- ✅ Cache navigateur configuré côté OVH via `.htaccess`
 
 ## 🚀 Déploiement
 
-Le site est automatiquement déployé via **GitHub Pages** à chaque push sur la branche principale.
+Le site est déployé sur **deux cibles** :
 
-### Workflow de déploiement
-1. Push vers le repository
-2. GitHub Actions execute le workflow de déploiement
-3. Le site est publié sur `https://kevinrouxerpac.github.io`
+1. **GitHub Pages** : publication automatique de la branche `main` sur
+   `https://kevinrouxerpac.github.io` (domaine canonique actuel — canonical,
+   sitemap et Open Graph pointent vers cette URL).
+2. **OVH (FTP)** : le workflow [`deploy.yml`](../.github/workflows/deploy.yml)
+   pousse le contenu vers l'hébergement OVH à chaque push sur `main`
+   (futur `erpac.fr`). ⚠️ Tant que le domaine OVH n'est pas en service,
+   le canonical reste sur GitHub Pages. Le jour où `erpac.fr` devient le
+   domaine de production, mettre à jour : `canonical`, `og:url`, `og:image`,
+   `sitemap.xml` et `robots.txt`.
 
 ## 🤝 Contribution
 
 ### Branches
-- `main` : Version de production
-- `develop` : Version de développement
-- `feature/*` : Nouvelles fonctionnalités
-
-### Process de contribution
-1. Fork du projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit des changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+- `main` : version de production (déclenche les déploiements)
+- branches de travail (ex. `refonte-design-v2`) fusionnées via Pull Request
 
 ## 📞 Contact
 
@@ -175,47 +171,30 @@ Voir [CHANGELOG.md](CHANGELOG.md) pour l'historique détaillé des modifications
 - Try-catch pour gestion d'erreurs
 
 #### 4. En-têtes de sécurité HTTP
-Implémentés via meta tags `<head>` :
+Deux niveaux complémentaires :
+
+1. **`.htaccess` (hébergement OVH)** — les vrais en-têtes HTTP : CSP complète,
+   `X-Frame-Options` / `frame-ancestors` (protection clickjacking, possible
+   **uniquement** en en-tête HTTP, jamais en meta), `X-Content-Type-Options`,
+   `Referrer-Policy`, `Permissions-Policy`, HSTS, redirection HTTPS,
+   cache navigateur et compression.
+2. **Meta tags dans le `<head>`** — filet de sécurité pour GitHub Pages
+   (qui ne permet pas d'en-têtes personnalisés) :
 ```html
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
 ```
 
+> `script-src` n'autorise **plus** `'unsafe-inline'` : tout le JavaScript est dans des fichiers externes (aucun script inline ni gestionnaire `onclick`/`onerror`). `style-src` conserve `'unsafe-inline'` (attributs `style` et styles injectés par map.js).
+>
+> Les meta `X-Frame-Options`, `X-XSS-Protection` (obsolète) et `frame-ancestors` ont été retirés des pages : ignorés par les navigateurs en balise meta, ils sont gérés dans `.htaccess`.
+>
 > Les polices étant auto-hébergées, `font-src` reste sur `'self'` : aucune connexion à un service de polices tiers (ex. Google Fonts).
 
 #### 5. Subresource Integrity (SRI) pour Leaflet
 - Vérification d'intégrité des ressources externes CDN
 - Protection contre la compromission des dépendances
-
-### ⚠️ Recommandations importantes
-
-#### 1. En-têtes HTTP supplémentaires (Cloudflare)
-**Limitation GitHub Pages** : Les en-têtes HTTP personnalisés ne sont pas supportés nativement.
-
-**Solutions** :
-1. **Cloudflare Pages (RECOMMANDÉ)** :
-   - Gratuit et facile à configurer
-   - Ajouter votre domaine à Cloudflare
-   - Configurer les règles avec le fichier `_headers`
-
-2. **Alternative actuelle** : Meta tags implémentés (fonctionnels mais moins optimaux)
-
-#### 2. Content Security Policy (CSP)
-**CSP actuelle** (pages avec carte) :
-```
-default-src 'self';
-script-src 'self' 'unsafe-inline' https://unpkg.com;
-style-src 'self' 'unsafe-inline' https://unpkg.com;
-img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com;
-font-src 'self';
-connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com;
-frame-ancestors 'none';
-```
-
-**Note** : La CSP autorise `unsafe-inline` car le site utilise des scripts inline. Pour une sécurité maximale, envisager la migration vers des fichiers JS externes.
 
 ### 🔍 Checklist de sécurité
 
@@ -223,10 +202,10 @@ frame-ancestors 'none';
 - [x] Service Worker activé uniquement en HTTPS
 - [x] Pas d'injection de code utilisateur
 - [x] Pas d'eval() ou fonctions dangereuses
-- [x] En-têtes de sécurité HTTP (meta tags)
+- [x] CSP sans `unsafe-inline` pour les scripts
+- [x] En-têtes HTTP natifs via `.htaccess` (OVH)
 - [x] SRI pour Leaflet
-- [ ] **En-têtes HTTP natifs** (recommandé avec Cloudflare)
-- [ ] **HSTS Preload** (optionnel)
+- [ ] **HSTS Preload** (optionnel, quand erpac.fr sera en service)
 
 ### 📊 Niveau de sécurité actuel
 
