@@ -1,5 +1,5 @@
 // Service Worker pour ERPAC - Version basique PWA
-const CACHE_NAME = 'erpac-cache-v2';
+const CACHE_NAME = 'erpac-cache-v3';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,15 +8,11 @@ const urlsToCache = [
   '/services/automatisme.html',
   '/entreprise/a-propos.html',
   '/legal/mentions-legales.html',
-  '/assets/css/styles.css',
-  '/assets/css/responsive.css',
-  '/assets/css/animations.css',
-  '/assets/js/footer.js',
+  '/assets/css/site.css',
   '/assets/js/menu.js',
-  '/assets/js/scroll.js',
-  '/assets/js/carousel.js',
+  '/assets/js/footer.js',
   '/assets/js/contact.js',
-  '/assets/js/enhancements.js',
+  '/assets/js/ui.js',
   '/assets/js/map.js',
   '/assets/images/logos/logo_complet.png',
   '/assets/images/logos/logo_seul.png',

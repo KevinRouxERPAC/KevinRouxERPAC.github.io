@@ -3,192 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ERPAC - Expert en solutions électrotechniques, conception d'armoires électriques et installations industrielles">
+    <meta name="description" content="ERPAC - Expert en solutions électrotechniques : conception d'armoires électriques sur-mesure et installations industrielles.">
     <meta name="robots" content="index, follow">
-    
-    <!-- En-têtes de sécurité -->
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com https://fonts.googleapis.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 
     <title>ERPAC - Solutions Électrotechniques</title>
 
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/site.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
           crossorigin="anonymous" />
-    <link rel="preload" as="image" href="../assets/images/logos/logo_complet.png"> 
-    <link rel="preload" as="image" href="../assets/images/logos/logo_seul.png">
     <link rel="preload" as="image" href="../assets/images/menus/Electrotechnique.jpg">
-    <link rel="preload" as="image" href="../assets/images/Electrotechnique/Electrotechnique_Etude.jpg">
-    <link rel="preload" as="image" href="../assets/images/Electrotechnique/Electrotechnique_Conception.jpg">
-    <link rel="preload" as="image" href="../assets/images/Electrotechnique/Electrotechnique_Production.jpg">
-    <link rel="preload" as="image" href="../assets/images/Electrotechnique/Electrotechnique_Qualité.jpg">
-    <link rel="preload" as="image" href="../assets/images/Electrotechnique/Electrotechnique_Installation.jpg">
     <link rel="icon" href="../assets/images/logos/logo_seul.png" type="image/png">
     <link rel="canonical" href="https://kevinrouxerpac.github.io/services/electrotechnique.html">
-    
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:url" content="https://kevinrouxerpac.github.io/services/electrotechnique.html">
     <meta property="og:title" content="ERPAC - Solutions Électrotechniques">
-    <meta property="og:description" content="Expert en solutions électrotechniques, conception d'armoires électriques et installations industrielles">
+    <meta property="og:description" content="Conception et réalisation d'armoires électriques sur-mesure pour l'industrie.">
     <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/menus/Electrotechnique.jpg">
 </head>
 
 <body>
-    <a href="#hero" class="skip-link">Aller au contenu principal</a>
-    <header>
-        <nav id="menu"></nav>
-    </header>
+    <a href="#quicknav" class="skip-link">Aller au contenu principal</a>
+    <header id="header"><nav id="menu"></nav></header>
 
     <main>
-        <section id="hero" class="hero-electrotechnique">
-            <div class="hero-content">
-                <h1 class="animate-glow">Solutions Électrotechniques</h1>
-                <p class="animate-fade-up delay-1">Conception et réalisation d'armoires électriques sur-mesure pour l'industrie</p>
+        <section class="page-hero hero-electrotechnique" id="hero">
+            <div class="wrap">
+                <nav class="breadcrumb" aria-label="Fil d'ariane">
+                    <a href="../index.html">Accueil</a><span>/</span>Électrotechnique
+                </nav>
+                <span class="eyebrow light">Pôle 02 · Électrotechnique</span>
+                <h1>Solutions électrotechniques</h1>
+                <p>Conception et réalisation d'armoires électriques sur-mesure pour l'industrie, dans le respect des normes en vigueur.</p>
                 <div class="hero-features">
-                    <div class="feature">
-                        <div class="feature-icon">⚡</div>
-                        <span>Solutions sur-mesure</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🛡️</div>
-                        <span>Normes respectées</span>
-                    </div>
-                    <div class="feature">
-                        <div class="feature-icon">🔧</div>
-                        <span>Installation complète</span>
-                    </div>
+                    <span class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Solutions sur-mesure</span>
+                    <span class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Normes respectées</span>
+                    <span class="feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Installation complète</span>
                 </div>
             </div>
         </section>
 
-        <section id="services-grid">
-            <div class="services-container">
-                <a href="#etude" class="service-card">
-                    <div class="service-icon" aria-hidden="true">📋</div>
-                    <h3>Étude</h3>
-                    <p>Analyse approfondie et dimensionnement de vos installations</p>
-                </a>
-                
-                <a href="#conception" class="service-card">
-                    <div class="service-icon" aria-hidden="true">💡</div>
-                    <h3>Conception</h3>
-                    <p>Conception d'armoires électriques selon les normes</p>
-                </a>
-                
-                <a href="#production" class="service-card">
-                    <div class="service-icon" aria-hidden="true">🔨</div>
-                    <h3>Production</h3>
-                    <p>Fabrication et assemblage d'armoires électriques</p>
-                </a>
-                
-                <a href="#qualite" class="service-card">
-                    <div class="service-icon" aria-hidden="true">🎯</div>
-                    <h3>Contrôle Qualité</h3>
-                    <p>Tests et validation des installations</p>
-                </a>
-
-                <a href="#installation" class="service-card">
-                    <div class="service-icon" aria-hidden="true">🔌</div>
-                    <h3>Installation/Mise en service</h3>
-                    <p>Installation sur site et mise en service</p>
-                </a>
+        <section class="block" id="quicknav">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Nos prestations</span>
+                    <h2>De l'étude à la mise en service</h2>
+                    <p>Cinq étapes pour des armoires et installations électriques fiables, conçues et fabriquées sur-mesure.</p>
+                </div>
+                <div class="quicknav reveal">
+                    <a href="#etude"><div class="qn-num">01</div><h3>Étude</h3><p>Analyse et dimensionnement de vos installations</p></a>
+                    <a href="#conception"><div class="qn-num">02</div><h3>Conception</h3><p>Armoires électriques selon les normes</p></a>
+                    <a href="#production"><div class="qn-num">03</div><h3>Production</h3><p>Fabrication et assemblage d'armoires</p></a>
+                    <a href="#qualite"><div class="qn-num">04</div><h3>Contrôle qualité</h3><p>Tests et validation des installations</p></a>
+                    <a href="#installation"><div class="qn-num">05</div><h3>Installation</h3><p>Installation sur site et mise en service</p></a>
+                </div>
             </div>
         </section>
 
-        <section id="etude" class="service-section">
-            <div class="service-content">
-                <div class="service-text">
+        <section class="srow" id="etude">
+            <div class="wrap srow-inner reveal">
+                <div class="srow-text">
+                    <span class="srow-tag">01 — Étude</span>
                     <h2>Étude</h2>
                     <p>Notre bureau d'études analyse vos besoins pour concevoir la solution électrotechnique adaptée :</p>
-                    <ul>
-                        <li>Analyse des besoins spécifiques</li>
-                        <li>Étude de conformité aux normes</li>
-                        <li>Dimensionnement des installations</li>
-                        <li>Optimisation énergétique</li>
+                    <ul class="checklist">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Analyse des besoins spécifiques</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Étude de conformité aux normes</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Dimensionnement des installations</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Optimisation énergétique</li>
                     </ul>
                 </div>
-                <div class="service-image">
-                    <img src="../assets/images/Electrotechnique/Electrotechnique_Etude.jpg" alt="Étude électrotechnique">
-                </div>
+                <div class="srow-media"><img src="../assets/images/Electrotechnique/Electrotechnique_Etude.jpg" alt="Étude électrotechnique"></div>
             </div>
         </section>
 
-        <section id="conception" class="service-section">
-            <div class="service-content reverse">
-                <div class="service-text">
+        <section class="srow reverse" id="conception">
+            <div class="wrap srow-inner reveal">
+                <div class="srow-media"><img src="../assets/images/Electrotechnique/Electrotechnique_Conception.jpg" alt="Conception d'armoire électrique"></div>
+                <div class="srow-text">
+                    <span class="srow-tag">02 — Conception</span>
                     <h2>Conception</h2>
                     <p>Nous concevons des armoires électriques répondant aux normes en vigueur :</p>
-                    <ul>
-                        <li>Schémas électriques détaillés</li>
-                        <li>Conception d'armoires sur-mesure</li>
-                        <li>Plans d'implantation</li>
-                        <li>Documentation technique complète</li>
+                    <ul class="checklist">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Schémas électriques détaillés</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Conception d'armoires sur-mesure</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Plans d'implantation</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Documentation technique complète</li>
                     </ul>
-                </div>
-                <div class="service-image">
-                    <img src="../assets/images/Electrotechnique/Electrotechnique_Conception.jpg" alt="Conception d'armoire électrique">
                 </div>
             </div>
         </section>
 
-        <section id="production" class="service-section">
-            <div class="service-content">
-                <div class="service-text">
+        <section class="srow" id="production">
+            <div class="wrap srow-inner reveal">
+                <div class="srow-text">
+                    <span class="srow-tag">03 — Production</span>
                     <h2>Production</h2>
                     <p>Fabrication et assemblage d'armoires électriques industrielles :</p>
-                    <ul>
-                        <li>Câblage selon les normes</li>
-                        <li>Assemblage de composants</li>
-                        <li>Tests de conformité</li>
-                        <li>Contrôle qualité rigoureux</li>
+                    <ul class="checklist">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Câblage selon les normes</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Assemblage de composants</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tests de conformité</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Contrôle qualité rigoureux</li>
                     </ul>
                 </div>
-                <div class="service-image">
-                    <img src="../assets/images/Electrotechnique/Electrotechnique_Production.jpg" alt="Production d'armoire électrique">
-                </div>
+                <div class="srow-media"><img src="../assets/images/Electrotechnique/Electrotechnique_Production.jpg" alt="Production d'armoire électrique"></div>
             </div>
         </section>
 
-        <section id="qualite" class="service-section">
-            <div class="service-content reverse">
-                <div class="service-text">
-                    <h2>Contrôle Qualité</h2>
+        <section class="srow reverse" id="qualite">
+            <div class="wrap srow-inner reveal">
+                <div class="srow-media"><img src="../assets/images/Electrotechnique/Electrotechnique_Qualité.jpg" alt="Contrôle qualité électrotechnique"></div>
+                <div class="srow-text">
+                    <span class="srow-tag">04 — Contrôle qualité</span>
+                    <h2>Contrôle qualité</h2>
                     <p>Vérification approfondie de chaque installation :</p>
-                    <ul>
-                        <li>Tests de fonctionnement</li>
-                        <li>Mesures électriques</li>
-                        <li>Vérification des sécurités</li>
-                        <li>Certification de conformité</li>
+                    <ul class="checklist">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tests de fonctionnement</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Mesures électriques</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Vérification des sécurités</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Certification de conformité</li>
                     </ul>
-                </div>
-                <div class="service-image">
-                    <img src="../assets/images/Electrotechnique/Electrotechnique_Qualité.jpg" alt="Contrôle qualité électrotechnique">
                 </div>
             </div>
         </section>
 
-        <section id="installation" class="service-section">
-            <div class="service-content">
-                <div class="service-text">
-                    <h2>Installation et Mise en Service</h2>
+        <section class="srow" id="installation">
+            <div class="wrap srow-inner reveal">
+                <div class="srow-text">
+                    <span class="srow-tag">05 — Installation</span>
+                    <h2>Installation et mise en service</h2>
                     <p>Installation professionnelle et mise en service sécurisée :</p>
-                    <ul>
-                        <li>Installation sur site</li>
-                        <li>Raccordement des équipements</li>
-                        <li>Tests en conditions réelles</li>
-                        <li>Formation des utilisateurs</li>
+                    <ul class="checklist">
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Installation sur site</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Raccordement des équipements</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Tests en conditions réelles</li>
+                        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Formation des utilisateurs</li>
                     </ul>
                 </div>
-                <div class="service-image">
-                    <img src="../assets/images/Electrotechnique/Electrotechnique_Installation.jpg" alt="Installation électrique">
+                <div class="srow-media"><img src="../assets/images/Electrotechnique/Electrotechnique_Installation.jpg" alt="Installation électrique"></div>
+            </div>
+        </section>
+
+        <section class="block cta-band">
+            <div class="wrap">
+                <div class="cta reveal">
+                    <h2>Besoin d'une armoire électrique sur-mesure&nbsp;?</h2>
+                    <p>De l'étude à la mise en service sur votre site, ERPAC réalise vos installations électrotechniques dans le respect des normes.</p>
+                    <div class="cta-actions">
+                        <a href="mailto:contact@erpac.fr" class="btn btn-light">Demander un devis</a>
+                        <a href="tel:+33248775210" class="btn btn-outline">02 48 77 52 10</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -197,22 +172,17 @@
     </main>
 
     <footer id="footer"></footer>
-    
     <button id="scrollToTop" aria-label="Retour en haut de la page">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
     <script src="../assets/js/menu.js"></script>
-    <script src="../assets/js/scroll.js"></script>
     <script src="../assets/js/contact.js"></script>
     <script src="../assets/js/footer.js"></script>
-    <script src="../assets/js/enhancements.js"></script>
+    <script src="../assets/js/ui.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
             crossorigin="anonymous"></script>
     <script src="../assets/js/map.js"></script>
-
 </body>
 </html>

@@ -5,130 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page non trouvée - ERPAC">
     <meta name="robots" content="noindex, nofollow">
-    
-    <!-- En-têtes de sécurité -->
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 
     <title>Page non trouvée - ERPAC</title>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="preload" as="image" href="assets/images/logos/logo_complet.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/site.css">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
-    
-    <style>
-        .error-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        .error-code {
-            font-size: 8rem;
-            font-weight: bold;
-            color: #e74c3c;
-            margin: 0;
-            line-height: 1;
-        }
-        
-        .error-message {
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin: 1rem 0 2rem 0;
-        }
-        
-        .error-description {
-            font-size: 1rem;
-            color: #7f8c8d;
-            margin-bottom: 2rem;
-            max-width: 500px;
-        }
-        
-        .error-actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .btn-error {
-            background: #008C3A;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        
-        .btn-error:hover {
-            background: #006c2d;
-        }
-        
-        .btn-error.secondary {
-            background: #00a945;
-        }
-        
-        .btn-error.secondary:hover {
-            background: #008C3A;
-        }
-    </style>
 </head>
 
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-    <header>
-        <nav id="menu"></nav>
-    </header>
+    <header id="header"><nav id="menu"></nav></header>
 
     <main id="main-content">
-        <div class="error-container">
-            <h1 class="error-code animate-glow">404</h1>
-            <h2 class="error-message animate-fade-up">Page non trouvée</h2>
-            <p class="error-description animate-fade-up delay-1">
-                Désolé, la page que vous recherchez n'existe pas ou a été déplacée. 
-                Vous pouvez retourner à l'accueil ou découvrir nos domaines d'expertise.
-            </p>
-            
-            <div class="error-actions animate-fade-up delay-2">
-                <a href="/" class="btn-error">
-                    🏠 Retour à l'accueil
-                </a>
-                <a href="/services/electronique.html" class="btn-error secondary">
-                    ⚡ Électronique
-                </a>
-                <a href="/services/electrotechnique.html" class="btn-error secondary">
-                    ⚡ Électrotechnique
-                </a>
-                <a href="/services/automatisme.html" class="btn-error secondary">
-                    🤖 Automatisme
-                </a>
-                <a href="/entreprise/a-propos.html" class="btn-error secondary">
-                    ℹ️ À propos
-                </a>
+        <div class="error-wrap">
+            <div class="error-code">404</div>
+            <h2>Page non trouvée</h2>
+            <p>Désolé, la page que vous recherchez n'existe pas ou a été déplacée. Vous pouvez retourner à l'accueil ou découvrir nos domaines d'expertise.</p>
+            <div class="error-actions">
+                <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+                <a href="/services/electronique.html" class="btn btn-dark">Électronique</a>
+                <a href="/services/electrotechnique.html" class="btn btn-dark">Électrotechnique</a>
+                <a href="/services/automatisme.html" class="btn btn-dark">Automatisme</a>
             </div>
         </div>
     </main>
 
     <footer id="footer"></footer>
-
     <button id="scrollToTop" aria-label="Retour en haut de la page">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
     <script src="assets/js/menu.js"></script>
-    <script src="assets/js/scroll.js"></script>
     <script src="assets/js/footer.js"></script>
-    <script src="assets/js/enhancements.js"></script>
+    <script src="assets/js/ui.js"></script>
 </body>
 </html>
