@@ -133,14 +133,14 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(120% 80% at 15% 20%,rgba(0,89,42,.55),transparent 60%),linear-gradient(105deg,rgba(7,18,12,.92) 0%,rgba(8,22,15,.78) 42%,rgba(8,22,15,.32) 100%)}
 .hero-overlay-grid{position:absolute;inset:0;z-index:2;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(circle at 30% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 30% 40%,#000,transparent 75%)}
 .hero .wrap{position:relative;z-index:3}
-.hero-inner{max-width:760px}
+.hero-inner{max-width:960px}
 .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;margin:1.4rem 0 1.3rem}
 .hero h1 .accent{color:var(--green-bright)}
 .hero-acronym{display:flex;flex-direction:column;gap:.02em;margin:1.1rem 0 1.1rem;font-size:clamp(1.8rem,4.6vw,3.3rem);line-height:1.08}
 .hero-acronym .ac-row{display:block}
 .hero-acronym .ac-i{color:var(--green-bright)}
 .hero-acronym .ac-w{color:#fff}
-.hero-sub{font-size:clamp(1.05rem,2vw,1.28rem);color:rgba(255,255,255,.82);max-width:600px}
+.hero-sub{font-size:clamp(1.05rem,2vw,1.28rem);color:rgba(255,255,255,.82);max-width:680px}
 .hero-actions{display:flex;gap:1rem;margin-top:2.4rem;flex-wrap:wrap}
 .hero-stats{display:flex;gap:2.6rem;margin-top:2.4rem;flex-wrap:wrap}
 .hero-stats .num{font-family:'Space Grotesk';font-size:2.2rem;font-weight:700;color:#fff}
@@ -181,8 +181,9 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .marquee-track{display:flex;align-items:center;gap:4rem;width:max-content;animation:scrollX 38s linear infinite}
 .marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track a{display:inline-flex;align-items:center;flex:0 0 auto}
 .marquee-track img{height:42px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.62;transition:.3s}
-.marquee-track img:hover{filter:grayscale(0);opacity:1}
+.marquee-track a:hover img{filter:grayscale(0);opacity:1}
 @keyframes scrollX{to{transform:translateX(-50%)}}
 
 /* =========================================================

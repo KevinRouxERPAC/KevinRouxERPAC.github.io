@@ -55,7 +55,6 @@
             <a href="${base}entreprise/a-propos.html#equipe">Notre équipe</a>
           </span>
         </span>
-        <a href="${base}index.html#contact">Contact</a>
       </nav>
 
       <a href="${base}index.html#contact" class="btn btn-primary nav-cta">Demander un devis</a>
