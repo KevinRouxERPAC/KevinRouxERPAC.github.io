@@ -128,7 +128,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 /* =========================================================
    Hero (page d'accueil)
    ========================================================= */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden;padding:7rem 0 3rem;background:#08160e}
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;color:#fff;overflow:hidden;padding:7rem 0 2.5rem;background:#08160e}
 .hero-media{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(120% 80% at 15% 20%,rgba(0,89,42,.55),transparent 60%),linear-gradient(105deg,rgba(7,18,12,.92) 0%,rgba(8,22,15,.78) 42%,rgba(8,22,15,.32) 100%)}
 .hero-overlay-grid{position:absolute;inset:0;z-index:2;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(circle at 30% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 30% 40%,#000,transparent 75%)}
@@ -145,7 +145,7 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 .hero-stats{display:flex;gap:2.6rem;margin-top:2.4rem;flex-wrap:wrap}
 .hero-stats .num{font-family:'Space Grotesk';font-size:2.2rem;font-weight:700;color:#fff}
 .hero-stats .lbl{font-size:.86rem;color:rgba(255,255,255,.7)}
-.scroll-hint{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.6);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.5rem}
+.scroll-hint{align-self:center;margin-top:2.4rem;z-index:3;color:rgba(255,255,255,.6);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:.5rem}
 .scroll-hint .dot{width:22px;height:36px;border:2px solid rgba(255,255,255,.35);border-radius:14px;position:relative}
 .scroll-hint .dot::after{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:4px;height:7px;border-radius:3px;background:#fff;animation:scrollDot 1.8s infinite}
 @keyframes scrollDot{0%{opacity:0;top:6px}40%{opacity:1}100%{opacity:0;top:18px}}
