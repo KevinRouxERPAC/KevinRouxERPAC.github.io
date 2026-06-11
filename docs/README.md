@@ -18,44 +18,55 @@ Site web officiel d'**ERPAC**, expert en conception de cartes électroniques, au
 ## 🛠️ Technologies utilisées
 
 - **Frontend** : HTML5, CSS3, JavaScript (Vanilla)
-- **Responsive Design** : Design adaptatif mobile-first
-- **Animations** : CSS animations personnalisées
+- **Design system** : feuille de styles unique (`assets/css/site.css`)
+- **Typographie** : Space Grotesk + Inter, **auto-hébergées** (woff2, aucun service tiers)
+- **Responsive Design** : Design adaptatif, menu burger sous 900px
+- **Animations** : transitions CSS + apparition au défilement (IntersectionObserver)
+- **Composants partagés** : en-tête, pied de page et contact injectés en JS
 - **Cartes interactives** : Leaflet.js
-- **PWA Ready** : Progressive Web App avec manifest.json
-- **SEO Optimisé** : Meta tags, sitemap, robots.txt
+- **PWA** : Progressive Web App avec manifest.json + Service Worker
+- **SEO Optimisé** : Meta tags, Open Graph, sitemap, robots.txt
 
 ## 📁 Structure du projet
 
 ```
 .
-├── index.html              # Page d'accueil
-├── about.html             # À propos / Histoire
-├── electronique.html      # Services électronique
-├── electrotechnique.html  # Services électrotechnique
-├── automatisme.html       # Services automatisme
-├── 404.html              # Page d'erreur personnalisée
-├── robots.txt            # Configuration SEO robots
-├── sitemap.xml           # Plan du site XML
-├── manifest.json         # Manifest PWA
-├── css/
-│   ├── styles.css        # Styles principaux
-│   ├── responsive.css    # Styles responsives
-│   └── animations.css    # Animations CSS
-├── js/
-│   ├── menu.js          # Navigation menu
-│   ├── carousel.js      # Carrousel d'images
-│   ├── contact.js       # Formulaire de contact
-│   ├── map.js          # Carte interactive
-│   ├── scroll.js       # Effets de scroll
-│   └── enhancements.js # Améliorations UX
-└── images/
-    ├── logos/          # Logos ERPAC et partenaires
-    ├── menus/          # Images des sections
-    ├── About/          # Images page à propos
-    ├── Automatisme/    # Images section automatisme
-    ├── Electronique/   # Images section électronique
-    ├── Electrotechnique/ # Images section électrotechnique
-    └── locaux/         # Photos des locaux
+├── index.html                      # Page d'accueil
+├── services/
+│   ├── electronique.html           # Services électronique
+│   ├── electrotechnique.html       # Services électrotechnique
+│   └── automatisme.html            # Services automatisme
+├── entreprise/
+│   └── a-propos.html               # Qui sommes-nous / Histoire
+├── legal/
+│   └── mentions-legales.html       # Mentions légales (RGPD)
+├── 404.html                        # Page d'erreur personnalisée
+├── robots.txt                      # Configuration SEO robots
+├── sitemap.xml                     # Plan du site XML
+├── manifest.json                   # Manifest PWA
+├── sw.js                           # Service Worker (cache hors-ligne)
+└── assets/
+    ├── css/
+    │   └── site.css                # Design system unique (refonte v2)
+    ├── fonts/                      # Polices auto-hébergées (woff2)
+    │   ├── inter-latin.woff2
+    │   ├── inter-latin-ext.woff2
+    │   ├── space-grotesk-latin.woff2
+    │   └── space-grotesk-latin-ext.woff2
+    ├── js/
+    │   ├── menu.js                 # En-tête / navigation (injecté)
+    │   ├── footer.js               # Pied de page (injecté)
+    │   ├── contact.js              # Section contact + carte (injecté)
+    │   ├── ui.js                   # Interactions (scroll, burger, reveal…)
+    │   └── map.js                  # Carte interactive Leaflet
+    └── images/
+        ├── logos/                  # Logos ERPAC et partenaires
+        ├── menus/                  # Images des sections
+        ├── About/                  # Images page à propos
+        ├── Automatisme/            # Images section automatisme
+        ├── Electronique/           # Images section électronique
+        ├── Electrotechnique/       # Images section électrotechnique
+        └── locaux/                 # Photos des locaux
 ```
 
 ## 🚦 Installation et développement local
@@ -86,7 +97,7 @@ Le site est configuré comme une PWA avec :
 - ✅ Manifest.json configuré
 - ✅ Icônes pour différentes plateformes
 - ✅ Mode standalone sur mobile
-- 🔄 Service Worker à implémenter (optionnel)
+- ✅ Service Worker (`sw.js`) : cache hors-ligne, activé en HTTPS uniquement
 
 ## 🔍 SEO et Performance
 
@@ -170,8 +181,10 @@ Implémentés via meta tags `<head>` :
 <meta http-equiv="X-Frame-Options" content="DENY">
 <meta http-equiv="X-XSS-Protection" content="1; mode=block">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://*.tile.openstreetmap.org; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; frame-ancestors 'none';">
 ```
+
+> Les polices étant auto-hébergées, `font-src` reste sur `'self'` : aucune connexion à un service de polices tiers (ex. Google Fonts).
 
 #### 5. Subresource Integrity (SRI) pour Leaflet
 - Vérification d'intégrité des ressources externes CDN
@@ -191,13 +204,14 @@ Implémentés via meta tags `<head>` :
 2. **Alternative actuelle** : Meta tags implémentés (fonctionnels mais moins optimaux)
 
 #### 2. Content Security Policy (CSP)
-**CSP actuelle** :
+**CSP actuelle** (pages avec carte) :
 ```
-default-src 'self'; 
-script-src 'self' 'unsafe-inline' https://unpkg.com; 
-style-src 'self' 'unsafe-inline' https://unpkg.com; 
-img-src 'self' data: https://*.tile.openstreetmap.org; 
-connect-src 'self' https://*.tile.openstreetmap.org; 
+default-src 'self';
+script-src 'self' 'unsafe-inline' https://unpkg.com;
+style-src 'self' 'unsafe-inline' https://unpkg.com;
+img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com;
+font-src 'self';
+connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com;
 frame-ancestors 'none';
 ```
 
@@ -234,8 +248,8 @@ frame-ancestors 'none';
 - [ ] Vérifier qu'il n'y a **pas d'erreurs rouges** dans la console
 - [ ] Vérifier que la carte Leaflet s'affiche correctement
 - [ ] Tester la navigation entre les pages
-- [ ] Tester le carousel des partenaires
-- [ ] Vérifier le scroll smooth
+- [ ] Vérifier le défilement des logos partenaires
+- [ ] Vérifier le scroll smooth et l'apparition des sections
 
 #### 2. Vérification des erreurs CSP
 Si erreurs CSP dans la console :

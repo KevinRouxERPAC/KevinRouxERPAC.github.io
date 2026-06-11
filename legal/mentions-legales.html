@@ -10,13 +10,12 @@
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
 
     <title>Mentions légales - ERPAC</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/space-grotesk-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin.woff2" crossorigin>
     <link rel="stylesheet" href="../assets/css/site.css">
     <link rel="icon" href="../assets/images/logos/logo_seul.png" type="image/png">
     <link rel="canonical" href="https://kevinrouxerpac.github.io/legal/mentions-legales.html">
@@ -80,7 +79,7 @@
                     <p><strong>Durées de conservation :</strong> échanges commerciaux jusqu'à 3 ans après le dernier contact actif ; logs techniques jusqu'à 12 mois selon les obligations de sécurité.</p>
                     <p><strong>Vos droits :</strong> accès, rectification, effacement, limitation, opposition et portabilité (lorsque applicable). Exercice des droits : contact@erpac.fr ou courrier au siège.</p>
                     <p><strong>Réclamation auprès de la CNIL :</strong> Vous avez le droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) – <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> – si vous estimez que le traitement de vos données à caractère personnel ne respecte pas le Règlement Général sur la Protection des Données (RGPD).</p>
-                    <p><strong>Transferts internationaux :</strong> Le site est hébergé par OVH SAS (France). Le chargement de ressources tierces (bibliothèque cartographique via unpkg.com, tuiles OpenStreetMap, polices Google Fonts) peut entraîner la transmission de votre adresse IP vers des serveurs susceptibles d'être situés hors de l'Union européenne. Ces transmissions sont strictement nécessaires au fonctionnement du site et encadrées par les Clauses Contractuelles Types (CCT) approuvées par la Commission européenne, conformément aux articles 46 et suivants du RGPD.</p>
+                    <p><strong>Transferts internationaux :</strong> Le site est hébergé par OVH SAS (France) et ses polices d'affichage sont hébergées localement sur le site (aucun appel à un service tiers de polices). Le chargement de ressources tierces (bibliothèque cartographique via unpkg.com, tuiles OpenStreetMap) peut entraîner la transmission de votre adresse IP vers des serveurs susceptibles d'être situés hors de l'Union européenne. Ces transmissions sont strictement nécessaires au fonctionnement du site et encadrées par les Clauses Contractuelles Types (CCT) approuvées par la Commission européenne, conformément aux articles 46 et suivants du RGPD.</p>
                 </div>
 
                 <div class="legal-block reveal">
@@ -88,7 +87,6 @@
                     <p>Ce site vitrine ne dépose aucun cookie sur votre appareil et ne recourt à aucun outil de mesure d'audience ni à aucune publicité ciblée.</p>
                     <p>Toutefois, afin d'assurer son fonctionnement et sa présentation, le site fait appel à des ressources hébergées par des tiers :</p>
                     <ul class="legal-list">
-                        <li><strong>Google Fonts</strong> (<code>fonts.googleapis.com</code>, <code>fonts.gstatic.com</code>) : chargement des polices d'affichage du site. Votre adresse IP est transmise aux serveurs de Google lors du chargement des pages.</li>
                         <li><strong>unpkg.com</strong> (CDN) : chargement de la bibliothèque cartographique Leaflet (JavaScript et CSS). Votre adresse IP est transmise aux serveurs de ce CDN lors du chargement de la page.</li>
                         <li><strong>OpenStreetMap</strong> (<code>*.tile.openstreetmap.org</code>) : affichage de la carte de localisation. Votre adresse IP est transmise aux serveurs d'OpenStreetMap Foundation lors du chargement des tuiles cartographiques.</li>
                         <li><strong>OVH SAS</strong> (hébergeur) : en tant qu'hébergeur du site, OVH peut collecter des journaux d'accès techniques (adresse IP, navigateur, pages visitées) à des fins de sécurité et de fiabilité, conformément à ses obligations légales.</li>
