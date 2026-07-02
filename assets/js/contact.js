@@ -46,7 +46,7 @@
         </div>
 
         <div class="map-wrap">
-          <div id="map" role="img" aria-label="Carte de localisation d'ERPAC"></div>
+          <div id="map" aria-label="Carte de localisation d'ERPAC"></div>
           <p class="map-credit">Données cartographiques &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></p>
         </div>
       </div>

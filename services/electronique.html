@@ -8,7 +8,7 @@
 
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self';">
 
     <title>ERPAC - Solutions Électroniques</title>
 
@@ -20,20 +20,26 @@
           crossorigin="anonymous" />
     <link rel="preload" as="image" href="../assets/images/menus/Electronique.jpg">
     <link rel="icon" href="../assets/images/logos/logo_seul.png" type="image/png">
-    <link rel="canonical" href="https://kevinrouxerpac.github.io/services/electronique.html">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
+
+    <link rel="canonical" href="https://erpac.fr/services/electronique.html">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:url" content="https://kevinrouxerpac.github.io/services/electronique.html">
+    <meta property="og:url" content="https://erpac.fr/services/electronique.html">
     <meta property="og:title" content="ERPAC - Solutions Électroniques">
     <meta property="og:description" content="Conception de cartes électroniques sur-mesure : étude, conception, programmation, production et contrôle qualité.">
-    <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/menus/Electronique.jpg">
+    <meta property="og:image" content="https://erpac.fr/assets/images/menus/Electronique.jpg">
 </head>
 
 <body>
-    <a href="#quicknav" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <header id="header"><nav id="menu"></nav></header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section class="page-hero hero-electronique" id="hero">
             <div class="wrap">
                 <nav class="breadcrumb" aria-label="Fil d'ariane">

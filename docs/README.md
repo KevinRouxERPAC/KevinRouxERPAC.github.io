@@ -118,15 +118,30 @@ Le site est configuré comme une PWA avec :
 
 Le site est déployé sur **deux cibles** :
 
-1. **GitHub Pages** : publication automatique de la branche `main` sur
-   `https://kevinrouxerpac.github.io` (domaine canonique actuel — canonical,
-   sitemap et Open Graph pointent vers cette URL).
-2. **OVH (FTP)** : le workflow [`deploy.yml`](../.github/workflows/deploy.yml)
-   pousse le contenu vers l'hébergement OVH à chaque push sur `main`
-   (futur `erpac.fr`). ⚠️ Tant que le domaine OVH n'est pas en service,
-   le canonical reste sur GitHub Pages. Le jour où `erpac.fr` devient le
-   domaine de production, mettre à jour : `canonical`, `og:url`, `og:image`,
-   `sitemap.xml` et `robots.txt`.
+1. **OVH** : hébergement de production sur le domaine canonique
+   **`https://erpac.fr`**. Les balises `canonical`, `og:url`, `og:image`,
+   le `sitemap.xml` et `robots.txt` pointent tous vers ce domaine.
+2. **GitHub Pages** : publication automatique de la branche `main` sur
+   `https://kevinrouxerpac.github.io` (miroir). Le `canonical` vers `erpac.fr`
+   indique aux moteurs de ne pas indexer ce miroir en doublon.
+
+Le workflow [`deploy.yml`](../.github/workflows/deploy.yml) pousse le contenu
+vers l'hébergement OVH à chaque push sur `main`.
+
+### 🔄 Cache et fraîcheur du design après déploiement
+
+Pour éviter que les visiteurs récurrents restent bloqués sur l'ancien design :
+
+- **Service Worker** (`sw.js`) : les assets CSS/JS sont servis en
+  **stale-while-revalidate** (réponse immédiate depuis le cache + récupération
+  d'une version fraîche en arrière-plan). La mise à jour est appliquée au
+  chargement suivant, **sans versionner chaque fichier**.
+- **`.htaccess` (OVH)** : cache court (1 jour) pour HTML/CSS/JS afin que la
+  revalidation du SW obtienne bien les octets à jour ; cache long pour
+  polices/images (rarement modifiées).
+- **Purge forcée** : pour invalider immédiatement tous les caches (changement
+  majeur), **bumper `CACHE_NAME`** dans `sw.js` (`erpac-cache-v5` → `v6`). Le
+  handler `activate` supprime alors tous les anciens caches.
 
 ## 🤝 Contribution
 
@@ -137,9 +152,10 @@ Le site est déployé sur **deux cibles** :
 ## 📞 Contact
 
 **ERPAC**
-- 📧 Email : [Voir formulaire de contact](https://kevinrouxerpac.github.io/#contact)
-- 🌐 Site web : [kevinrouxerpac.github.io](https://kevinrouxerpac.github.io)
-- 📍 Adresse : [Voir section contact](https://kevinrouxerpac.github.io/#contact)
+- 📧 Email : [contact@erpac.fr](mailto:contact@erpac.fr)
+- ☎️ Téléphone : 02 48 77 52 10
+- 🌐 Site web : [erpac.fr](https://erpac.fr)
+- 📍 Adresse : 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois
 
 ## 📄 License
 
@@ -183,8 +199,10 @@ Deux niveaux complémentaires :
 ```html
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self';">
 ```
+
+> `connect-src` n'inclut **plus** `https://unpkg.com` : Leaflet est chargé via `script-src`/`style-src` et n'émet aucune requête `fetch`/`XHR` vers le CDN. Seules les tuiles OpenStreetMap sont contactées.
 
 > `script-src` n'autorise **plus** `'unsafe-inline'` : tout le JavaScript est dans des fichiers externes (aucun script inline ni gestionnaire `onclick`/`onerror`). `style-src` conserve `'unsafe-inline'` (attributs `style` et styles injectés par map.js).
 >

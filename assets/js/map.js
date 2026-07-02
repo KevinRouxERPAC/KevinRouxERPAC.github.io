@@ -18,7 +18,7 @@ try {
         throw new Error('Map element not found');
     }
 
-    var map = L.map('map').setView([46.94576575551033, 2.9562034680787654], 5);
+    var map = L.map('map').setView([46.94576575551033, 2.9562034680787654], 14);
 
     const message = document.createElement('div');
     message.textContent = 'Maintenez Ctrl + molette pour zoomer';
@@ -45,20 +45,17 @@ try {
     // Gestionnaire d'événement pour le zoom contrôlé
     map.getContainer().addEventListener('wheel', function(e) {
         if (e.ctrlKey || e.metaKey) {
-            message.style.opacity = '0';
+            // Zoom effectif : on masque définitivement le message d'aide
             e.preventDefault();
+            message.style.opacity = '0';
             var zoom = map.getZoom();
             if (e.deltaY < 0) {
                 map.setZoom(Math.min(zoom + 1, 18));
             } else {
                 map.setZoom(Math.max(zoom - 1, 1));
             }
-            
-            // Masquer le message après utilisation
-            setTimeout(() => {
-                message.style.opacity = '1';
-            }, 2000);
         } else {
+            // Molette sans Ctrl : on rappelle la consigne
             message.style.opacity = '1';
         }
     }, {passive: false});

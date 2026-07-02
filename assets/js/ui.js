@@ -12,11 +12,22 @@
     const toggle = (open) => {
       document.body.classList.toggle('menu-open', open);
       burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      if (!open) burger.focus();
     };
-    burger.addEventListener('click', () => toggle(!document.body.classList.contains('menu-open')));
+    const isOpen = () => document.body.classList.contains('menu-open');
+    burger.addEventListener('click', () => toggle(!isOpen()));
     document.querySelectorAll('.nav-links a').forEach((a) =>
       a.addEventListener('click', () => toggle(false))
     );
+    // Fermeture au clavier (Échap)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isOpen()) toggle(false);
+    });
+    // Fermeture si l'on repasse en affichage bureau (> 900px)
+    window.addEventListener('resize', () => {
+      if (isOpen() && window.innerWidth > 900) toggle(false);
+    });
   }
 
   /* Apparition au défilement */

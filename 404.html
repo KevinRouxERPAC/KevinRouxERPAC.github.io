@@ -12,26 +12,32 @@
 
     <title>Page non trouvée - ERPAC</title>
 
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-grotesk-latin.woff2" crossorigin>
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
-    <link rel="stylesheet" href="assets/css/site.css">
-    <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
+    <!-- Chemins absolus : la 404 peut être servie sur une URL profonde (/services/xxx) -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/space-grotesk-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/site.css">
+    <link rel="icon" href="/assets/images/logos/logo_seul.png" type="image/png">
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
 </head>
 
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <header id="header"><nav id="menu"></nav></header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
         <div class="error-wrap">
             <div class="error-code">404</div>
             <h2>Page non trouvée</h2>
             <p>Désolé, la page que vous recherchez n'existe pas ou a été déplacée. Vous pouvez retourner à l'accueil ou découvrir nos domaines d'expertise.</p>
             <div class="error-actions">
                 <a href="/" class="btn btn-primary">Retour à l'accueil</a>
-                <a href="/services/electronique.html" class="btn btn-dark">Électronique</a>
-                <a href="/services/electrotechnique.html" class="btn btn-dark">Électrotechnique</a>
-                <a href="/services/automatisme.html" class="btn btn-dark">Automatisme</a>
+                <a href="/services/electronique.html" class="btn btn-ghost">Électronique</a>
+                <a href="/services/electrotechnique.html" class="btn btn-ghost">Électrotechnique</a>
+                <a href="/services/automatisme.html" class="btn btn-ghost">Automatisme</a>
             </div>
         </div>
     </main>
@@ -41,8 +47,8 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
-    <script src="assets/js/menu.js"></script>
-    <script src="assets/js/footer.js"></script>
-    <script src="assets/js/ui.js"></script>
+    <script src="/assets/js/menu.js"></script>
+    <script src="/assets/js/footer.js"></script>
+    <script src="/assets/js/ui.js"></script>
 </body>
 </html>

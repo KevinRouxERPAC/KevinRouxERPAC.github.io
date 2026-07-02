@@ -1,7 +1,10 @@
 /* Service Worker ERPAC
    - Pages HTML : network-first (toujours la version la plus récente, cache en secours)
-   - Assets statiques : cache-first (rapidité, mise en cache au fil de l'eau) */
-const CACHE_NAME = 'erpac-cache-v4';
+   - Assets statiques : stale-while-revalidate (réponse immédiate depuis le cache,
+     mise à jour en arrière-plan → les visiteurs récurrents reçoivent le nouveau
+     design au chargement suivant, sans versionner chaque fichier)
+   Bumper CACHE_NAME force une purge complète des anciens caches au déploiement. */
+const CACHE_NAME = 'erpac-cache-v5';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -49,9 +52,14 @@ const OFFLINE_HTML = `<!DOCTYPE html>
 </html>`;
 
 self.addEventListener('install', (event) => {
+  // Précache tolérant : une URL absente ne fait plus échouer toute l'installation.
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(PRECACHE))
+      .then((cache) => Promise.allSettled(
+        PRECACHE.map((url) =>
+          cache.add(url).catch((err) => console.warn('[SW] précache ignoré :', url, err))
+        )
+      ))
       .then(() => self.skipWaiting())
   );
 });
@@ -95,17 +103,18 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Cache-first pour les assets statiques
+  // Stale-while-revalidate pour les assets statiques : on répond immédiatement
+  // depuis le cache tout en récupérant une version fraîche en arrière-plan.
   event.respondWith(
     caches.match(request).then((cached) => {
-      if (cached) return cached;
-      return fetch(request).then((response) => {
+      const network = fetch(request).then((response) => {
         if (response && response.status === 200 && response.type === 'basic') {
           const copy = response.clone();
           caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
         }
         return response;
-      });
+      }).catch(() => cached);
+      return cached || network;
     })
   );
 });

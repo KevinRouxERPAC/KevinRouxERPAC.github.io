@@ -7,6 +7,9 @@
   const inSub = path.includes('/services/') || path.includes('/entreprise/') || path.includes('/legal/');
   const base = inSub ? '../' : '';
   const here = (frag) => (path.endsWith(frag) ? ' aria-current="page"' : '');
+  // Accueil : détecté aussi sur "/" ou une URL se terminant par "/" (GitHub Pages)
+  const isHome = path === '/' || path.endsWith('/index.html') || path.endsWith('/');
+  const homeCurrent = isHome ? ' aria-current="page"' : '';
 
   menu.innerHTML = `
     <div class="wrap nav">
@@ -15,8 +18,8 @@
         <span class="brand-name">ERPAC<small>Solutions industrielles</small></span>
       </a>
 
-      <nav class="nav-links" aria-label="Menu principal">
-        <a href="${base}index.html"${here('index.html')}>Accueil</a>
+      <nav class="nav-links" id="nav-menu" aria-label="Menu principal">
+        <a href="${base}index.html"${homeCurrent}>Accueil</a>
         <span class="has-sub">
           <a href="${base}services/electronique.html"${here('electronique.html')}>Électronique</a>
           <span class="submenu">
@@ -58,7 +61,7 @@
       </nav>
 
       <a href="${base}index.html#contact" class="btn btn-primary nav-cta">Demander un devis</a>
-      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+      <button class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
     </div>

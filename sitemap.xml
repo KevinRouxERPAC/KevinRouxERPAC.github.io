@@ -6,7 +6,7 @@
 
   <!-- Page d'accueil -->
   <url>
-    <loc>https://kevinrouxerpac.github.io/</loc>
+    <loc>https://erpac.fr/</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
@@ -14,7 +14,7 @@
 
   <!-- Page À propos -->
   <url>
-    <loc>https://kevinrouxerpac.github.io/entreprise/a-propos.html</loc>
+    <loc>https://erpac.fr/entreprise/a-propos.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -22,7 +22,7 @@
 
   <!-- Page Électronique -->
   <url>
-    <loc>https://kevinrouxerpac.github.io/services/electronique.html</loc>
+    <loc>https://erpac.fr/services/electronique.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -30,7 +30,7 @@
 
   <!-- Page Électrotechnique -->
   <url>
-    <loc>https://kevinrouxerpac.github.io/services/electrotechnique.html</loc>
+    <loc>https://erpac.fr/services/electrotechnique.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -38,7 +38,7 @@
 
   <!-- Page Automatisme -->
   <url>
-    <loc>https://kevinrouxerpac.github.io/services/automatisme.html</loc>
+    <loc>https://erpac.fr/services/automatisme.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -46,7 +46,7 @@
 
   <!-- Mentions légales -->
   <url>
-    <loc>https://kevinrouxerpac.github.io/legal/mentions-legales.html</loc>
+    <loc>https://erpac.fr/legal/mentions-legales.html</loc>
     <lastmod>2026-06-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

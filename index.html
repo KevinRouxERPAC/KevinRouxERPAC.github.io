@@ -9,7 +9,7 @@
     <!-- En-têtes de sécurité -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self';">
 
     <title>ERPAC - Concepteur de solutions électroniques industrielles</title>
 
@@ -22,24 +22,29 @@
     <link rel="preload" as="image" href="assets/images/locaux/Locaux.jpg">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
 
-    <link rel="canonical" href="https://kevinrouxerpac.github.io/">
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
+
+    <link rel="canonical" href="https://erpac.fr/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="fr_FR">
-    <meta property="og:url" content="https://kevinrouxerpac.github.io/">
+    <meta property="og:url" content="https://erpac.fr/">
     <meta property="og:title" content="ERPAC - Concepteur de solutions électroniques industrielles">
     <meta property="og:description" content="Étude, conception et fabrication de cartes électroniques, armoires électrotechniques et systèmes automatisés sur-mesure.">
-    <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
+    <meta property="og:image" content="https://erpac.fr/assets/images/logos/logo_complet.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ERPAC - Concepteur de solutions électroniques industrielles">
     <meta name="twitter:description" content="Étude, conception et fabrication de solutions électroniques, électrotechniques et automatisées sur-mesure.">
-    <meta name="twitter:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
+    <meta name="twitter:image" content="https://erpac.fr/assets/images/logos/logo_complet.png">
 </head>
 
 <body>
-    <a href="#expertises" class="skip-link">Aller au contenu principal</a>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     <header id="header"><nav id="menu"></nav></header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <!-- HERO -->
         <section class="hero" id="accueil">
             <div class="hero-media" style="background-image:url('assets/images/locaux/Locaux.jpg')"></div>
@@ -183,8 +188,27 @@
             </div>
         </section>
 
-        <!-- CONTACT (injecté) -->
-        <section id="contact"></section>
+        <!-- CONTACT — coordonnées statiques (SEO / sans JS), enrichies par contact.js (carte) -->
+        <section id="contact" class="block contact">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="eyebrow center">Contact</span>
+                    <h2>Parlons de votre projet</h2>
+                </div>
+                <address class="coord">
+                    <h3>Nos coordonnées</h3>
+                    <p>
+                        <strong>ERPAC</strong><br>
+                        49bis Avenue de la République<br>
+                        18150 La Guerche-sur-l'Aubois
+                    </p>
+                    <p>Téléphone : <a href="tel:+33248775210">02 48 77 52 10</a></p>
+                    <p>Email : <a href="mailto:contact@erpac.fr">contact@erpac.fr</a></p>
+                    <p>Horaires : Lundi – Vendredi, 6h00 – 13h00 (atelier)</p>
+                    <p><a href="legal/mentions-legales.html">Mentions légales</a></p>
+                </address>
+            </div>
+        </section>
     </main>
 
     <footer id="footer"></footer>

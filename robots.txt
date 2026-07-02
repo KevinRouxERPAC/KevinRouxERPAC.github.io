@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://kevinrouxerpac.github.io/sitemap.xml
+Sitemap: https://erpac.fr/sitemap.xml
 
 # Disallow admin or private directories (if any exist in the future)
 # Disallow: /admin/
