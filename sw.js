@@ -3,8 +3,8 @@
    - Assets statiques : stale-while-revalidate (réponse immédiate depuis le cache,
      mise à jour en arrière-plan → les visiteurs récurrents reçoivent le nouveau
      design au chargement suivant, sans versionner chaque fichier)
-   Bumper CACHE_NAME force une purge complète des anciens caches au déploiement. */
-const CACHE_NAME = 'erpac-cache-v5';
+   Bumper CACHE_TYPE force une purge complète des anciens caches au déploiement. */
+const CACHE_NAME = 'erpac-cache-v8';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -14,6 +14,8 @@ const PRECACHE = [
   '/entreprise/a-propos.html',
   '/legal/mentions-legales.html',
   '/assets/css/site.css',
+  '/assets/vendor/leaflet/leaflet.css',
+  '/assets/vendor/leaflet/leaflet.js',
   '/assets/fonts/inter-latin.woff2',
   '/assets/fonts/inter-latin-ext.woff2',
   '/assets/fonts/space-grotesk-latin.woff2',

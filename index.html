@@ -9,16 +9,13 @@
     <!-- En-têtes de sécurité -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org; media-src 'self'; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self';">
 
     <title>ERPAC - Concepteur de solutions électroniques industrielles</title>
 
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-grotesk-latin.woff2" crossorigin>
     <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
     <link rel="stylesheet" href="assets/css/site.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-          crossorigin="anonymous" />
     <link rel="preload" as="image" href="assets/images/locaux/Locaux.jpg">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
 
@@ -38,16 +35,59 @@
     <meta name="twitter:title" content="ERPAC - Concepteur de solutions électroniques industrielles">
     <meta name="twitter:description" content="Étude, conception et fabrication de solutions électroniques, électrotechniques et automatisées sur-mesure.">
     <meta name="twitter:image" content="https://erpac.fr/assets/images/logos/logo_complet.png">
+
+    <!-- Données structurées : PME industrielle (SEO local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://erpac.fr/#organization",
+      "name": "ERPAC",
+      "description": "Concepteur de solutions électroniques, électrotechniques et d'automatisme sur-mesure pour l'industrie depuis 1989.",
+      "url": "https://erpac.fr/",
+      "logo": "https://erpac.fr/assets/images/logos/logo_complet.png",
+      "image": "https://erpac.fr/assets/images/locaux/Locaux.jpg",
+      "telephone": "+33248775210",
+      "email": "contact@erpac.fr",
+      "foundingDate": "1989",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "49bis Avenue de la République",
+        "postalCode": "18150",
+        "addressLocality": "La Guerche-sur-l'Aubois",
+        "addressRegion": "Centre-Val de Loire",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.945765,
+        "longitude": 2.956203
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "06:00",
+        "closes": "13:00"
+      }],
+      "areaServed": "France",
+      "knowsAbout": ["Électronique", "Électrotechnique", "Automatisme", "Cartes électroniques", "Armoires électriques", "Automatisation industrielle"]
+    }
+    </script>
 </head>
 
 <body>
     <a href="#main-content" class="skip-link">Aller au contenu principal</a>
-    <header id="header"><nav id="menu"></nav></header>
+    <header id="header"><div id="menu"></div></header>
 
     <main id="main-content" tabindex="-1">
         <!-- HERO -->
         <section class="hero" id="accueil">
-            <div class="hero-media" style="background-image:url('assets/images/locaux/Locaux.jpg')"></div>
+            <div class="hero-media-wrap" aria-hidden="true">
+                <video class="hero-video" autoplay muted loop playsinline preload="none" poster="assets/images/locaux/Locaux.jpg">
+                    <source src="assets/images/locaux/hero.mp4" type="video/mp4">
+                </video>
+                <div class="hero-media hero-media-fallback" style="background-image:url('assets/images/locaux/Locaux.jpg')"></div>
+            </div>
             <div class="hero-overlay-grid"></div>
             <div class="wrap">
                 <div class="hero-inner">
@@ -66,9 +106,9 @@
                         <a href="#contact" class="btn btn-ghost">Parler de votre projet</a>
                     </div>
                     <div class="hero-stats">
-                        <div><div class="num">35+</div><div class="lbl">ans d'expertise</div></div>
-                        <div><div class="num">3</div><div class="lbl">pôles complémentaires</div></div>
-                        <div><div class="num">100%</div><div class="lbl">sur-mesure</div></div>
+                        <div><div class="num counter" data-count="35" data-suffix="+">35+</div><div class="lbl">ans d'expertise</div></div>
+                        <div><div class="num counter" data-count="3">3</div><div class="lbl">pôles complémentaires</div></div>
+                        <div><div class="num counter" data-count="100" data-suffix="%">100%</div><div class="lbl">sur-mesure</div></div>
                     </div>
                 </div>
             </div>
@@ -94,54 +134,76 @@
             </div>
         </div>
 
+        <!-- ATELIER EN ACTION -->
+        <section class="atelier-strip" id="atelier" aria-label="Notre atelier en action">
+            <div class="atelier-track">
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Electronique/Electronique_Conception.webp" alt="Conception de cartes électroniques en bureau d'études">
+                    <figcaption><span class="atelier-tag">Bureau d'études</span><span>Conception électronique</span></figcaption>
+                </figure>
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Electronique/Electronique_Production.jpg" alt="Production de cartes électroniques en atelier">
+                    <figcaption><span class="atelier-tag">Atelier</span><span>Production électronique</span></figcaption>
+                </figure>
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Electrotechnique/Electrotechnique_Production.jpg" alt="Câblage d'armoires électrotechniques">
+                    <figcaption><span class="atelier-tag">Atelier</span><span>Armoires électrotechniques</span></figcaption>
+                </figure>
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Automatisme/Automatisme_Programmation.webp" alt="Programmation de systèmes automatisés">
+                    <figcaption><span class="atelier-tag">Automatisme</span><span>Programmation &amp; mise en service</span></figcaption>
+                </figure>
+            </div>
+        </section>
+
         <!-- EXPERTISES -->
-        <section class="block" id="expertises">
+        <section class="block block-textured" id="expertises">
             <div class="wrap">
                 <div class="section-head reveal">
                     <span class="eyebrow">Nos expertises</span>
                     <h2>Trois pôles, une approche intégrée</h2>
                     <p>Une approche qui couvre tout votre projet, de la conception initiale jusqu'à la mise en service — solution ponctuelle ou projet clé en main.</p>
                 </div>
-                <div class="exp-grid">
-                    <article class="exp-card reveal">
+                <div class="exp-grid exp-grid-bento">
+                    <a class="exp-card exp-card-featured reveal" href="services/electronique.html" aria-label="Voir le pôle Électronique">
                         <img loading="lazy" decoding="async" src="assets/images/menus/Electronique.jpg" alt="Carte électronique">
                         <div class="exp-body">
                             <div class="exp-num">01</div>
                             <h3>Électronique</h3>
                             <p>Des cartes électroniques sur-mesure pensées pour maximiser vos performances industrielles, conçues pour répondre à vos besoins spécifiques.</p>
                             <div class="exp-tags"><span>Étude</span><span>Conception</span><span>Programmation</span><span>Production</span></div>
-                            <a class="exp-link" href="services/electronique.html">Voir le pôle
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <span class="exp-link">Voir le pôle
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                         </div>
-                    </article>
-                    <article class="exp-card reveal">
+                    </a>
+                    <a class="exp-card reveal" href="services/electrotechnique.html" aria-label="Voir le pôle Électrotechnique">
                         <img loading="lazy" decoding="async" src="assets/images/menus/Electrotechnique.jpg" alt="Armoire électrique">
                         <div class="exp-body">
                             <div class="exp-num">02</div>
                             <h3>Électrotechnique</h3>
                             <p>Des armoires électriques robustes et personnalisées, conçues pour répondre aux exigences les plus techniques de votre environnement industriel.</p>
                             <div class="exp-tags"><span>Conception</span><span>Production</span><span>Installation</span><span>Mise en service</span></div>
-                            <a class="exp-link" href="services/electrotechnique.html">Voir le pôle
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <span class="exp-link">Voir le pôle
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                         </div>
-                    </article>
-                    <article class="exp-card reveal">
+                    </a>
+                    <a class="exp-card reveal" href="services/automatisme.html" aria-label="Voir le pôle Automatisme">
                         <img loading="lazy" decoding="async" src="assets/images/menus/Automatisme.jpg" alt="Automatisation de systèmes">
                         <div class="exp-body">
                             <div class="exp-num">03</div>
                             <h3>Automatisme</h3>
                             <p>Transformez vos processus grâce à des solutions d'automatisation intelligentes et connectées. Gagnez en efficacité et en productivité.</p>
                             <div class="exp-tags"><span>Programmation</span><span>Supervision</span><span>Installation</span><span>Mise en service</span></div>
-                            <a class="exp-link" href="services/automatisme.html">Voir le pôle
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                            <span class="exp-link">Voir le pôle
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
                         </div>
-                    </article>
+                    </a>
                 </div>
             </div>
         </section>
 
         <!-- APPROCHE -->
-        <section class="block approche" id="approche">
+        <section class="block approche block-textured" id="approche">
             <div class="wrap">
                 <div class="section-head center reveal">
                     <span class="eyebrow center">Notre méthode</span>
@@ -180,10 +242,10 @@
                     </div>
                 </div>
                 <div class="metrics reveal">
-                    <div class="metric"><div class="num">1989</div><div class="lbl">Année de création</div></div>
-                    <div class="metric"><div class="num">35<span>+</span></div><div class="lbl">Années d'expérience</div></div>
-                    <div class="metric"><div class="num">3</div><div class="lbl">Pôles d'expertise</div></div>
-                    <div class="metric"><div class="num">100<span>%</span></div><div class="lbl">Projets sur-mesure</div></div>
+                    <div class="metric"><div class="num counter" data-count="1989" data-from="1960">1989</div><div class="lbl">Année de création</div></div>
+                    <div class="metric"><div class="num counter" data-count="35" data-suffix="+">35+</div><div class="lbl">Années d'expérience</div></div>
+                    <div class="metric"><div class="num counter" data-count="3">3</div><div class="lbl">Pôles d'expertise</div></div>
+                    <div class="metric"><div class="num counter" data-count="100" data-suffix="%">100%</div><div class="lbl">Projets sur-mesure</div></div>
                 </div>
             </div>
         </section>
@@ -221,9 +283,5 @@
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/footer.js"></script>
     <script src="assets/js/ui.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"></script>
-    <script src="assets/js/map.js"></script>
 </body>
 </html>
