@@ -13,7 +13,8 @@
       <div class="foot-grid">
         <div>
           <div class="foot-brand">
-            <img src="${base}assets/images/logos/logo_complet.png" alt="ERPAC">
+            <img src="${base}assets/images/logos/logo_seul.png" alt="">
+            <span class="foot-brand-name">ERPAC<small>Solutions industrielles</small></span>
           </div>
           <p class="foot-about">Concepteur de solutions électroniques, électrotechniques et d'automatisme sur-mesure pour l'industrie, depuis 1989.</p>
         </div>
