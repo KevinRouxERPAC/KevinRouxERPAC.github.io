@@ -9,42 +9,48 @@
         return;
     }
 
-    var loaded = false;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () {
+        window.dataLayer.push(arguments);
+    };
 
-    function loadGoogleAnalytics() {
-        if (loaded) {
-            return;
-        }
-        loaded = true;
+    window.gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        wait_for_update: 500
+    });
 
-        window.dataLayer = window.dataLayer || [];
-        window.gtag = function () {
-            window.dataLayer.push(arguments);
-        };
-        window.gtag("js", new Date());
-        window.gtag("config", measurementId, { anonymize_ip: true });
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, { anonymize_ip: true });
 
-        var script = document.createElement("script");
-        script.async = true;
-        script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(measurementId);
-        document.head.appendChild(script);
-    }
-
-    function maybeLoadFromConsent() {
+    function applyStoredConsent() {
         try {
-            if (localStorage.getItem("erpac_cookie_consent") === "accepted") {
-                loadGoogleAnalytics();
+            var consent = localStorage.getItem("erpac_cookie_consent");
+            if (consent === "accepted") {
+                window.gtag("consent", "update", { analytics_storage: "granted" });
+            } else if (consent === "rejected") {
+                window.gtag("consent", "update", { analytics_storage: "denied" });
             }
         } catch (e) {
             return;
         }
     }
 
+    window.erpacUpdateGaConsent = function (value) {
+        if (value === "accepted") {
+            window.gtag("consent", "update", { analytics_storage: "granted" });
+            return;
+        }
+        window.gtag("consent", "update", { analytics_storage: "denied" });
+    };
+
+    applyStoredConsent();
+
     window.addEventListener("erpac:cookie-consent", function (event) {
-        if (event.detail && event.detail.value === "accepted") {
-            loadGoogleAnalytics();
+        if (event.detail && event.detail.value) {
+            window.erpacUpdateGaConsent(event.detail.value);
         }
     });
-
-    maybeLoadFromConsent();
 })();

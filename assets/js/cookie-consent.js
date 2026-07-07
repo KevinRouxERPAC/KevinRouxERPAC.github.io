@@ -18,6 +18,9 @@
         } catch (e) {
             return;
         }
+        if (typeof window.erpacUpdateGaConsent === "function") {
+            window.erpacUpdateGaConsent(value);
+        }
         window.dispatchEvent(new CustomEvent("erpac:cookie-consent", { detail: { value: value } }));
     }
 
