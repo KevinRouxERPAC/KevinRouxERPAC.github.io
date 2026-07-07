@@ -11,7 +11,7 @@
 <IfModule mod_headers.c>
   # Protection clickjacking (impossible en meta, uniquement en en-tête HTTP)
   Header always set X-Frame-Options "DENY"
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org; media-src 'self'; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
