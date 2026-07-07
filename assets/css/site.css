@@ -162,7 +162,6 @@ body.menu-open .menu-btn span:nth-child(3){transform:translateY(-7px) rotate(-45
 .hero-media-fallback{animation:heroKenBurns 24s ease-in-out infinite alternate;will-change:transform}
 @keyframes heroKenBurns{from{transform:scale(1) translate(0,0)}to{transform:scale(1.1) translate(-1.5%,-1.2%)}}
 .hero::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(120% 80% at 15% 20%,rgba(0,89,42,.55),transparent 60%),linear-gradient(105deg,rgba(7,18,12,.92) 0%,rgba(8,22,15,.78) 42%,rgba(8,22,15,.32) 100%)}
-.hero-overlay-grid{position:absolute;inset:0;z-index:2;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(circle at 30% 40%,#000,transparent 75%);mask-image:radial-gradient(circle at 30% 40%,#000,transparent 75%)}
 .hero .wrap{position:relative;z-index:3}
 .hero-inner{max-width:960px}
 .hero h1{font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;margin:1.4rem 0 1.3rem}
