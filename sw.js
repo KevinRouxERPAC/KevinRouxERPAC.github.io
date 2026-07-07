@@ -4,7 +4,7 @@
      mise à jour en arrière-plan → les visiteurs récurrents reçoivent le nouveau
      design au chargement suivant, sans versionner chaque fichier)
    Bumper CACHE_TYPE force une purge complète des anciens caches au déploiement. */
-const CACHE_NAME = 'erpac-cache-v8';
+const CACHE_NAME = 'erpac-cache-v9';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -20,6 +20,8 @@ const PRECACHE = [
   '/assets/fonts/inter-latin-ext.woff2',
   '/assets/fonts/space-grotesk-latin.woff2',
   '/assets/fonts/space-grotesk-latin-ext.woff2',
+  '/assets/js/cookie-consent.js',
+  '/assets/js/analytics-ga4.js',
   '/assets/js/menu.js',
   '/assets/js/footer.js',
   '/assets/js/contact.js',

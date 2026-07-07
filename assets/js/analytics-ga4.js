@@ -25,16 +25,24 @@
     window.gtag("js", new Date());
     window.gtag("config", measurementId, { anonymize_ip: true });
 
-    function applyStoredConsent() {
+    function readConsent() {
+        var match = document.cookie.match(/(?:^|; )erpac_cookie_consent=([^;]*)/);
+        if (match) {
+            return decodeURIComponent(match[1]);
+        }
         try {
-            var consent = localStorage.getItem("erpac_cookie_consent");
-            if (consent === "accepted") {
-                window.gtag("consent", "update", { analytics_storage: "granted" });
-            } else if (consent === "rejected") {
-                window.gtag("consent", "update", { analytics_storage: "denied" });
-            }
+            return localStorage.getItem("erpac_cookie_consent");
         } catch (e) {
-            return;
+            return null;
+        }
+    }
+
+    function applyStoredConsent() {
+        var consent = readConsent();
+        if (consent === "accepted") {
+            window.gtag("consent", "update", { analytics_storage: "granted" });
+        } else if (consent === "rejected") {
+            window.gtag("consent", "update", { analytics_storage: "denied" });
         }
     }
 
