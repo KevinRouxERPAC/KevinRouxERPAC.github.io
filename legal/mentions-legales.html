@@ -3,142 +3,135 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mentions légales - ERPAC, informations juridiques et légales de l'entreprise">
+    <meta name="ga-measurement-id" content="G-F366DB75JE">
+    <meta name="description" content="Mentions légales d'ERPAC - informations juridiques, hébergement et politique de confidentialité.">
     <meta name="robots" content="index, follow">
-    
-    <!-- En-têtes de sécurité -->
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self';">
 
     <title>Mentions légales - ERPAC</title>
 
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-          crossorigin="anonymous" />
-    <link rel="preload" as="image" href="../assets/images/logos/logo_complet.png">
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/space-grotesk-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <link rel="icon" href="../assets/images/logos/logo_seul.png" type="image/png">
-    <link rel="manifest" href="../manifest.json">
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
+
+    <link rel="canonical" href="https://erpac.fr/legal/mentions-legales.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kevinrouxerpac.github.io/legal/mentions-legales.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://erpac.fr/legal/mentions-legales.html">
     <meta property="og:title" content="Mentions légales - ERPAC">
-    <meta property="og:description" content="Informations juridiques et légales de l'entreprise ERPAC">
-    <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
+    <meta property="og:description" content="Informations juridiques et légales de l'entreprise ERPAC.">
+    <meta property="og:image" content="https://erpac.fr/assets/images/logos/logo_complet.png">
 </head>
 
 <body>
-    <header>
-        <nav id="menu"></nav>
-    </header>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <header id="header"><div id="menu"></div></header>
 
-    <main>
-        <section id="hero" class="hero-about">
-            <div class="hero-content">
-                <h1 class="animate-glow">Mentions légales</h1>
-                <p class="animate-fade-up delay-1">Informations juridiques et légales</p>
+    <main id="main-content" tabindex="-1">
+        <section class="page-hero hero-about" id="hero">
+            <div class="wrap">
+                <nav class="breadcrumb" aria-label="Fil d'ariane">
+                    <a href="../index.html">Accueil</a><span>/</span>Mentions légales
+                </nav>
+                <span class="eyebrow light">Informations juridiques</span>
+                <h1>Mentions légales</h1>
+                <p>Informations juridiques, hébergement et politique de confidentialité du site.</p>
             </div>
         </section>
 
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Éditeur du site</h2>
-                <p>
-                    <strong>ERPAC</strong><br>
-                    Forme juridique : SAS<br>
-                    Capital social : 154 000 €<br>
-                    SIREN/SIRET : 350 479 903 • Code APE : 26.12Z • N° TVA intracommunautaire : FR73 350 479 903<br>
-                    RCS : Bourges<br>
-                    Siège social : 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois, France<br>
-                    Téléphone : 02 48 77 52 10 • Email : contact@erpac.fr<br>
-                    Directeur de la publication : Philippe Roux
-                </p>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Hébergement</h2>
-                <p>
-                    Site hébergé par <strong>OVH SAS</strong><br>
-                    2 Rue Kellermann, 59100 Roubaix, France<br>
-                    Téléphone : 1007 (depuis la France) • Email : support@ovh.com<br>
-                    Site web : <a href="https://www.ovh.com" target="_blank" rel="noopener">www.ovh.com</a>
-                </p>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Confidentialité et données personnelles</h2>
-                <p><strong>Responsable de traitement :</strong> ERPAC (SAS) – 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois – contact@erpac.fr – +33 (0)2 48 77 52 10.</p>
-                <p><strong>Données traitées :</strong> uniquement les informations que vous nous transmettez volontairement (nom, prénom, société, email, téléphone, message) et les journaux techniques nécessaires à la sécurité (adresse IP, user-agent).</p>
-                <p><strong>Finalités et bases légales :</strong> répondre à vos demandes (intérêt légitime / mesures précontractuelles) et assurer la sécurité et le bon fonctionnement du site (intérêt légitime).</p>
-                <p><strong>Durées de conservation :</strong> échanges commerciaux jusqu'à 3 ans après le dernier contact actif ; logs techniques jusqu'à 12 mois selon les obligations de sécurité.</p>
-                <p><strong>Vos droits :</strong> accès, rectification, effacement, limitation, opposition et portabilité (lorsque applicable). Exercice des droits : contact@erpac.fr ou courrier au siège.</p>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Cookies et traceurs</h2>
-                <p>Ce site vitrine n'utilise aucun cookie ni traceur. Aucune mesure d'audience ni publicité n'est mise en place. Aucune donnée n'est déposée sur votre appareil.</p>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Propriété intellectuelle</h2>
-                <p>L'ensemble des contenus du site (textes, images, vidéos, logos, marques, mises en page) sont la propriété d'ERPAC ou utilisés avec autorisation. Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, des contenus est interdite sans l'autorisation préalable et écrite d'ERPAC.</p>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Limitation de responsabilité</h2>
-                <p>ERPAC s'efforce de maintenir l'exactitude des informations de ce site, mais ne peut garantir leur exhaustivité. L'utilisation des informations se fait sous votre responsabilité.</p>
-            </div>
-        </section>
-
-        <section class="about-section">
-            <div class="about-text" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
-                <h2>Crédits</h2>
-                <p><strong>Conception et développement :</strong> ERPAC</p>
-                <p><strong>Dernière mise à jour :</strong> Septembre 2025</p>
-                
-                <div style="margin-top: 2rem; text-align: center;">
+        <section class="legal" id="legal">
+            <div class="wrap legal-inner">
+                <div class="legal-block reveal">
+                    <h2>Éditeur du site</h2>
                     <p>
-                        <a href="/" style="color: var(--primary-color); text-decoration: none; margin: 0 1rem;">← Retour à l'accueil</a> |
-                        <a href="../entreprise/a-propos.html" style="color: var(--primary-color); text-decoration: none; margin: 0 1rem;">À propos</a>
+                        <strong>ERPAC</strong><br>
+                        Forme juridique : SAS<br>
+                        Capital social : 154 000 €<br>
+                        SIREN : 350 479 903 • SIRET (siège) : 350 479 903 00022<br>
+                        Code APE : 26.12Z • N° TVA intracommunautaire : FR73 350 479 903<br>
+                        RCS : Bourges<br>
+                        Siège social : 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois, France<br>
+                        Téléphone : 02 48 77 52 10 • Email : contact@erpac.fr<br>
+                        Directeur de la publication : Philippe Roux
                     </p>
+                </div>
+
+                <div class="legal-block reveal">
+                    <h2>Hébergement</h2>
+                    <p>
+                        Site hébergé par <strong>OVH SAS</strong><br>
+                        SAS au capital de 50 000 000 € – RCS Lille Métropole 424 761 419 00045<br>
+                        2 rue Kellermann, 59100 Roubaix, France<br>
+                        Site web : <a href="https://www.ovhcloud.com" target="_blank" rel="noopener">www.ovhcloud.com</a>
+                    </p>
+                </div>
+
+                <div class="legal-block reveal">
+                    <h2>Confidentialité et données personnelles</h2>
+                    <p><strong>Responsable de traitement :</strong> ERPAC (SAS) – 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois – contact@erpac.fr – +33 (0)2 48 77 52 10.</p>
+                    <p><strong>Absence de formulaire :</strong> ce site vitrine ne comporte aucun formulaire de contact. La prise de contact se fait exclusivement par email (<a href="mailto:contact@erpac.fr">contact@erpac.fr</a>) ou par téléphone (02 48 77 52 10) ; le site ne collecte donc directement aucune donnée saisie.</p>
+                    <p><strong>Données traitées :</strong> uniquement les informations que vous nous transmettez volontairement lorsque vous nous contactez par email ou téléphone (nom, coordonnées et contenu de votre demande), les journaux techniques nécessaires à la sécurité (adresse IP, user-agent) générés côté hébergeur, et des données de fréquentation collectées par Google Analytics 4 si vous avez accepté les cookies de mesure d'audience.</p>
+                    <p><strong>Finalités et bases légales :</strong> répondre à vos demandes (intérêt légitime / mesures précontractuelles), assurer la sécurité et le bon fonctionnement du site (intérêt légitime), et mesurer l'audience du site de manière strictement nécessaire à l'amélioration de nos contenus et services (intérêt légitime).</p>
+                    <p><strong>Destinataires des données :</strong> les données collectées sont destinées uniquement au personnel habilité d'ERPAC, chargé de traiter vos demandes. Elles peuvent également être transmises à notre hébergeur (OVH SAS) dans le cadre strictement technique de l'hébergement du site. Aucune donnée n'est cédée ni vendue à des tiers à des fins commerciales ou publicitaires.</p>
+                    <p><strong>Durées de conservation :</strong> échanges commerciaux jusqu'à 3 ans après le dernier contact actif ; logs techniques jusqu'à 12 mois selon les obligations de sécurité.</p>
+                    <p><strong>Vos droits :</strong> accès, rectification, effacement, limitation, opposition et portabilité (lorsque applicable). Exercice des droits : contact@erpac.fr ou courrier au siège.</p>
+                    <p><strong>Réclamation auprès de la CNIL :</strong> Vous avez le droit d'introduire une réclamation auprès de la Commission Nationale de l'Informatique et des Libertés (CNIL) – <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a> – si vous estimez que le traitement de vos données à caractère personnel ne respecte pas le Règlement Général sur la Protection des Données (RGPD).</p>
+                    <p><strong>Transferts internationaux :</strong> Le site est hébergé par OVH SAS (France). Si vous acceptez les cookies de mesure d'audience, Google Analytics (Google LLC, États-Unis) peut traiter des données de navigation ; ce transfert est encadré par les Clauses Contractuelles Types approuvées par la Commission européenne. Le chargement des tuiles cartographiques OpenStreetMap peut également entraîner la transmission de votre adresse IP vers des serveurs susceptibles d'être situés hors de l'Union européenne, transmission strictement nécessaire au fonctionnement de la carte.</p>
+                </div>
+
+                <div class="legal-block reveal">
+                    <h2 id="cookies">Cookies et traceurs</h2>
+                    <p>Ce site n'utilise des cookies de mesure d'audience que si vous les acceptez via la bannière affichée lors de votre première visite. Sans votre consentement, Google Analytics n'est pas chargé.</p>
+                    <p>Toutefois, afin d'assurer son fonctionnement et sa présentation, le site peut faire appel à des ressources hébergées par des tiers :</p>
+                    <ul class="legal-list">
+                        <li><strong>Google Analytics 4</strong> (<code>www.googletagmanager.com</code>, <code>www.google-analytics.com</code>) : mesure d'audience activée uniquement après acceptation. Les données sont utilisées pour comprendre la fréquentation du site et améliorer nos contenus, sans finalité publicitaire de la part d'ERPAC.</li>
+                        <li><strong>OpenStreetMap</strong> (<code>*.tile.openstreetmap.org</code>) : affichage de la carte de localisation. Votre adresse IP est transmise aux serveurs d'OpenStreetMap Foundation lors du chargement des tuiles cartographiques.</li>
+                        <li><strong>OVH SAS</strong> (hébergeur) : en tant qu'hébergeur du site, OVH peut collecter des journaux d'accès techniques (adresse IP, navigateur, pages visitées) à des fins de sécurité et de fiabilité, conformément à ses obligations légales.</li>
+                    </ul>
+                    <p>Vous pouvez retirer votre consentement à tout moment en supprimant les cookies de votre navigateur ou en refusant les cookies lors de votre prochaine visite (après suppression des données locales du site). Les polices d'affichage et la bibliothèque cartographique Leaflet sont hébergées localement sur le site.</p>
+                </div>
+
+                <div class="legal-block reveal">
+                    <h2>Propriété intellectuelle</h2>
+                    <p>L'ensemble des contenus du site (textes, images, vidéos, logos, marques, mises en page) sont la propriété d'ERPAC ou utilisés avec autorisation. Toute reproduction, représentation, adaptation ou exploitation, totale ou partielle, des contenus est interdite sans l'autorisation préalable et écrite d'ERPAC.</p>
+                </div>
+
+                <div class="legal-block reveal">
+                    <h2>Limitation de responsabilité</h2>
+                    <p>ERPAC s'efforce de maintenir l'exactitude des informations de ce site, mais ne peut garantir leur exhaustivité. L'utilisation des informations se fait sous votre responsabilité.</p>
+                </div>
+
+                <div class="legal-block reveal">
+                    <h2>Crédits</h2>
+                    <p><strong>Conception et développement :</strong> ERPAC</p>
+                    <p><strong>Dernière mise à jour :</strong> Juillet 2026</p>
+                    <div class="legal-nav">
+                        <a href="../index.html">← Retour à l'accueil</a>
+                        <a href="../entreprise/a-propos.html">Qui sommes-nous ?</a>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer id="footer"></footer>
-
     <button id="scrollToTop" aria-label="Retour en haut de la page">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
     <script src="../assets/js/menu.js"></script>
-    <script src="../assets/js/scroll.js"></script>
-    <script src="../assets/js/contact.js"></script>
     <script src="../assets/js/footer.js"></script>
-    <script src="../assets/js/enhancements.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"></script>
-    <script src="../assets/js/map.js"></script>
-
-
+    <script src="../assets/js/cookie-consent.js"></script>
+    <script src="../assets/js/analytics-ga4.js"></script>
+    <script src="../assets/js/ui.js"></script>
 </body>
 </html>

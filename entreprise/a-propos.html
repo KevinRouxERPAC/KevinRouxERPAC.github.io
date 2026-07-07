@@ -3,92 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ERPAC - Découvrez notre histoire, notre équipe et nos partenaires">
+    <meta name="ga-measurement-id" content="G-F366DB75JE">
+    <meta name="description" content="ERPAC - Découvrez notre histoire depuis 1989, notre équipe et notre expertise industrielle.">
     <meta name="robots" content="index, follow">
-    
-    <!-- En-têtes de sécurité -->
+
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self';">
 
     <title>ERPAC - Qui sommes-nous ?</title>
 
-    <link rel="stylesheet" href="../assets/css/styles.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/animations.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-          crossorigin="anonymous" />
-    <link rel="preload" as="image" href="../assets/images/logos/logo_complet.png">
-    <link rel="preload" as="image" href="../assets/images/logos/logo_seul.png">
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/space-grotesk-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="../assets/fonts/inter-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="../assets/css/site.css">
     <link rel="preload" as="image" href="../assets/images/locaux/Locaux.jpg">
     <link rel="preload" as="image" href="../assets/images/About/Histoire.webp">
-    <link rel="preload" as="image" href="../assets/images/About/Organigramme.png">
     <link rel="icon" href="../assets/images/logos/logo_seul.png" type="image/png">
-    <link rel="manifest" href="../manifest.json">
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
+
+    <link rel="canonical" href="https://erpac.fr/entreprise/a-propos.html">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kevinrouxerpac.github.io/entreprise/a-propos.html">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://erpac.fr/entreprise/a-propos.html">
     <meta property="og:title" content="ERPAC - Qui sommes-nous ?">
-    <meta property="og:description" content="Découvrez notre histoire, notre équipe et nos partenaires industriels">
-    <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/About/Histoire.webp">
+    <meta property="og:description" content="Découvrez notre histoire depuis 1989, notre équipe et notre expertise industrielle.">
+    <meta property="og:image" content="https://erpac.fr/assets/images/About/Histoire.webp">
 </head>
 
 <body>
-    <header>
-        <nav id="menu"></nav>
-    </header>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <header id="header"><div id="menu"></div></header>
 
-    <main>
-        <section id="hero" class="hero-about">
-            <div class="hero-content">
-                <h1 class="animate-glow">Qui sommes-nous ?</h1>
-                <p class="animate-fade-up delay-1">Une équipe passionnée au service de l'innovation industrielle</p>
+    <main id="main-content" tabindex="-1">
+        <section class="page-hero hero-about" id="hero">
+            <div class="wrap">
+                <nav class="breadcrumb" aria-label="Fil d'ariane">
+                    <a href="../index.html">Accueil</a><span>/</span>Qui sommes-nous&nbsp;?
+                </nav>
+                <span class="eyebrow light">Notre entreprise</span>
+                <h1>Qui sommes-nous&nbsp;?</h1>
+                <p>Une équipe passionnée au service de l'innovation industrielle, depuis plus de 35 ans.</p>
             </div>
         </section>
 
-        <section id="histoire" class="about-section">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Notre Histoire</h2>
-                    <p>Depuis plus de 35 ans, ERPAC développe son expertise dans les domaines de l'électronique, de l'électrotechnique et de l'automatisme industriel.</p>
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="year">1989</div>
-                            <div class="event">
+        <section class="block" id="histoire">
+            <div class="wrap">
+                <div class="about-grid">
+                    <div class="reveal">
+                        <span class="eyebrow">Notre histoire</span>
+                        <h2 class="about-intro">Plus de 35 ans d'expertise industrielle</h2>
+                        <p class="about-lead">Depuis plus de 35 ans, ERPAC développe son savoir-faire dans les domaines de l'électronique, de l'électrotechnique et de l'automatisme industriel.</p>
+                        <div class="timeline">
+                            <div class="tl-item">
+                                <div class="tl-year">1989</div>
                                 <h3>Création d'ERPAC</h3>
                                 <p>Début de l'aventure avec la création de l'entreprise à Cuffy, spécialisée dans la conception de solutions électroniques industrielles.</p>
                             </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">1994</div>
-                            <div class="event">
+                            <div class="tl-item">
+                                <div class="tl-year">1994</div>
                                 <h3>Déménagement à La Guerche-sur-l'Aubois</h3>
                                 <p>Installation dans de nouveaux locaux plus spacieux pour accompagner la croissance de l'entreprise et développer de nouvelles activités.</p>
                             </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="year">2019</div>
-                            <div class="event">
+                            <div class="tl-item">
+                                <div class="tl-year">2019</div>
                                 <h3>Agrandissement des locaux</h3>
                                 <p>Modernisation et extension significative de l'établissement pour répondre à l'évolution technologique et aux nouveaux défis industriels.</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="about-image">
-                    <img src="../assets/images/About/Histoire.webp" alt="Locaux ERPAC">
+                    <div class="about-media reveal"><img loading="lazy" decoding="async" src="../assets/images/locaux/Locaux.jpg" alt="Locaux ERPAC à La Guerche-sur-l'Aubois"></div>
                 </div>
             </div>
         </section>
 
-        <section id="equipe" class="about-section">
-            <h2>Notre Équipe</h2>
-            <div class="org-chart">
-                <img src="../assets/images/About/Organigramme.png" alt="Organigramme ERPAC" class="org-image">
+        <section class="block approche" id="equipe">
+            <div class="wrap">
+                <div class="section-head center reveal">
+                    <span class="eyebrow center">Notre équipe</span>
+                    <h2>Une organisation au service de vos projets</h2>
+                    <p>Des ingénieurs et techniciens expérimentés, organisés pour vous accompagner à chaque étape.</p>
+                </div>
+                <div class="org-chart reveal">
+                    <img loading="lazy" decoding="async" src="../assets/images/About/Organigramme.png" alt="Organigramme ERPAC" aria-describedby="org-desc">
+                    <p id="org-desc" class="visually-hidden">Direction générale, responsable administratif et financier, responsable commercial, responsable technique, chef d'atelier, ingénieurs bureau d'études, techniciens production et qualité.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="block cta-band">
+            <div class="wrap">
+                <div class="cta reveal">
+                    <h2>Confiez-nous vos projets</h2>
+                    <p>Que vous ayez un projet ponctuel ou clé en main, notre équipe transforme vos défis techniques en succès opérationnels.</p>
+                    <div class="cta-actions">
+                        <a href="mailto:contact@erpac.fr" class="btn btn-light">Nous contacter</a>
+                        <a href="tel:+33248775210" class="btn btn-outline">02 48 77 52 10</a>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -96,22 +111,15 @@
     </main>
 
     <footer id="footer"></footer>
-
     <button id="scrollToTop" aria-label="Retour en haut de la page">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
     <script src="../assets/js/menu.js"></script>
-    <script src="../assets/js/scroll.js"></script>
     <script src="../assets/js/contact.js"></script>
     <script src="../assets/js/footer.js"></script>
-    <script src="../assets/js/enhancements.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"></script>
-    <script src="../assets/js/map.js"></script>
-
+    <script src="../assets/js/cookie-consent.js"></script>
+    <script src="../assets/js/analytics-ga4.js"></script>
+    <script src="../assets/js/ui.js"></script>
 </body>
 </html>

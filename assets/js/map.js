@@ -1,69 +1,61 @@
 // Initialisation sécurisée de la carte
 try {
-    // Détection du chemin de base pour les assets
     const currentPath = window.location.pathname;
     const isInSubfolder = currentPath.includes('/services/') || currentPath.includes('/entreprise/') || currentPath.includes('/legal/');
     const basePath = isInSubfolder ? '../' : '';
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
-    // Vérifier si Leaflet est disponible
     if (typeof L === 'undefined') {
-        console.error('Leaflet library not loaded');
-        document.getElementById('map').innerHTML = '<p style="padding: 2rem; text-align: center; color: #666;">Carte non disponible</p>';
         throw new Error('Leaflet not loaded');
     }
 
     const mapElement = document.getElementById('map');
     if (!mapElement) {
-        console.error('Map element not found');
         throw new Error('Map element not found');
     }
 
-    var map = L.map('map').setView([46.94576575551033, 2.9562034680787654], 5);
+    mapElement.innerHTML = '';
 
-    const message = document.createElement('div');
-    message.textContent = 'Maintenez Ctrl + molette pour zoomer';
-    message.id = 'zoom-message';
-    message.style.cssText = `
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: rgba(55, 55, 55, 0.9);
-        color: white;
-        padding: 8px 12px;
-        border-radius: 5px;
-        font-size: 14px;
-        z-index: 1000;
-        pointer-events: none;
-        transition: opacity 0.3s ease;
-    `;
-    map.getContainer().appendChild(message);
+    var map = L.map('map').setView([46.94576575551033, 2.9562034680787654], 14);
 
-    // Désactiver le zoom à la molette par défaut
-    map.scrollWheelZoom.disable();
+    if (!isTouch) {
+        const message = document.createElement('div');
+        message.textContent = 'Maintenez Ctrl + molette pour zoomer';
+        message.id = 'zoom-message';
+        message.style.cssText = `
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(55, 55, 55, 0.9);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 1000;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        `;
+        map.getContainer().appendChild(message);
 
-    // Gestionnaire d'événement pour le zoom contrôlé
-    map.getContainer().addEventListener('wheel', function(e) {
-        if (e.ctrlKey || e.metaKey) {
-            message.style.opacity = '0';
-            e.preventDefault();
-            var zoom = map.getZoom();
-            if (e.deltaY < 0) {
-                map.setZoom(Math.min(zoom + 1, 18));
+        map.scrollWheelZoom.disable();
+
+        map.getContainer().addEventListener('wheel', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                e.preventDefault();
+                message.style.opacity = '0';
+                var zoom = map.getZoom();
+                if (e.deltaY < 0) {
+                    map.setZoom(Math.min(zoom + 1, 18));
+                } else {
+                    map.setZoom(Math.max(zoom - 1, 1));
+                }
             } else {
-                map.setZoom(Math.max(zoom - 1, 1));
-            }
-            
-            // Masquer le message après utilisation
-            setTimeout(() => {
                 message.style.opacity = '1';
-            }, 2000);
-        } else {
-            message.style.opacity = '1';
-        }
-    }, {passive: false});
+            }
+        }, { passive: false });
+    }
 
-    // Ajouter la couche de tuiles avec gestion d'erreur
     const tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
         maxZoom: 19,
@@ -76,7 +68,6 @@ try {
 
     tileLayer.addTo(map);
 
-    // Ajouter des styles personnalisés pour la popup
     const style = document.createElement('style');
     style.textContent = `
         .erpac-popup .leaflet-popup-content-wrapper {
@@ -85,7 +76,7 @@ try {
         }
         .erpac-popup .leaflet-popup-content {
             margin: 12px 16px;
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', system-ui, sans-serif;
         }
         .erpac-popup .leaflet-popup-tip {
             background: white;
@@ -93,12 +84,11 @@ try {
     `;
     document.head.appendChild(style);
 
-    // Ajouter le marqueur ERPAC
-    const erpacMarker = L.marker([46.94576575551033, 2.9562034680787654])
+    L.marker([46.94576575551033, 2.9562034680787654])
         .addTo(map)
         .bindPopup(`
-            <div style='display: flex; align-items: center; gap: 10px; font-family: Arial, sans-serif; min-width: 200px;'>
-                <img src='${basePath}assets/images/logos/logo_seul.png' alt='ERPAC' style='width: 30px; height: 30px; flex-shrink: 0;' onerror='this.style.display="none"'>
+            <div style='display: flex; align-items: center; gap: 10px; font-family: "Inter", system-ui, sans-serif; min-width: 200px;'>
+                <img src='${basePath}assets/images/logos/logo_seul.png' alt='' style='width: 30px; height: 30px; flex-shrink: 0;'>
                 <div style='flex: 1;'>
                     <strong style='color: #008C3A; font-size: 16px;'>ERPAC</strong><br>
                     <small style='color: #666; line-height: 1.3;'>Électronique - Électrotechnique - Automatisme</small>

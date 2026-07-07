@@ -18,44 +18,55 @@ Site web officiel d'**ERPAC**, expert en conception de cartes électroniques, au
 ## 🛠️ Technologies utilisées
 
 - **Frontend** : HTML5, CSS3, JavaScript (Vanilla)
-- **Responsive Design** : Design adaptatif mobile-first
-- **Animations** : CSS animations personnalisées
+- **Design system** : feuille de styles unique (`assets/css/site.css`)
+- **Typographie** : Space Grotesk + Inter, **auto-hébergées** (woff2, aucun service tiers)
+- **Responsive Design** : Design adaptatif, menu burger sous 900px
+- **Animations** : transitions CSS + apparition au défilement (IntersectionObserver)
+- **Composants partagés** : en-tête, pied de page et contact injectés en JS
 - **Cartes interactives** : Leaflet.js
-- **PWA Ready** : Progressive Web App avec manifest.json
-- **SEO Optimisé** : Meta tags, sitemap, robots.txt
+- **PWA** : Progressive Web App avec manifest.json + Service Worker
+- **SEO Optimisé** : Meta tags, Open Graph, sitemap, robots.txt
 
 ## 📁 Structure du projet
 
 ```
 .
-├── index.html              # Page d'accueil
-├── about.html             # À propos / Histoire
-├── electronique.html      # Services électronique
-├── electrotechnique.html  # Services électrotechnique
-├── automatisme.html       # Services automatisme
-├── 404.html              # Page d'erreur personnalisée
-├── robots.txt            # Configuration SEO robots
-├── sitemap.xml           # Plan du site XML
-├── manifest.json         # Manifest PWA
-├── css/
-│   ├── styles.css        # Styles principaux
-│   ├── responsive.css    # Styles responsives
-│   └── animations.css    # Animations CSS
-├── js/
-│   ├── menu.js          # Navigation menu
-│   ├── carousel.js      # Carrousel d'images
-│   ├── contact.js       # Formulaire de contact
-│   ├── map.js          # Carte interactive
-│   ├── scroll.js       # Effets de scroll
-│   └── enhancements.js # Améliorations UX
-└── images/
-    ├── logos/          # Logos ERPAC et partenaires
-    ├── menus/          # Images des sections
-    ├── About/          # Images page à propos
-    ├── Automatisme/    # Images section automatisme
-    ├── Electronique/   # Images section électronique
-    ├── Electrotechnique/ # Images section électrotechnique
-    └── locaux/         # Photos des locaux
+├── index.html                      # Page d'accueil
+├── services/
+│   ├── electronique.html           # Services électronique
+│   ├── electrotechnique.html       # Services électrotechnique
+│   └── automatisme.html            # Services automatisme
+├── entreprise/
+│   └── a-propos.html               # Qui sommes-nous / Histoire
+├── legal/
+│   └── mentions-legales.html       # Mentions légales (RGPD)
+├── 404.html                        # Page d'erreur personnalisée
+├── robots.txt                      # Configuration SEO robots
+├── sitemap.xml                     # Plan du site XML
+├── manifest.json                   # Manifest PWA
+├── sw.js                           # Service Worker (cache hors-ligne)
+└── assets/
+    ├── css/
+    │   └── site.css                # Design system unique (refonte v2)
+    ├── fonts/                      # Polices auto-hébergées (woff2)
+    │   ├── inter-latin.woff2
+    │   ├── inter-latin-ext.woff2
+    │   ├── space-grotesk-latin.woff2
+    │   └── space-grotesk-latin-ext.woff2
+    ├── js/
+    │   ├── menu.js                 # En-tête / navigation (injecté)
+    │   ├── footer.js               # Pied de page (injecté)
+    │   ├── contact.js              # Section contact + carte (injecté)
+    │   ├── ui.js                   # Interactions (scroll, burger, reveal…)
+    │   └── map.js                  # Carte interactive Leaflet
+    └── images/
+        ├── logos/                  # Logos ERPAC et partenaires
+        ├── menus/                  # Images des sections
+        ├── About/                  # Images page à propos
+        ├── Automatisme/            # Images section automatisme
+        ├── Electronique/           # Images section électronique
+        ├── Electrotechnique/       # Images section électrotechnique
+        └── locaux/                 # Photos des locaux
 ```
 
 ## 🚦 Installation et développement local
@@ -86,53 +97,65 @@ Le site est configuré comme une PWA avec :
 - ✅ Manifest.json configuré
 - ✅ Icônes pour différentes plateformes
 - ✅ Mode standalone sur mobile
-- 🔄 Service Worker à implémenter (optionnel)
+- ✅ Service Worker (`sw.js`) : cache hors-ligne, activé en HTTPS uniquement
 
 ## 🔍 SEO et Performance
 
 ### Optimisations SEO
 - ✅ Meta tags Open Graph et Twitter Cards
-- ✅ Sitemap XML généré automatiquement
+- ✅ Sitemap XML (maintenu manuellement : penser à mettre à jour `lastmod`)
 - ✅ Robots.txt configuré
 - ✅ Structure HTML sémantique
-- ✅ Images optimisées (WebP, lazy loading)
 - ✅ URLs propres et descriptives
 
 ### Performance
-- ✅ Préchargement des images critiques
-- ✅ CSS et JS minifiés
-- ✅ Images responsives et optimisées
-- ✅ Lazy loading des images
+- ✅ Préchargement des polices et de l'image hero
+- ✅ Images optimisées (recompression JPEG/WebP, ≤ 1920px de large)
+- ✅ Lazy loading (`loading="lazy"`) sur toutes les images sous la ligne de flottaison
+- ✅ Cache navigateur configuré côté OVH via `.htaccess`
 
 ## 🚀 Déploiement
 
-Le site est automatiquement déployé via **GitHub Pages** à chaque push sur la branche principale.
+Le site est déployé sur **deux cibles** :
 
-### Workflow de déploiement
-1. Push vers le repository
-2. GitHub Actions execute le workflow de déploiement
-3. Le site est publié sur `https://kevinrouxerpac.github.io`
+1. **OVH** : hébergement de production sur le domaine canonique
+   **`https://erpac.fr`**. Les balises `canonical`, `og:url`, `og:image`,
+   le `sitemap.xml` et `robots.txt` pointent tous vers ce domaine.
+2. **GitHub Pages** : publication automatique de la branche `main` sur
+   `https://kevinrouxerpac.github.io` (miroir). Le `canonical` vers `erpac.fr`
+   indique aux moteurs de ne pas indexer ce miroir en doublon.
+
+Le workflow [`deploy.yml`](../.github/workflows/deploy.yml) pousse le contenu
+vers l'hébergement OVH à chaque push sur `main`.
+
+### 🔄 Cache et fraîcheur du design après déploiement
+
+Pour éviter que les visiteurs récurrents restent bloqués sur l'ancien design :
+
+- **Service Worker** (`sw.js`) : les assets CSS/JS sont servis en
+  **stale-while-revalidate** (réponse immédiate depuis le cache + récupération
+  d'une version fraîche en arrière-plan). La mise à jour est appliquée au
+  chargement suivant, **sans versionner chaque fichier**.
+- **`.htaccess` (OVH)** : cache court (1 jour) pour HTML/CSS/JS afin que la
+  revalidation du SW obtienne bien les octets à jour ; cache long pour
+  polices/images (rarement modifiées).
+- **Purge forcée** : pour invalider immédiatement tous les caches (changement
+  majeur), **bumper `CACHE_NAME`** dans `sw.js` (`erpac-cache-v5` → `v6`). Le
+  handler `activate` supprime alors tous les anciens caches.
 
 ## 🤝 Contribution
 
 ### Branches
-- `main` : Version de production
-- `develop` : Version de développement
-- `feature/*` : Nouvelles fonctionnalités
-
-### Process de contribution
-1. Fork du projet
-2. Créer une branche feature (`git checkout -b feature/AmazingFeature`)
-3. Commit des changements (`git commit -m 'Add some AmazingFeature'`)
-4. Push vers la branche (`git push origin feature/AmazingFeature`)
-5. Ouvrir une Pull Request
+- `main` : version de production (déclenche les déploiements)
+- branches de travail (ex. `refonte-design-v2`) fusionnées via Pull Request
 
 ## 📞 Contact
 
 **ERPAC**
-- 📧 Email : [Voir formulaire de contact](https://kevinrouxerpac.github.io/#contact)
-- 🌐 Site web : [kevinrouxerpac.github.io](https://kevinrouxerpac.github.io)
-- 📍 Adresse : [Voir section contact](https://kevinrouxerpac.github.io/#contact)
+- 📧 Email : [contact@erpac.fr](mailto:contact@erpac.fr)
+- ☎️ Téléphone : 02 48 77 52 10
+- 🌐 Site web : [erpac.fr](https://erpac.fr)
+- 📍 Adresse : 49bis Avenue de la République, 18150 La Guerche-sur-l'Aubois
 
 ## 📄 License
 
@@ -164,44 +187,32 @@ Voir [CHANGELOG.md](CHANGELOG.md) pour l'historique détaillé des modifications
 - Try-catch pour gestion d'erreurs
 
 #### 4. En-têtes de sécurité HTTP
-Implémentés via meta tags `<head>` :
+Deux niveaux complémentaires :
+
+1. **`.htaccess` (hébergement OVH)** — les vrais en-têtes HTTP : CSP complète,
+   `X-Frame-Options` / `frame-ancestors` (protection clickjacking, possible
+   **uniquement** en en-tête HTTP, jamais en meta), `X-Content-Type-Options`,
+   `Referrer-Policy`, `Permissions-Policy`, HSTS, redirection HTTPS,
+   cache navigateur et compression.
+2. **Meta tags dans le `<head>`** — filet de sécurité pour GitHub Pages
+   (qui ne permet pas d'en-têtes personnalisés) :
 ```html
 <meta http-equiv="X-Content-Type-Options" content="nosniff">
-<meta http-equiv="X-Frame-Options" content="DENY">
-<meta http-equiv="X-XSS-Protection" content="1; mode=block">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org; connect-src 'self' https://*.tile.openstreetmap.org; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org; base-uri 'self'; form-action 'self';">
 ```
+
+> `connect-src` n'inclut **plus** `https://unpkg.com` : Leaflet est chargé via `script-src`/`style-src` et n'émet aucune requête `fetch`/`XHR` vers le CDN. Seules les tuiles OpenStreetMap sont contactées.
+
+> `script-src` n'autorise **plus** `'unsafe-inline'` : tout le JavaScript est dans des fichiers externes (aucun script inline ni gestionnaire `onclick`/`onerror`). `style-src` conserve `'unsafe-inline'` (attributs `style` et styles injectés par map.js).
+>
+> Les meta `X-Frame-Options`, `X-XSS-Protection` (obsolète) et `frame-ancestors` ont été retirés des pages : ignorés par les navigateurs en balise meta, ils sont gérés dans `.htaccess`.
+>
+> Les polices étant auto-hébergées, `font-src` reste sur `'self'` : aucune connexion à un service de polices tiers (ex. Google Fonts).
 
 #### 5. Subresource Integrity (SRI) pour Leaflet
 - Vérification d'intégrité des ressources externes CDN
 - Protection contre la compromission des dépendances
-
-### ⚠️ Recommandations importantes
-
-#### 1. En-têtes HTTP supplémentaires (Cloudflare)
-**Limitation GitHub Pages** : Les en-têtes HTTP personnalisés ne sont pas supportés nativement.
-
-**Solutions** :
-1. **Cloudflare Pages (RECOMMANDÉ)** :
-   - Gratuit et facile à configurer
-   - Ajouter votre domaine à Cloudflare
-   - Configurer les règles avec le fichier `_headers`
-
-2. **Alternative actuelle** : Meta tags implémentés (fonctionnels mais moins optimaux)
-
-#### 2. Content Security Policy (CSP)
-**CSP actuelle** :
-```
-default-src 'self'; 
-script-src 'self' 'unsafe-inline' https://unpkg.com; 
-style-src 'self' 'unsafe-inline' https://unpkg.com; 
-img-src 'self' data: https://*.tile.openstreetmap.org; 
-connect-src 'self' https://*.tile.openstreetmap.org; 
-frame-ancestors 'none';
-```
-
-**Note** : La CSP autorise `unsafe-inline` car le site utilise des scripts inline. Pour une sécurité maximale, envisager la migration vers des fichiers JS externes.
 
 ### 🔍 Checklist de sécurité
 
@@ -209,10 +220,10 @@ frame-ancestors 'none';
 - [x] Service Worker activé uniquement en HTTPS
 - [x] Pas d'injection de code utilisateur
 - [x] Pas d'eval() ou fonctions dangereuses
-- [x] En-têtes de sécurité HTTP (meta tags)
+- [x] CSP sans `unsafe-inline` pour les scripts
+- [x] En-têtes HTTP natifs via `.htaccess` (OVH)
 - [x] SRI pour Leaflet
-- [ ] **En-têtes HTTP natifs** (recommandé avec Cloudflare)
-- [ ] **HSTS Preload** (optionnel)
+- [ ] **HSTS Preload** (optionnel, quand erpac.fr sera en service)
 
 ### 📊 Niveau de sécurité actuel
 
@@ -234,8 +245,8 @@ frame-ancestors 'none';
 - [ ] Vérifier qu'il n'y a **pas d'erreurs rouges** dans la console
 - [ ] Vérifier que la carte Leaflet s'affiche correctement
 - [ ] Tester la navigation entre les pages
-- [ ] Tester le carousel des partenaires
-- [ ] Vérifier le scroll smooth
+- [ ] Vérifier le défilement des logos partenaires
+- [ ] Vérifier le scroll smooth et l'apparition des sections
 
 #### 2. Vérification des erreurs CSP
 Si erreurs CSP dans la console :

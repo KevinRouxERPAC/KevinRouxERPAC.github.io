@@ -3,235 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ERPAC - Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
+    <meta name="ga-measurement-id" content="G-F366DB75JE">
+    <meta name="description" content="ERPAC - Concepteur de solutions électroniques, électrotechniques et d'automatisme sur-mesure pour l'industrie, depuis 1989.">
     <meta name="robots" content="index, follow">
-    
+
     <!-- En-têtes de sécurité -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://unpkg.com; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://unpkg.com; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://*.tile.openstreetmap.org https://*.openstreetmap.org https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; font-src 'self'; connect-src 'self' https://*.tile.openstreetmap.org https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self';">
 
-    <title>ERPAC - Concepteur de cartes électroniques</title>
+    <title>ERPAC - Concepteur de solutions électroniques industrielles</title>
 
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
-          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
-          crossorigin="anonymous" />
-    <link rel="preload" as="image" href="assets/images/logos/logo_complet.png">
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-grotesk-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/site.css">
     <link rel="preload" as="image" href="assets/images/locaux/Locaux.jpg">
-    <link rel="preload" as="image" href="assets/images/menus/Electronique.jpg">
-    <link rel="preload" as="image" href="assets/images/menus/Electrotechnique.jpg">
-    <link rel="preload" as="image" href="assets/images/menus/Automatisme.jpg">
-    <link rel="preload" as="image" href="assets/images/logos/AMADA.png">
-    <link rel="preload" as="image" href="assets/images/logos/STROMAG.png">
-    <link rel="preload" as="image" href="assets/images/logos/SAUR.png">
-    <link rel="preload" as="image" href="assets/images/logos/SWISSLOG.png">
-    <link rel="preload" as="image" href="assets/images/logos/ACTICOM.png">
-    <link rel="preload" as="image" href="assets/images/logos/GENEOL.png">
-    <link rel="preload" as="image" href="assets/images/logos/GENIALIS.png">
-    <link rel="preload" as="image" href="assets/images/logos/IETS_SEPT_TOOLS.png">
-    <link rel="preload" as="image" href="assets/images/logos/O_DE_LAURE.png">
-    <link rel="preload" as="image" href="assets/images/logos/SNCF.png">
-    <link rel="preload" as="image" href="assets/images/logos/CMD.png">
-    <link rel="preload" as="image" href="assets/images/logos/BOURGES_PLUS.png">
     <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
-    <!-- PWA manifest (HTTPS only) -->
-    <link id="manifest-link" rel="manifest" href="manifest.json">
-    
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://kevinrouxerpac.github.io/">
-    <meta property="og:title" content="ERPAC - Concepteur de cartes électroniques">
-    <meta property="og:description" content="Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
-    <meta property="og:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://kevinrouxerpac.github.io/">
-    <meta property="twitter:title" content="ERPAC - Concepteur de cartes électroniques">
-    <meta property="twitter:description" content="Expert en conception de cartes électroniques, automatisation et solutions électrotechniques sur mesure">
-    <meta property="twitter:image" content="https://kevinrouxerpac.github.io/assets/images/logos/logo_complet.png">
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
+
+    <link rel="canonical" href="https://erpac.fr/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:url" content="https://erpac.fr/">
+    <meta property="og:title" content="ERPAC - Concepteur de solutions électroniques industrielles">
+    <meta property="og:description" content="Étude, conception et fabrication de cartes électroniques, armoires électrotechniques et systèmes automatisés sur-mesure.">
+    <meta property="og:image" content="https://erpac.fr/assets/images/logos/logo_complet.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ERPAC - Concepteur de solutions électroniques industrielles">
+    <meta name="twitter:description" content="Étude, conception et fabrication de solutions électroniques, électrotechniques et automatisées sur-mesure.">
+    <meta name="twitter:image" content="https://erpac.fr/assets/images/logos/logo_complet.png">
+
+    <!-- Données structurées : PME industrielle (SEO local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://erpac.fr/#organization",
+      "name": "ERPAC",
+      "description": "Concepteur de solutions électroniques, électrotechniques et d'automatisme sur-mesure pour l'industrie depuis 1989.",
+      "url": "https://erpac.fr/",
+      "logo": "https://erpac.fr/assets/images/logos/logo_complet.png",
+      "image": "https://erpac.fr/assets/images/locaux/Locaux.jpg",
+      "telephone": "+33248775210",
+      "email": "contact@erpac.fr",
+      "foundingDate": "1989",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "49bis Avenue de la République",
+        "postalCode": "18150",
+        "addressLocality": "La Guerche-sur-l'Aubois",
+        "addressRegion": "Centre-Val de Loire",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 46.945765,
+        "longitude": 2.956203
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "06:00",
+        "closes": "13:00"
+      }],
+      "areaServed": "France",
+      "knowsAbout": ["Électronique", "Électrotechnique", "Automatisme", "Cartes électroniques", "Armoires électriques", "Automatisation industrielle"]
+    }
+    </script>
 </head>
 
-
 <body>
-    <header>
-        <nav id="menu"></nav>
-    </header>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <header id="header"><div id="menu"></div></header>
 
-    <main>
-        <section id="accueil">
-            <h1 class="animate-glow">Bienvenue chez ERPAC</h1>
-            <h2 class="animate-fade-up delay-1">Automatisons demain, dès aujourd'hui</h2>
-        </section>
-
-        <section id="specialite" class="index-section">
-                <div class="animate-fade-up delay-1">
-                    <a href="services/electronique.html">
-                        <img src="assets/images/menus/Electronique.jpg" alt="Carte électronique" class="specialite-img">
-                        <h2>Electronique</h2>
-                        <p>
-                            Des solutions <strong>sur-mesure</strong> pensées pour maximiser vos performances industrielles.
-                            Chacune de nos cartes est conçue pour répondre à vos besoins spécifiques.
-                        </p>
-                    </a>
-                </div>
-                <div class="animate-fade-up delay-2">
-                    <a href="services/electrotechnique.html">
-                        <img src="assets/images/menus/Electrotechnique.jpg" alt="Armoire électrique" class="specialite-img">
-                        <h2>Electrotechnique</h2>
-                        <p>
-                            Des armoires électriques <strong>robustes et personnalisées</strong>, conçues pour répondre aux
-                            exigences les plus techniques de votre environnement industriel.
-                        </p>
-                    </a>
-                </div>
-                <div class="animate-fade-up delay-3">
-                    <a href="services/automatisme.html">
-                        <img src="assets/images/menus/Automatisme.jpg" alt="Automatisation de systèmes" class="specialite-img">
-                        <h2>Automatisme</h2>
-                        <p>
-                            Transformez vos processus industriels grâce à des solutions d'automatisation
-                            <strong>intelligentes et connectées</strong>. Gagnez en efficacité et en productivité.
-                        </p>
-                    </a>
-                </div>
-                
-                <p class="specialites-intro">
-                    Depuis notre création, ERPAC s'est imposé comme un acteur incontournable dans l'industrie grâce à trois domaines d'expertise complémentaires. 
-                    Notre approche intégrée nous permet d'accompagner nos clients dans tous leurs projets, de la conception initiale jusqu'à la mise en service finale. 
-                    Que vous ayez besoin d'une solution ponctuelle ou d'un projet clé en main, notre équipe d'ingénieurs expérimentés saura transformer vos défis techniques en succès opérationnels.
-                </p>
-        </section>
-
-        <section id="partenaires" class="index-section">
-            <h2>Ils nous font confiance</h2>
-            <p class="partners-intro">Nous collaborons avec les meilleurs acteurs de l'industrie pour vous offrir des solutions optimales</p>
-            
-            <div class="partners-carousel-container">
-                <button class="carousel-arrow prev" aria-label="Précédent">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M15 18l-6-6 6-6"/>
-                    </svg>
-                </button>
-
-                <div class="partners-carousel">
-                    <div class="partners-track">
-                        <div class="partner">
-                            <a href="https://www.stromag.com/fr-FR" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/STROMAG.png" alt="Stromag">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.sncf-voyageurs.com/fr/decouvrez-notre-entreprise/nos-directions-et-filiales/direction-du-materiel/nous-connaitre/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/SNCF.png" alt="SNCF">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.amada.fr/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/AMADA.png" alt="AMADA">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.saur.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/SAUR.png" alt="Saur">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.swisslog-healthcare.com/fr-fr" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/SWISSLOG.png" alt="Swisslog">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.acti-com.net/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/ACTICOM.png" alt="Acticom">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.geneol.fr/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/GENEOL.png" alt="Geneol">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.genialis.fr/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/GENIALIS.png" alt="Genialis">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.sept-tools.fr/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/IETS_SEPT_TOOLS.png" alt="IETS Sept Tools">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.josianelaureparis.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/O_DE_LAURE.png" alt="O de Laure">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://cmdgears.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/CMD.png" alt="CMD">
-                            </a>
-                        </div>
-                        <div class="partner">
-                            <a href="https://www.agglo-bourgesplus.fr/" target="_blank" rel="noopener noreferrer">
-                                <img src="assets/images/logos/BOURGES_PLUS.png" alt="Bourges Plus">
-                            </a>
-                        </div>
+    <main id="main-content" tabindex="-1">
+        <!-- HERO -->
+        <section class="hero" id="accueil">
+            <div class="hero-media-wrap" aria-hidden="true">
+                <video class="hero-video" autoplay muted loop playsinline preload="none" poster="assets/images/locaux/Locaux.jpg">
+                    <source src="assets/images/locaux/hero.mp4" type="video/mp4">
+                </video>
+                <div class="hero-media hero-media-fallback" style="background-image:url('assets/images/locaux/Locaux.jpg')"></div>
+            </div>
+            <div class="wrap">
+                <div class="hero-inner">
+                    <span class="eyebrow light">Depuis 1989 · La Guerche-sur-l'Aubois (Cher)</span>
+                    <h1 class="hero-acronym" aria-label="ERPAC : Étude, Réalisation, Programmation et Automatisme du Cher">
+                        <span class="ac-row"><span class="ac-i">E</span><span class="ac-w">tude</span></span>
+                        <span class="ac-row"><span class="ac-i">R</span><span class="ac-w">éalisation</span></span>
+                        <span class="ac-row"><span class="ac-i">P</span><span class="ac-w">rogrammation et</span></span>
+                        <span class="ac-row"><span class="ac-i">A</span><span class="ac-w">utomatisme du</span></span>
+                        <span class="ac-row"><span class="ac-i">C</span><span class="ac-w">her</span></span>
+                    </h1>
+                    <p class="hero-sub">ERPAC conçoit et fabrique vos cartes électroniques, armoires électrotechniques et systèmes automatisés sur-mesure. Un seul interlocuteur, du prototype à la production.</p>
+                    <div class="hero-actions">
+                        <a href="#expertises" class="btn btn-primary">Découvrir nos expertises
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+                        <a href="#contact" class="btn btn-ghost">Parler de votre projet</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div><div class="num counter" data-count="35" data-suffix="+">35+</div><div class="lbl">ans d'expertise</div></div>
+                        <div><div class="num counter" data-count="19">19</div><div class="lbl">collaborateurs</div></div>
+                        <div><div class="num counter" data-count="100" data-suffix="%">100%</div><div class="lbl">sur-mesure</div></div>
                     </div>
                 </div>
-                <button class="carousel-arrow next" aria-label="Suivant">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M9 18l6-6-6-6"/>
-                    </svg>
-                </button>
+            </div>
+            <a href="#expertises" class="scroll-hint" aria-label="Défiler vers le contenu"><span class="dot"></span>Défiler</a>
+        </section>
+
+        <!-- CONFIANCE -->
+        <div class="trust">
+            <div class="trust-head">
+                <p class="trust-label">Ils nous font confiance</p>
+                <div class="trust-stats" aria-label="Chiffres clés ERPAC">
+                    <div class="trust-stat">
+                        <div class="num counter" data-count="100" data-suffix="+">100+</div>
+                        <div class="lbl">clients industriels</div>
+                    </div>
+                    <div class="trust-stat">
+                        <div class="num counter" data-count="19">19</div>
+                        <div class="lbl">collaborateurs</div>
+                    </div>
+                </div>
+            </div>
+            <div class="marquee">
+                <div class="marquee-track" id="logos-track">
+                    <a href="https://www.sncf-voyageurs.com/fr/decouvrez-notre-entreprise/nos-directions-et-filiales/direction-du-materiel/nous-connaitre/" target="_blank" rel="noopener noreferrer" aria-label="Site de SNCF"><img src="assets/images/logos/SNCF.png" alt="SNCF"></a>
+                    <a href="https://www.stromag.com/fr-FR" target="_blank" rel="noopener noreferrer" aria-label="Site de Stromag"><img src="assets/images/logos/STROMAG.png" alt="Stromag"></a>
+                    <a href="https://www.amada.fr/" target="_blank" rel="noopener noreferrer" aria-label="Site d'AMADA"><img src="assets/images/logos/AMADA.png" alt="AMADA"></a>
+                    <a href="https://www.saur.com/" target="_blank" rel="noopener noreferrer" aria-label="Site de Saur"><img src="assets/images/logos/SAUR.png" alt="Saur"></a>
+                    <a href="https://www.swisslog-healthcare.com/fr-fr" target="_blank" rel="noopener noreferrer" aria-label="Site de Swisslog"><img src="assets/images/logos/SWISSLOG.png" alt="Swisslog"></a>
+                    <a href="https://www.acti-com.net/" target="_blank" rel="noopener noreferrer" aria-label="Site d'Acticom"><img src="assets/images/logos/ACTICOM.png" alt="Acticom"></a>
+                    <a href="https://www.geneol.fr/" target="_blank" rel="noopener noreferrer" aria-label="Site de Geneol"><img src="assets/images/logos/GENEOL.png" alt="Geneol"></a>
+                    <a href="https://www.genialis.fr/" target="_blank" rel="noopener noreferrer" aria-label="Site de Genialis"><img src="assets/images/logos/GENIALIS.png" alt="Genialis"></a>
+                    <a href="https://cmdgears.com/" target="_blank" rel="noopener noreferrer" aria-label="Site de CMD"><img src="assets/images/logos/CMD.png" alt="CMD"></a>
+                    <a href="https://www.agglo-bourgesplus.fr/" target="_blank" rel="noopener noreferrer" aria-label="Site de Bourges Plus"><img src="assets/images/logos/BOURGES_PLUS.png" alt="Bourges Plus"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ATELIER EN ACTION -->
+        <section class="atelier-strip" id="atelier" aria-label="Notre atelier en action">
+            <div class="atelier-track">
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Electronique/Electronique_Conception.webp" alt="Conception de cartes électroniques en bureau d'études">
+                    <figcaption><span class="atelier-tag">Bureau d'études</span><span>Conception électronique</span></figcaption>
+                </figure>
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Electronique/Electronique_Production.jpg" alt="Production de cartes électroniques en atelier">
+                    <figcaption><span class="atelier-tag">Atelier</span><span>Production électronique</span></figcaption>
+                </figure>
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Electrotechnique/Electrotechnique_Production.jpg" alt="Câblage d'armoires électrotechniques">
+                    <figcaption><span class="atelier-tag">Atelier</span><span>Armoires électrotechniques</span></figcaption>
+                </figure>
+                <figure class="atelier-shot reveal">
+                    <img loading="lazy" decoding="async" src="assets/images/Automatisme/Automatisme_Programmation.webp" alt="Programmation de systèmes automatisés">
+                    <figcaption><span class="atelier-tag">Automatisme</span><span>Programmation &amp; mise en service</span></figcaption>
+                </figure>
             </div>
         </section>
 
-        <section id="contact"></section>
+        <!-- EXPERTISES -->
+        <section class="block block-textured" id="expertises">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="eyebrow">Nos expertises</span>
+                    <h2>Trois pôles, une approche intégrée</h2>
+                    <p>Une approche qui couvre tout votre projet, de la conception initiale jusqu'à la mise en service — solution ponctuelle ou projet clé en main.</p>
+                </div>
+                <div class="exp-grid exp-grid-bento">
+                    <a class="exp-card exp-card-featured reveal" href="services/electronique.html" aria-label="Voir le pôle Électronique">
+                        <img loading="lazy" decoding="async" src="assets/images/menus/Electronique.jpg" alt="Carte électronique">
+                        <div class="exp-body">
+                            <div class="exp-num">01</div>
+                            <h3>Électronique</h3>
+                            <p>Des cartes électroniques sur-mesure pensées pour maximiser vos performances industrielles, conçues pour répondre à vos besoins spécifiques.</p>
+                            <div class="exp-tags"><span>Étude</span><span>Conception</span><span>Programmation</span><span>Production</span></div>
+                            <span class="exp-link">Voir le pôle
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="exp-card reveal" href="services/electrotechnique.html" aria-label="Voir le pôle Électrotechnique">
+                        <img loading="lazy" decoding="async" src="assets/images/menus/Electrotechnique.jpg" alt="Armoire électrique">
+                        <div class="exp-body">
+                            <div class="exp-num">02</div>
+                            <h3>Électrotechnique</h3>
+                            <p>Des armoires électriques robustes et personnalisées, conçues pour répondre aux exigences les plus techniques de votre environnement industriel.</p>
+                            <div class="exp-tags"><span>Conception</span><span>Production</span><span>Installation</span><span>Mise en service</span></div>
+                            <span class="exp-link">Voir le pôle
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                    <a class="exp-card reveal" href="services/automatisme.html" aria-label="Voir le pôle Automatisme">
+                        <img loading="lazy" decoding="async" src="assets/images/menus/Automatisme.jpg" alt="Automatisation de systèmes">
+                        <div class="exp-body">
+                            <div class="exp-num">03</div>
+                            <h3>Automatisme</h3>
+                            <p>Transformez vos processus grâce à des solutions d'automatisation intelligentes et connectées. Gagnez en efficacité et en productivité.</p>
+                            <div class="exp-tags"><span>Programmation</span><span>Supervision</span><span>Installation</span><span>Mise en service</span></div>
+                            <span class="exp-link">Voir le pôle
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- APPROCHE -->
+        <section class="block approche block-textured" id="approche">
+            <div class="wrap">
+                <div class="section-head center reveal">
+                    <span class="eyebrow center">Notre méthode</span>
+                    <h2>De l'étude à la mise en service</h2>
+                    <p>Un accompagnement complet, maîtrisé en interne à chaque étape — la garantie d'un projet cohérent et tenu dans les délais.</p>
+                </div>
+                <div class="steps">
+                    <div class="step reveal"><div class="step-num">1</div><h3>Étude</h3><p>Analyse de votre besoin et cahier des charges technique défini avec vous.</p></div>
+                    <div class="step reveal"><div class="step-num">2</div><h3>Conception</h3><p>Conception et prototypage de la solution par notre bureau d'études.</p></div>
+                    <div class="step reveal"><div class="step-num">3</div><h3>Production</h3><p>Fabrication en atelier intégré avec contrôle qualité à chaque étape.</p></div>
+                    <div class="step reveal"><div class="step-num">4</div><h3>Mise en service</h3><p>Installation, mise en route et accompagnement sur votre site.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POURQUOI -->
+        <section class="block why" id="pourquoi">
+            <div class="wrap why-grid">
+                <div class="reveal">
+                    <span class="eyebrow light">Pourquoi ERPAC</span>
+                    <h2>Un partenaire industriel, pas un simple sous-traitant</h2>
+                    <p class="lead">Depuis notre création en 1989, nous transformons les défis techniques de nos clients en succès opérationnels. Tout est maîtrisé sous un même toit.</p>
+                    <div class="why-points">
+                        <div class="why-point">
+                            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>
+                            <div><h4>Un seul interlocuteur</h4><p>Électronique, électrotechnique et automatisme réunis : vous gagnez en simplicité et en cohérence.</p></div>
+                        </div>
+                        <div class="why-point">
+                            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4L12 17l-6.3 4.4L8 14 2 9.4h7.6z"/></svg></span>
+                            <div><h4>100% sur-mesure</h4><p>Chaque solution est conçue pour répondre précisément à vos contraintes industrielles.</p></div>
+                        </div>
+                        <div class="why-point">
+                            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                            <div><h4>Atelier &amp; bureau d'études intégrés</h4><p>De la conception à la production, la qualité est contrôlée à chaque étape, en interne.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="metrics reveal">
+                    <div class="metric"><div class="num counter" data-count="1989" data-from="1960">1989</div><div class="lbl">Année de création</div></div>
+                    <div class="metric"><div class="num counter" data-count="35" data-suffix="+">35+</div><div class="lbl">Années d'expérience</div></div>
+                    <div class="metric"><div class="num counter" data-count="19">19</div><div class="lbl">Collaborateurs</div></div>
+                    <div class="metric"><div class="num counter" data-count="100" data-suffix="+">100+</div><div class="lbl">Clients industriels</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT — coordonnées statiques (SEO / sans JS), enrichies par contact.js (carte) -->
+        <section id="contact" class="block contact">
+            <div class="wrap">
+                <div class="section-head center">
+                    <span class="eyebrow center">Contact</span>
+                    <h2>Parlons de votre projet</h2>
+                </div>
+                <address class="coord">
+                    <h3>Nos coordonnées</h3>
+                    <p>
+                        <strong>ERPAC</strong><br>
+                        49bis Avenue de la République<br>
+                        18150 La Guerche-sur-l'Aubois
+                    </p>
+                    <p>Téléphone : <a href="tel:+33248775210">02 48 77 52 10</a></p>
+                    <p>Email : <a href="mailto:contact@erpac.fr">contact@erpac.fr</a></p>
+                    <p>Horaires : Lundi – Vendredi, 6h00 – 13h00 (atelier)</p>
+                    <p><a href="legal/mentions-legales.html">Mentions légales</a></p>
+                </address>
+            </div>
+        </section>
     </main>
 
     <footer id="footer"></footer>
 
     <button id="scrollToTop" aria-label="Retour en haut de la page">
-        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 15l-6-6-6 6"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 
     <script src="assets/js/menu.js"></script>
-    <script src="assets/js/scroll.js"></script>
-    <script src="assets/js/carousel.js"></script>
     <script src="assets/js/contact.js"></script>
     <script src="assets/js/footer.js"></script>
-    <script src="assets/js/enhancements.js"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin="anonymous"></script>
-    <script src="assets/js/map.js"></script>
-    
-    <!-- Service Worker Registration (HTTPS only) -->
-    <script>
-        // Désactiver manifest en développement local
-        if (window.location.protocol === 'file:') {
-            const manifestLink = document.getElementById('manifest-link');
-            if (manifestLink) manifestLink.remove();
-        }
-
-        if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then((registration) => {
-                        console.log('Service Worker enregistré avec succès:', registration.scope);
-                    })
-                    .catch((error) => {
-                        console.log('Échec de l\'enregistrement du Service Worker:', error);
-                    });
-            });
-        }
-    </script>
-
+    <script src="assets/js/cookie-consent.js"></script>
+    <script src="assets/js/analytics-ga4.js"></script>
+    <script src="assets/js/ui.js"></script>
 </body>
 </html>
