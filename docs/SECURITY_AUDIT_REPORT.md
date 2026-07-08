@@ -11,7 +11,7 @@
 | # | Constat | Gravité | Statut |
 |---|---------|---------|--------|
 | 1 | Listing des répertoires Apache activé (`/docs/`, `/assets/`… navigables) | Moyenne | ✅ Corrigé — `Options -Indexes` + blocage des fichiers cachés dans `.htaccess` |
-| 2 | Déploiement en FTP non chiffré (mot de passe en clair à chaque push) | Moyenne | ✅ Corrigé — `protocol: ftps` dans `deploy.yml` |
+| 2 | Déploiement en FTP non chiffré (mot de passe en clair à chaque push) | Moyenne | ⚠️ Partiel — FTPS testé mais **non supporté par l'endpoint OVH** (`AUTH TLS` → « 500 not implemented », port 990 fermé). Transport laissé en FTP simple. Alternative chiffrée = SFTP (port 22 ouvert) : évolution à prévoir (action SFTP + test identifiants) |
 | 3 | Fichiers internes publiés sur le site (`docs/`, `.claude/`) | Moyenne/faible | ✅ Corrigé — `exclude` dans `deploy.yml` ; suppression du serveur au prochain déploiement |
 | 4 | GA4 (`gtag.js`) chargé avant tout consentement — pings envoyés à Google même après refus (non conforme CNIL) | Moyenne (juridique) | ✅ Corrigé — chargement dynamique uniquement après consentement « accepted » (`analytics-ga4.js`) |
 | 5 | Copie du site servie sur kevinrouxerpac.github.io sans en-têtes HTTP de sécurité (clickjacking possible sur cette copie, contenu dupliqué) | Faible | ⚠️ Action manuelle : désactiver GitHub Pages dans les réglages du dépôt (ou renommer le dépôt) |

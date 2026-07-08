@@ -19,8 +19,10 @@ jobs:
           server: ftp.cluster021.hosting.ovh.net
           username: erpacfx
           password: ${{ secrets.FTP_PASSWORD }}
-          # FTPS (FTP sur TLS) : les identifiants ne transitent plus en clair
-          protocol: ftps
+          # Transport FTP simple : cet endpoint OVH n'accepte pas le FTPS
+          # (AUTH TLS → « 500 This security scheme is not implemented », port 990 fermé).
+          # Le transfert chiffré passerait par SFTP (port 22, ouvert sur le host) —
+          # évolution à prévoir (action SFTP dédiée + test avec les identifiants réels).
           local-dir: ./
           server-dir: /www/
           # Fichiers internes à ne jamais publier sur le serveur web.
