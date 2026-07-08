@@ -13,6 +13,11 @@ Options -Indexes
   # Blocage des fichiers et dossiers cachés (.git, .claude…),
   # sauf .well-known requis pour le renouvellement des certificats SSL
   RewriteRule "(^|/)\.(?!well-known)" - [F]
+
+  # Interdit l'accès public au dossier de documentation interne.
+  # docs/ est exclu de la publication, mais des fichiers y subsistent
+  # d'anciens déploiements : on bloque l'accès web par précaution.
+  RewriteRule ^docs/ - [F]
 </IfModule>
 
 <IfModule mod_headers.c>
