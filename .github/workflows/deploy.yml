@@ -19,5 +19,15 @@ jobs:
           server: ftp.cluster021.hosting.ovh.net
           username: erpacfx
           password: ${{ secrets.FTP_PASSWORD }}
+          # FTPS (FTP sur TLS) : les identifiants ne transitent plus en clair
+          protocol: ftps
           local-dir: ./
           server-dir: /www/
+          # Fichiers internes à ne jamais publier sur le serveur web.
+          # Ceux déjà présents sur le serveur seront supprimés au prochain déploiement.
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            .claude/**
+            docs/**

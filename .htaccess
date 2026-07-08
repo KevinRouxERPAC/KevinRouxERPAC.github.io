@@ -1,11 +1,18 @@
 # En-têtes de sécurité et cache — appliqués par Apache sur l'hébergement OVH.
 # (GitHub Pages ignore ce fichier ; les meta CSP des pages servent de filet de sécurité.)
 
+# Pas de listing des répertoires (fuite d'informations sur l'arborescence)
+Options -Indexes
+
 # Redirection HTTPS
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTPS} !=on
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Blocage des fichiers et dossiers cachés (.git, .claude…),
+  # sauf .well-known requis pour le renouvellement des certificats SSL
+  RewriteRule "(^|/)\.(?!well-known)" - [F]
 </IfModule>
 
 <IfModule mod_headers.c>

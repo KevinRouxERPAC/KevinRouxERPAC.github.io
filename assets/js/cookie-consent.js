@@ -17,7 +17,25 @@
             date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/; SameSite=Lax";
+        var secure = window.location.protocol === "https:" ? "; Secure" : "";
+        document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/; SameSite=Lax" + secure;
+    }
+
+    function deleteCookie(name) {
+        var host = window.location.hostname;
+        ["", "; domain=" + host, "; domain=." + host].forEach(function (domain) {
+            document.cookie = name + "=; path=/" + domain + "; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        });
+    }
+
+    /* Retrait du consentement : suppression des cookies Google Analytics déjà déposés */
+    function clearAnalyticsCookies() {
+        document.cookie.split(";").forEach(function (part) {
+            var name = part.split("=")[0].trim();
+            if (name === "_ga" || name.indexOf("_ga_") === 0) {
+                deleteCookie(name);
+            }
+        });
     }
 
     function getConsent() {
@@ -37,6 +55,9 @@
 
     function setConsent(value) {
         writeCookie(STORAGE_KEY, value, COOKIE_DAYS);
+        if (value === "rejected") {
+            clearAnalyticsCookies();
+        }
         try {
             localStorage.setItem(STORAGE_KEY, value);
         } catch (e) {
@@ -56,8 +77,11 @@
         }, 300);
     }
 
-    function showPopup() {
-        if (getConsent()) {
+    function showPopup(force) {
+        if (!force && getConsent()) {
+            return;
+        }
+        if (document.querySelector(".cookie-popup")) {
             return;
         }
 
@@ -97,8 +121,16 @@
         }, 50);
     }
 
+    /* Réouverture de la bannière via le lien « Gérer les cookies » du pied de page
+       (le retrait du consentement doit être aussi simple que son octroi — CNIL) */
+    window.erpacManageCookies = function () {
+        showPopup(true);
+    };
+
     if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", showPopup);
+        document.addEventListener("DOMContentLoaded", function () {
+            showPopup();
+        });
     } else {
         showPopup();
     }

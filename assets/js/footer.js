@@ -34,8 +34,15 @@
       </div>
       <div class="foot-bottom">
         <span>&copy; ${year} ERPAC — Tous droits réservés</span>
-        <span><a href="${base}legal/mentions-legales.html">Mentions légales</a></span>
+        <span><a href="${base}legal/mentions-legales.html">Mentions légales</a> · <button type="button" class="cookie-manage-link">Gérer les cookies</button></span>
       </div>
     </div>
   `;
+
+  const manageBtn = footer.querySelector('.cookie-manage-link');
+  if (manageBtn) {
+    manageBtn.addEventListener('click', () => {
+      if (typeof window.erpacManageCookies === 'function') window.erpacManageCookies();
+    });
+  }
 })();
