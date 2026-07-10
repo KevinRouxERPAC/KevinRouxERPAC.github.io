@@ -4,7 +4,7 @@
      mise à jour en arrière-plan → les visiteurs récurrents reçoivent le nouveau
      design au chargement suivant, sans versionner chaque fichier)
    Bumper CACHE_TYPE force une purge complète des anciens caches au déploiement. */
-const CACHE_NAME = 'erpac-cache-v15';
+const CACHE_NAME = 'erpac-cache-v16';
 const PRECACHE = [
   '/',
   '/index.html',
@@ -28,7 +28,6 @@ const PRECACHE = [
   '/assets/js/contact.js',
   '/assets/js/ui.js',
   '/assets/js/map.js',
-  '/assets/js/stats.js',
   '/assets/images/logos/logo_complet.png',
   '/assets/images/logos/logo_seul.png',
   '/assets/images/logos/icon-192.png',
@@ -86,6 +85,14 @@ self.addEventListener('fetch', (event) => {
 
   // Ressources tierces (Leaflet, tuiles OSM…) : réseau direct, jamais en cache
   if (new URL(request.url).origin !== self.location.origin) return;
+
+  // Page stats et son script : accès privé (Basic Auth). Jamais mis en cache
+  // (même en runtime), sinon un appareil déjà visité pourrait servir stats.html
+  // hors ligne et contourner l'authentification.
+  var url = new URL(request.url);
+  if (url.pathname === '/stats.html' || url.pathname === '/assets/js/stats.js') {
+    return; // réseau direct, pas de réponse SW
+  }
 
   const isHTML = request.mode === 'navigate' ||
     (request.headers.get('accept') || '').includes('text/html');
