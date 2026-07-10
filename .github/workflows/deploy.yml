@@ -13,6 +13,12 @@ jobs:
       - name: Cloner le dépôt
         uses: actions/checkout@v4
 
+      - name: Générer le .htpasswd pour la page /stats
+        # Crée le fichier .htpasswd à la volée depuis le secret HTACCESS_STATS_PASSWORD
+        # (jamais versionné, jamais exposé dans les logs). Le hash bcrypt est
+        # compatible Apache 2.4+ (mod_auth_basic).
+        run: htpasswd -cbB .htpasswd erpac "${{ secrets.HTACCESS_STATS_PASSWORD }}"
+
       - name: Déploiement FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

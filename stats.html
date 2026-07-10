@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="ga-measurement-id" content="G-F366DB75JE">
+    <script src="assets/js/analytics-ga4.js" defer></script>
+    <script src="assets/js/cookie-consent.js" defer></script>
+    <script src="assets/js/menu.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
+    <script src="assets/js/ui.js" defer></script>
+    <meta name="description" content="Tableau de bord des statistiques de fréquentation ERPAC">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-src https://lookerstudio.google.com https://datastudio.google.com;">
+
+    <title>Statistiques - ERPAC</title>
+
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-grotesk-latin.woff2" crossorigin>
+    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/site.css">
+    <link rel="icon" href="assets/images/logos/logo_seul.png" type="image/png">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#008C3A">
+    <link rel="apple-touch-icon" href="/assets/images/logos/icon-192.png">
+
+    <style>
+        .stats-wrap { padding: 2rem 0; }
+        .stats-head { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; }
+        .stats-head h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+        .stats-head .eyebrow { display: block; margin-bottom: .5rem; }
+        .stats-head p { color: var(--muted, #555); margin-top: .5rem; font-size: .95rem; }
+        .stats-frame-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1.5rem 3rem;
+        }
+        .stats-frame {
+            width: 100%;
+            height: 75vh;
+            min-height: 500px;
+            border: 1px solid rgba(0,0,0,.1);
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0,0,0,.06);
+        }
+        .stats-fallback {
+            display: none;
+            max-width: 640px;
+            margin: 3rem auto;
+            padding: 2rem;
+            text-align: center;
+            background: #f6f8f6;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,.08);
+        }
+        .stats-fallback h2 { margin-bottom: 1rem; }
+        .stats-fallback p { color: #555; margin-bottom: 1rem; line-height: 1.6; }
+        .stats-fallback .btn { margin-top: .5rem; }
+        .stats-fallback code {
+            display: inline-block;
+            background: #eef;
+            padding: .2em .5em;
+            border-radius: 4px;
+            font-size: .9em;
+            word-break: break-all;
+        }
+        .stats-no-frame .stats-frame { display: none; }
+        .stats-no-frame .stats-fallback { display: block; }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+    <header id="header"><div id="menu"></div></header>
+
+    <main id="main-content" tabindex="-1">
+        <div class="stats-head">
+            <span class="eyebrow">Tableau de bord</span>
+            <h1>Statistiques de fréquentation</h1>
+            <p>Données issues de Google Analytics 4 (ID : G-F366DB75JE) — mesurées après consentement des visiteurs.</p>
+        </div>
+
+        <div class="stats-frame-wrap">
+            <!--
+                Remplacer l'attribut src ci-dessous par l'URL d'intégration de votre rapport Looker Studio :
+                1. lookerstudio.google.com → créer un rapport à partir de la source de données Google Analytics
+                2. Partager → Intégrer le rapport → coller l'URL d'intégration dans l'attribut src du iframe
+            -->
+            <iframe class="stats-frame" src="https://datastudio.google.com/embed/reporting/83738ffe-e0b5-4d3f-80b5-4da4c4e911a8/page/IaY3F" title="Tableau de bord Looker Studio - ERPAC"
+                loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+            <div class="stats-fallback">
+                <h2>Tableau de bord en cours de configuration</h2>
+                <p>Pour afficher les statistiques ici, un rapport Google Looker Studio doit être créé puis intégré.</p>
+                <p style="font-size:.9rem;opacity:.8">Voir les instructions dans le code source de cette page (commentaire HTML au-dessus de l'iframe) ou dans <code>docs/</code>.</p>
+                <p>En attendant, accédez directement à <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Google Analytics</a>.</p>
+            </div>
+        </div>
+
+        <noscript>
+            <div class="stats-fallback" style="display:block;max-width:640px;margin:2rem auto;padding:2rem;text-align:center;background:#f6f8f6;border-radius:12px;">
+                <h2>JavaScript requis</h2>
+                <p>Ce tableau de bord nécessite JavaScript pour s'afficher. Accédez directement à <a href="https://analytics.google.com" target="_blank" rel="noopener noreferrer">Google Analytics</a>.</p>
+            </div>
+        </noscript>
+    </main>
+
+    <footer id="footer"></footer>
+    <button id="scrollToTop" aria-label="Retour en haut de la page">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script>
+        /* Détection : si l'iframe n'a pas d'URL réelle configurée, on affiche le fallback */
+        (function () {
+            var frame = document.querySelector('.stats-frame');
+            if (frame && (!frame.src || frame.src === 'about:blank' || (frame.src.indexOf('lookerstudio.google.com') === -1 && frame.src.indexOf('datastudio.google.com') === -1))) {
+                document.body.classList.add('stats-no-frame');
+            }
+        })();
+    </script>
+</body>
+</html>

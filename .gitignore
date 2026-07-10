@@ -9,3 +9,6 @@ Thumbs.db
 /dist/
 /build/
 /node_modules/
+
+# Fichier de mots de passe Apache (jamais versionné ni déployé)
+.htpasswd

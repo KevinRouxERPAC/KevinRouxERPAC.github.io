@@ -18,7 +18,24 @@ Options -Indexes
   # docs/ est exclu de la publication, mais des fichiers y subsistent
   # d'anciens déploiements : on bloque l'accès web par précaution.
   RewriteRule ^docs/ - [F]
+
+  # .htpasswd est stocké hors de la racine web sur OVH (/www/.htpasswd).
+  # En développement local, créer un fichier .htpasswd à la racine du site
+  # avec : htpasswd -c .htpasswd erpac  (puis saisir le mot de passe).
+  # En production, le workflow de déploiement exclut .htpasswd du transfert FTP.
 </IfModule>
+
+# Page de statistiques : protégée par authentification Basic (accès privé).
+# La page n'est pas indexée (meta robots noindex + X-Robots-Tag).
+# CSP adaptée : autorise l'intégration du tableau de bord Looker Studio en iframe.
+<Files "stats.html">
+  AuthType Basic
+  AuthName "ERPAC — Statistiques (accès privé)"
+  AuthUserFile /www/.htpasswd
+  Require valid-user
+  Header always set X-Robots-Tag "noindex, nofollow"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-src https://lookerstudio.google.com https://datastudio.google.com; frame-ancestors 'none'"
+</Files>
 
 <IfModule mod_headers.c>
   # Protection clickjacking (impossible en meta, uniquement en en-tête HTTP)

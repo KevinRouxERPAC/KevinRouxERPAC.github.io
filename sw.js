@@ -13,6 +13,7 @@ const PRECACHE = [
   '/services/automatisme.html',
   '/entreprise/a-propos.html',
   '/legal/mentions-legales.html',
+  '/stats.html',
   '/assets/css/site.css',
   '/assets/vendor/leaflet/leaflet.css',
   '/assets/vendor/leaflet/leaflet.js',
