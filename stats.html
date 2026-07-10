@@ -9,6 +9,7 @@
     <script src="assets/js/menu.js" defer></script>
     <script src="assets/js/footer.js" defer></script>
     <script src="assets/js/ui.js" defer></script>
+    <script src="assets/js/stats.js" defer></script>
     <meta name="description" content="Tableau de bord des statistiques de fréquentation ERPAC">
     <meta name="robots" content="noindex, nofollow">
 
@@ -29,7 +30,7 @@
 
     <style>
         .stats-wrap { padding: 2rem 0; }
-        .stats-head { max-width: 1200px; margin: 0 auto 1.5rem; padding: 0 1.5rem; }
+        .stats-head { max-width: 1200px; margin: 0 auto 1.5rem; padding: 6.5rem 1.5rem 0; }
         .stats-head h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
         .stats-head .eyebrow { display: block; margin-bottom: .5rem; }
         .stats-head p { color: var(--muted, #555); margin-top: .5rem; font-size: .95rem; }
@@ -91,7 +92,7 @@
                 2. Partager → Intégrer le rapport → coller l'URL d'intégration dans l'attribut src du iframe
             -->
             <iframe class="stats-frame" src="https://datastudio.google.com/embed/reporting/83738ffe-e0b5-4d3f-80b5-4da4c4e911a8/page/IaY3F" title="Tableau de bord Looker Studio - ERPAC"
-                loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
             <div class="stats-fallback">
                 <h2>Tableau de bord en cours de configuration</h2>
@@ -113,15 +114,5 @@
     <button id="scrollToTop" aria-label="Retour en haut de la page">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
-
-    <script>
-        /* Détection : si l'iframe n'a pas d'URL réelle configurée, on affiche le fallback */
-        (function () {
-            var frame = document.querySelector('.stats-frame');
-            if (frame && (!frame.src || frame.src === 'about:blank' || (frame.src.indexOf('lookerstudio.google.com') === -1 && frame.src.indexOf('datastudio.google.com') === -1))) {
-                document.body.classList.add('stats-no-frame');
-            }
-        })();
-    </script>
 </body>
 </html>
