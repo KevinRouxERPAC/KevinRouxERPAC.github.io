@@ -19,10 +19,10 @@ Options -Indexes
   # d'anciens déploiements : on bloque l'accès web par précaution.
   RewriteRule ^docs/ - [F]
 
-  # .htpasswd est stocké hors de la racine web sur OVH (/www/.htpasswd).
-  # En développement local, créer un fichier .htpasswd à la racine du site
-  # avec : htpasswd -c .htpasswd erpac  (puis saisir le mot de passe).
-  # En production, le workflow de déploiement exclut .htpasswd du transfert FTP.
+  # .htpasswd est généré à la volée par le workflow de déploiement GitHub Actions
+  # (secret HTACCESS_STATS_PASSWORD) et transféré par FTP dans /www/.htpasswd.
+  # En hébergement mutualisé OVH, AuthUserFile requiert le chemin absolu
+  # depuis la racine du stockage : /home/<login_ftp>/www/.htpasswd
 </IfModule>
 
 # Page de statistiques : protégée par authentification Basic (accès privé).
@@ -31,7 +31,7 @@ Options -Indexes
 <Files "stats.html">
   AuthType Basic
   AuthName "ERPAC — Statistiques (accès privé)"
-  AuthUserFile /www/.htpasswd
+  AuthUserFile /home/erpacfx/www/.htpasswd
   Require valid-user
   Header always set X-Robots-Tag "noindex, nofollow"
   Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com; media-src 'self'; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://analytics.google.com https://www.googletagmanager.com; base-uri 'self'; form-action 'self'; frame-src https://lookerstudio.google.com https://datastudio.google.com; frame-ancestors 'none'"
